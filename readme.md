@@ -7,3 +7,4 @@ A progressive web app gives a simple work timer with continues timers for tasks 
 ## Features
 - Tasks and Pauses
 - Continues timer - goes one after another automatically
+- Alarm on screen and as a notification
