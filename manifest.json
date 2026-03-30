@@ -4,7 +4,7 @@
   "description": "Simple work timer with tasks and pauses by Mil Stamenković",
   "start_url": "/MilWoT/",
   "scope": "/MilWoT/",
-  "version": "Version G",
+  "version": "Index - Version G",
   "display": "standalone",
   "display_override": ["window-controls-overlay", "standalone"],
   "background_color": "#000000",
