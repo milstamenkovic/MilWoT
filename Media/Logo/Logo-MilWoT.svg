@@ -9,6 +9,9 @@
    id="svg1"
    inkscape:version="1.4 (86a8ad7, 2024-10-11)"
    sodipodi:docname="Logo-MilWoT.svg"
+   inkscape:export-filename="Icon192-MilWoT.png"
+   inkscape:export-xdpi="18"
+   inkscape:export-ydpi="18"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,14 +28,15 @@
      inkscape:document-units="px"
      showguides="true"
      inkscape:zoom="0.70710678"
-     inkscape:cx="482.24682"
+     inkscape:cx="482.24683"
      inkscape:cy="495.68185"
      inkscape:window-width="1920"
      inkscape:window-height="1057"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer2">
+     inkscape:current-layer="layer2"
+     showgrid="false">
     <sodipodi:guide
        position="26.458333,270.93332"
        orientation="-1,0"
@@ -171,16 +175,17 @@
        d="m 227.43792,57.685741 c 4.96472,-0.171197 8.73106,-1.19838 11.47022,-3.595142 2.73916,-2.225565 4.27993,-5.307115 4.27993,-9.073455 0,-3.76634 -1.54077,-6.847891 -4.27993,-9.073455 -2.73916,-2.396762 -6.67669,-3.595143 -11.64141,-3.595143 H 191.4107 c -7.61886,0 -13.20603,1.198381 -17.26943,3.595143 -4.0634,2.396761 -6.09511,5.64951 -6.09511,9.758244 0,3.937537 2.03171,7.190285 6.09511,9.587047 4.0634,2.396761 9.65057,3.76634 17.26943,3.76634 h 9.49165 c -4.79353,47.76404 -9.58705,108.05963 -14.38057,147.77739 -10.95663,-33.72586 -21.74206,-58.19039 -32.52748,-100.13372 -10.61423,4.10873 -21.05727,4.10873 -31.5003,0 -10.44303,41.77213 -21.05726,66.06547 -31.500298,99.79133 -4.96472,-39.54657 -9.929441,-99.67096 -14.722964,-147.435 h 9.491643 c 7.415239,0 13.206044,-1.369579 17.269429,-3.76634 4.0634,-2.396762 6.34907,-5.64951 6.34907,-9.587047 0,-4.108734 -2.28567,-7.361483 -6.34907,-9.758244 -4.063385,-2.396762 -9.904523,-3.595143 -17.269429,-3.595143 H 49.563964 c -5.135918,0 -8.902258,1.198381 -11.641414,3.595143 -2.739156,2.225564 -4.108734,5.307115 -4.108734,9.073455 0,3.76634 1.369578,6.84789 4.108734,9.073455 2.739156,2.396762 6.505496,3.423945 11.29902,3.595142 7.190285,57.864679 14.209373,116.071749 21.22846,174.963609 10.956625,-4.10874 22.827955,-4.02803 33.56936,0 11.7953,-31.97218 22.75454,-57.98505 34.56715,-95.81964 11.98381,37.83459 21.20819,62.01757 35.25195,95.81964 10.7414,-4.02803 22.61273,-4.10874 33.56935,0 6.6767,-58.89186 13.35339,-117.09893 20.03008,-174.963609 z"
        id="text11"
        style="font-size:350.612px;font-family:'Mil Courier New';-inkscape-font-specification:'Mil Courier New';text-align:center;text-anchor:middle;fill:#960000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       inkscape:label="W text"
-       transform="scale(0.97809199,1.0223987)"
+       inkscape:label="W path"
        aria-label="W"
-       sodipodi:nodetypes="ccscssssssccccccsssssscscccccccc" />
+       sodipodi:nodetypes="ccscssssssccccccsssssscscccccccc"
+       transform="scale(0.97809199,1.0223987)" />
     <text
        xml:space="preserve"
        style="font-size:156.988px;font-family:'Mil Courier New';-inkscape-font-specification:'Mil Courier New';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#960000;fill-opacity:1;stroke:#000000;stroke-width:2.64583;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
        x="135.35167"
        y="108.00548"
-       id="text14"><tspan
+       id="text14"
+       inkscape:label="O text"><tspan
          sodipodi:role="line"
          id="tspan14"
          style="stroke:#000000;stroke-width:2.64583;stroke-dasharray:none;stroke-opacity:1"
@@ -191,7 +196,8 @@
        style="font-size:84.4706px;font-family:'Mil Courier New';-inkscape-font-specification:'Mil Courier New';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#960000;fill-opacity:1;stroke:none;stroke-width:4.39951;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
        x="135.13371"
        y="88.99733"
-       id="text15"><tspan
+       id="text15"
+       inkscape:label="T text"><tspan
          sodipodi:role="line"
          id="tspan15"
          style="stroke:none;stroke-width:4.39951"

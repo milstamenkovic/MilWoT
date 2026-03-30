@@ -4,7 +4,7 @@
 <!-- Index - Version G -->
 <!-- Created with help of Free Claude AI -->
 <!-- Created: 23.02.2026. - Ćuprija, Serbia -->
-<!-- Revised: 30.03.2026. - Ćuprija, Serbia -->
+<!-- Revised: 31.03.2026. - Ćuprija, Serbia -->
 
 <!-- index.html is always latest version of MilWoT -->
 <!-- Always just copy/paste code from latest MilWoT version into here and change REVISED field and Index Version above -->
@@ -760,10 +760,136 @@
   left: env(titlebar-area-x, 0);
   width: env(titlebar-area-width, 100%);
   height: env(titlebar-area-height, 40px);
-  background: red;
+  background: red);
   app-region: drag;
   -webkit-app-region: drag;
-}
+  }
+
+  /* ── PRESETS ── */
+  .preset-last {
+    background: var(--border);
+    border-radius: 7px;
+    padding: 8px 10px;
+    margin-bottom: 4px;
+  }
+
+  .preset-last-label {
+    font-size: 0.55em;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .preset-last-name {
+    font-size: 0.75em;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .preset-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 260px;
+    overflow-y: auto;
+    margin-bottom: 8px;
+  }
+
+  .preset-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--border);
+    border-radius: 7px;
+    padding: 7px 10px;
+    gap: 6px;
+  }
+
+  .preset-item-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .preset-item-name {
+    font-size: 0.75em;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .preset-item-meta {
+    font-size: 0.6em;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .preset-item-btns {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .preset-btn {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6em;
+    padding: 3px 7px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .preset-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .preset-btn.del:hover { border-color: var(--danger); color: var(--danger); }
+
+  .preset-save-row {
+    display: flex;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .preset-save-row input {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7em;
+    padding: 5px 10px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .preset-save-row input:focus { border-color: var(--accent); }
+
+  .preset-save-row button {
+    background: var(--accent);
+    border: none;
+    border-radius: 6px;
+    color: #0f0f0f;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7em;
+    font-weight: 800;
+    padding: 5px 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+  }
+
+  .preset-save-row button:hover { opacity: 0.85; }
+
+  .preset-empty {
+    font-size: 0.7em;
+    color: var(--muted);
+    font-style: italic;
+    text-align: center;
+    padding: 10px 0;
+  }
 
 </style>
 </head>
@@ -819,7 +945,11 @@
         <input type="checkbox" id="theme-toggle" onchange="toggleTheme()">
         <div class="toggle-track"></div>
       </label>
-    </div>
+      </div>
+      <button class="menu-item" onclick="showSubpanel('presets')">
+        <div class="menu-item-left"><span>📋</span><span id="menu-presets-label">Presets</span></div>
+        <span style="color:var(--muted)">›</span>
+      </button>
       <div class="menu-divider"></div>
       <button class="menu-item" onclick="showSubpanel('readme')">
         <div class="menu-item-left"><span>📖</span><span id="menu-readme-label">Read Me</span></div>
@@ -834,10 +964,33 @@
         <div class="menu-item-left"><span>⚙️</span><span id="menu-placeholder-label">Coming soon…</span></div>
       </div>
     </div>
+    <!-- Generic subpanel (readme / copyright) -->
     <div id="menu-subpanel">
       <button id="subpanel-back" class="subpanel-back" onclick="showMenuMain()">← Back</button>
       <div class="subpanel-title" id="subpanel-title"></div>
       <div class="subpanel-body" id="subpanel-body"></div>
+    </div>
+
+    <!-- Presets subpanel -->
+    <div id="presets-subpanel" style="display:none; flex-direction:column; gap:6px;">
+      <button class="subpanel-back" onclick="showMenuMain()">← Back</button>
+      <div class="subpanel-title" id="presets-title">Presets</div>
+
+      <!-- Last used -->
+      <div class="preset-last" id="preset-last-section" style="display:none;">
+        <div class="preset-last-label">Last used</div>
+        <div class="preset-last-name" id="preset-last-name">—</div>
+        <button class="preset-btn" onclick="loadLastUsed()">Load</button>
+      </div>
+
+      <!-- Saved presets list -->
+      <div class="preset-list" id="preset-list"></div>
+
+      <!-- Save current -->
+      <div class="preset-save-row">
+        <input type="text" id="preset-name-input" placeholder="Preset name…" maxlength="30">
+        <button onclick="savePreset()">Save</button>
+      </div>
     </div>
   </div>
 </div>
@@ -974,7 +1127,7 @@
       minLabel:         'мин',   
       createdBy:        'Направио Милан Стаменковић',
       appNameTitle:     'Миланов радни тајмер',   
-      headerName:       'Име задатка',         
+      headerName:       'Име задатка',        
     }
   };
 
@@ -1032,6 +1185,7 @@
       readmeBody:       '"MilWoT" is a simple work timer.\n\nAdd tasks and pauses, set their durations, then hit START. The timer runs through your session automatically and alerts you when each step ends.\n\nTip: Drag the ▲▼ handle to reorder tasks.\nClick TASK/PAUSE to toggle the type.',
       copyrightTitle:   'Copyright',
       copyrightBody:    '© 2026 Mil Stamenković\nĆuprija, Serbia\n\nCreated with help of Claude AI.\nAll rights reserved.',
+      presetsLabel:     'Presets',
     },
     sr: {
       langLabel:        'Toggle for English',
@@ -1046,6 +1200,7 @@
       readmeBody:       '"MilWoT" је једноставан тајмер за рад.\n\nДодајте задатке и паузе, подесите њихова трајања, затим кликните ПОЧНИ. Тајмер иде кроз сесију аутоматски и обавештава Вас када се сваки корак заврши.\n\nСавет: Користите ▲▼ ручице да промените редослед.\nКликните на РАД/ПАУЗА да промените тип.',
       copyrightTitle:   'Ауторска права',
       copyrightBody:    '© 2026 Милан Стаменковић\nЋуприја, Србија\n\nНаправљено уз помоћ бесплатног "Claude AI".\nСва права задржана.',
+      presetsLabel:      'Поставке'
     }
   };
 
@@ -1067,6 +1222,10 @@
   }
 
   function showSubpanel(type) {
+    if (type === 'presets') { showPresetsPanel(); return; }
+    document.getElementById('presets-subpanel').style.display = 'none';
+    document.getElementById('menu-subpanel').style.display = '';  // ← clear inline style
+    document.getElementById('menu-subpanel').classList.remove('open');
     const m = menuText[currentLang];
     document.getElementById('menu-main').classList.add('hidden');
     document.getElementById('menu-subpanel').classList.add('open');
@@ -1082,6 +1241,7 @@
   function showMenuMain() {
     document.getElementById('menu-main').classList.remove('hidden');
     document.getElementById('menu-subpanel').classList.remove('open');
+    document.getElementById('presets-subpanel').style.display = 'none';
   }
 
   function applyMenuText() {
@@ -1093,6 +1253,121 @@
     document.getElementById('menu-placeholder-label').textContent = m.placeholderLabel;
     document.getElementById('subpanel-back').textContent = m.subpanelBack;
     document.getElementById('menu-theme-icon').textContent = isLight ? '🌙' : '☀️';
+    document.getElementById('menu-presets-label').textContent = m.presetsLabel;
+  }
+
+  // ── Presets ──
+  const MAX_PRESETS = 10;
+
+  function getPresets() {
+    try { return JSON.parse(localStorage.getItem('milwot-presets') || '[]'); }
+    catch(e) { return []; }
+  }
+
+  function savePresets(arr) {
+    localStorage.setItem('milwot-presets', JSON.stringify(arr));
+  }
+
+  function getLastUsed() {
+    try { return JSON.parse(localStorage.getItem('milwot-last-used') || 'null'); }
+    catch(e) { return null; }
+  }
+
+  function saveLastUsed() {
+    localStorage.setItem('milwot-last-used', JSON.stringify({ tasks: JSON.parse(JSON.stringify(tasks)) }));
+  }
+
+  function presetMeta(taskArr) {
+    const taskCount  = taskArr.filter(t => t.type === 'task').length;
+    const pauseCount = taskArr.filter(t => t.type === 'pause').length;
+    const total      = taskArr.reduce((s, t) => s + (parseInt(t.minutes) || 0), 0);
+    return `${taskCount} task${taskCount !== 1 ? 's' : ''} · ${pauseCount} pause${pauseCount !== 1 ? 's' : ''} · ${total}min`;
+  }
+
+  function showPresetsPanel() {
+    document.getElementById('menu-main').classList.add('hidden');
+    document.getElementById('menu-subpanel').style.display    = 'none';
+    document.getElementById('presets-subpanel').style.display = 'flex';
+    renderPresetsList();
+  }
+
+  function renderPresetsList() {
+    // Last used
+    const last = getLastUsed();
+    const lastSection = document.getElementById('preset-last-section');
+    if (last && last.tasks && last.tasks.length > 0) {
+      lastSection.style.display = 'block';
+      document.getElementById('preset-last-name').textContent = presetMeta(last.tasks);
+    } else {
+      lastSection.style.display = 'none';
+    }
+
+    // Saved presets
+    const presets = getPresets();
+    const list = document.getElementById('preset-list');
+    list.innerHTML = '';
+
+    if (presets.length === 0) {
+      list.innerHTML = '<div class="preset-empty">No saved presets yet.</div>';
+      return;
+    }
+
+    presets.forEach((p, i) => {
+      const item = document.createElement('div');
+      item.className = 'preset-item';
+      item.innerHTML = `
+        <div class="preset-item-info">
+          <div class="preset-item-name">${escHtml(p.name)}</div>
+          <div class="preset-item-meta">${presetMeta(p.tasks)}</div>
+        </div>
+        <div class="preset-item-btns">
+          <button class="preset-btn" onclick="loadPreset(${i})">Load</button>
+          <button class="preset-btn del" onclick="deletePreset(${i})">✕</button>
+        </div>
+      `;
+      list.appendChild(item);
+    });
+  }
+
+  function loadPreset(i) {
+    const presets = getPresets();
+    if (!presets[i]) return;
+    tasks = JSON.parse(JSON.stringify(presets[i].tasks));
+    renderEditor();
+    closeMenu();
+  }
+
+  function loadLastUsed() {
+    const last = getLastUsed();
+    if (!last) return;
+    tasks = JSON.parse(JSON.stringify(last.tasks));
+    renderEditor();
+    closeMenu();
+  }
+
+  function deletePreset(i) {
+    const presets = getPresets();
+    presets.splice(i, 1);
+    savePresets(presets);
+    renderPresetsList();
+  }
+
+  function savePreset() {
+    const nameInput = document.getElementById('preset-name-input');
+    const name = nameInput.value.trim();
+    if (!name) { nameInput.focus(); return; }
+    if (tasks.length === 0) return;
+
+    const presets = getPresets();
+    if (presets.length >= MAX_PRESETS) {
+      alert('Maximum 10 presets reached. Delete one first.');
+      return;
+    }
+
+    presets.push({ name, tasks: JSON.parse(JSON.stringify(tasks)) });
+    savePresets(presets);
+    nameInput.value = '';
+    renderPresetsList();
   }
 
   function menuToggleLang() {
@@ -1258,6 +1533,7 @@
     document.getElementById('timer-view').style.display = 'flex';
 
     document.getElementById('step-total').textContent = tasks.length;
+    saveLastUsed();
     renderQueue();
     startStep();
   }
