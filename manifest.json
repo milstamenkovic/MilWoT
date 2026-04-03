@@ -1,7 +1,7 @@
 {
-  "name": "MilWoT - Mil Work Timer",
+  "name": "MilWoT",
   "short_name": "MilWoT",
-  "description": "Simple work timer with tasks and pauses by Mil Stamenković",
+  "description": "MilWoT -- Mil Work Timer",
   "start_url": "/MilWoT/",
   "scope": "/MilWoT/",
   "version": "Version G",
