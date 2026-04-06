@@ -1097,6 +1097,39 @@
 
 <script>
 
+  // ── PWA INITIAL WINDOW SIZE LOGIC ──
+  // This runs immediately to snap the window to the correct size on first launch
+  (function handlePWAResize() {
+    const isPWA = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+    if (isPWA) {
+      // FOR TESTING: Comment out the 'if (!hasBeenResized)' line to force it every time
+      const hasBeenResized = localStorage.getItem('pwa_initial_resize_done');
+
+      if (!hasBeenResized) {
+        // We use a small timeout (100ms) because some browsers ignore 
+        // resize commands sent the exact millisecond the window opens.
+        setTimeout(() => {
+          const width = 80;
+          const height = 60;
+          
+          try {
+            window.resizeTo(width, height); 
+            
+            const x = (window.screen.availWidth - width) / 2;
+            const y = (window.screen.availHeight - height) / 2;
+            window.moveTo(x, y);
+
+            localStorage.setItem('pwa_initial_resize_done', 'true');
+            console.log("PWA Resized to 80x60");
+          } catch (e) {
+            console.error("Resize failed:", e);
+          }
+        }, 100);
+      }
+    }
+  })();
+
   // ── Language Translations ──
   const lang = {
     en: {
