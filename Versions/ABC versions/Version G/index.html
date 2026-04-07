@@ -3,23 +3,11 @@
 <!-- © 2026 Mil Stamenković -->
 <!-- Version G -->
 <!-- Created with help of Free Claude AI -->
-<!-- Created: 30.03.2026. - Ćuprija, Serbia -->
-<!-- Revised: 31.03.2026. - Ćuprija, Serbia -->
+<!-- Created: 23.02.2026. - Ćuprija, Serbia -->
+<!-- Revised: 06.04.2026. - Ćuprija, Serbia -->
 
-<!--    TO DO    -->
-<!--  ✔) OFFLINE mode if possible -->
-<!--  ✔) MAIN SCREEN: Entering time stays inside input field -->
-<!--  ✔) MAIN SCREEN: Drag to reorder tasks -->
-<!--  ✔) OPTIONS: Auto-language: Serbian Latin; English -->
-<!--  ✔) BURGER MENU: Language; Light/Dark theme  -->
-<!--  ✔) POP-UP menu for LANG, COPYRIGHT, COLOR, etc. -->
-<!--  ✔) Add EXPLANATION Page & Copyright page -->
-<!--  ✔) TIMER SCREEN: Shorter, not taking so much height on screen -->
-<!--  ✔) Finish TRANSLATE all -->
-<!-- 10) Creat LOGO and ICONS with LOGO -->
-<!--  -) Finish it as fully-offline-any-device-PWA -->
-<!-- 12) ... -->
-<!--  *) FUTURE - Ambient sounds player. Rain, hum, keyboards typing, etc. -->
+<!-- index.html is always latest version of MilWoT -->
+<!-- Always just copy/paste code from latest MilWoT version into here and change REVISED field and Index Version above -->
 
 
 
@@ -28,9 +16,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="../Media/Icons/icon192.png" type="image/png">
+<link rel="icon" href="./Media/Icons/icon192.png" type="image/png">
 <title>MilWoT</title>
-<link rel="manifest" href="../manifest.json">
+<link rel="manifest" href="./manifest.json">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
 
@@ -91,7 +79,6 @@
     margin-bottom: 30px;
   }
 
-  /* Language toggle button */
   #lang-btn {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -317,6 +304,73 @@
 
   #notif-banner.hidden { display: none !important; }
 
+  /* ── RESUME BANNER ── */
+  #resume-banner {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 540px;
+    background: var(--surface);
+    border: 1px solid var(--accent);
+    border-radius: 9px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    font-size: 0.65em;
+    color: var(--text);
+  }
+
+  #resume-banner.visible { display: flex; }
+
+  .resume-banner-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3em;
+    color: var(--accent);
+  }
+
+  .resume-banner-meta {
+    color: var(--muted);
+    font-size: 0.9em;
+    text-align: center;
+  }
+
+  .resume-banner-btns {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .resume-btn-yes {
+    background: var(--accent);
+    border: none;
+    border-radius: 6px;
+    color: #0f0f0f;
+    font-family: 'DM Mono', monospace;
+    font-size: 1em;
+    font-weight: 800;
+    padding: 6px 18px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: opacity 0.2s;
+  }
+
+  .resume-btn-yes:hover { opacity: 0.85; }
+
+  .resume-btn-no {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 1em;
+    padding: 6px 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .resume-btn-no:hover { border-color: var(--danger); color: var(--danger); }
+
   /* ── TIMER VIEW ── */
   #timer-view {
     display: none;
@@ -415,7 +469,6 @@
     color: #0f0f0f;
   }
 
-  /* Progress Bar */
   .progress-bar-wrap {
     width: 70%;
     height: 2px;
@@ -437,7 +490,6 @@
     background: var(--pause-accent);
   }
 
-  /* Queue */
   .queue-title {
     font-size: 0.6em;
     letter-spacing: 3px;
@@ -487,7 +539,6 @@
     font-size: 0.7em;
   }
 
-  /* Flash overlay */
   #flash {
     position: fixed;
     inset: 0;
@@ -515,7 +566,6 @@
 
   .edit-link:hover { color: var(--text); }
 
-  /* Done screen */
   #done-view {
     display: none;
     flex-direction: column;
@@ -576,7 +626,6 @@
 
   .drag-handle:active { cursor: grabbing; }
 
-  /* ── BURGER BUTTON ── */
   #burger-btn {
     background: none;
     border: none;
@@ -601,7 +650,6 @@
 
   #burger-btn:hover span { background: var(--accent); }
 
-  /* ── MENU OVERLAY ── */
   #menu-overlay {
     display: none;
     position: fixed;
@@ -680,7 +728,6 @@
   }
 
   .menu-item:hover { background: var(--border); }
-
   .menu-item-left { display: flex; align-items: center; gap: 10px; }
 
   .menu-item.placeholder {
@@ -691,7 +738,6 @@
 
   .menu-item.placeholder:hover { background: none; }
 
-  /* Toggle switch */
   .toggle-switch { position: relative; width: 36px; height: 20px; flex-shrink: 0; }
   .toggle-switch input { display: none; }
 
@@ -722,7 +768,6 @@
     background: #fff;
   }
 
-  /* Subpanel */
   #menu-subpanel { display: none; flex-direction: column; gap: 10px; }
   #menu-subpanel.open { display: flex; }
   #menu-main { display: flex; flex-direction: column; gap: 6px; }
@@ -757,7 +802,6 @@
     line-height: 1.8;
   }
 
-  /* Light theme */
   body.light {
     --bg: #f5f5f5;
     --surface: #ffffff;
@@ -767,17 +811,16 @@
   }
 
   #titlebar {
-  position: fixed;
-  top: 0;
-  left: env(titlebar-area-x, 0);
-  width: env(titlebar-area-width, 100%);
-  height: env(titlebar-area-height, 40px);
-  background: red);
-  app-region: drag;
-  -webkit-app-region: drag;
+    position: fixed;
+    top: 0;
+    left: env(titlebar-area-x, 0);
+    width: env(titlebar-area-width, 100%);
+    height: env(titlebar-area-height, 40px);
+    background: red);
+    app-region: drag;
+    -webkit-app-region: drag;
   }
 
-  /* ── PRESETS ── */
   .preset-last {
     background: var(--border);
     border-radius: 7px;
@@ -909,22 +952,18 @@
 
 <div id="flash"></div>
   
-  <h1 style="text-decoration: underline; text-underline-offset: 0.3em; cursor: pointer;" onclick="backToEditor()">MilWoT</h1>
+<h1 style="text-decoration: underline; text-underline-offset: 0.3em; cursor: pointer;" onclick="backToEditor()">MilWoT</h1>
 
-  <div id="header-section" style="display:flex; flex-direction:column; align-items:center;">
-
-    <p id="appNameTitle"><span style="color:red">Mil</span> <span style="color:red">Wo</span>rk <span style="color:red">T</span>imer</p>
-    <p id="createdBy" style="font-size: 0.75em; font-style: italic;">Created by Mil Stamenković</p>
-    <br>
-    <div style="display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:30px;">
-      <p class="subtitle" id="subtitle" style="margin-bottom:0; line-height:1">Work - Relax - Repeat</p>
-      <button id="burger-btn" onclick="openMenu()">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  
+<div id="header-section" style="display:flex; flex-direction:column; align-items:center;">
+  <p id="appNameTitle"><span style="color:red">Mil</span> <span style="color:red">Wo</span>rk <span style="color:red">T</span>imer</p>
+  <p id="createdBy" style="font-size: 0.75em; font-style: italic;">Created by Mil Stamenković</p>
+  <br>
+  <div style="display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:30px;">
+    <p class="subtitle" id="subtitle" style="margin-bottom:0; line-height:1">Work - Relax - Repeat</p>
+    <button id="burger-btn" onclick="openMenu()">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-
 </div>
 
 <!-- Notification permission banner -->
@@ -932,6 +971,16 @@
   <span style="text-align: center;" id="notif-text">Enable notifications for this website for Alarm</span>
   <button onclick="requestNotifPermission()" id="notif-btn">Enable</button>
   <p style="font-style: italic; text-align: center;" id="notif-pwa">Install this page as PWA for easier & offline use.</p>
+</div>
+
+<!-- ── RESUME BANNER ── -->
+<div id="resume-banner">
+  <div class="resume-banner-title" id="resume-title">Session in progress</div>
+  <div class="resume-banner-meta" id="resume-meta"></div>
+  <div class="resume-banner-btns">
+    <button class="resume-btn-yes" id="resume-btn-yes" onclick="resumeSession()">Resume</button>
+    <button class="resume-btn-no" id="resume-btn-no" onclick="discardSession()">Discard</button>
+  </div>
 </div>
 
 <!-- ── BURGER MENU OVERLAY ── -->
@@ -949,14 +998,14 @@
         </label>
       </div>
       <div class="menu-item">
-      <div class="menu-item-left">
-        <span id="menu-theme-icon">☀️</span>
-        <span id="menu-theme-label">Light theme</span>
-      </div>
-      <label class="toggle-switch">
-        <input type="checkbox" id="theme-toggle" onchange="toggleTheme()">
-        <div class="toggle-track"></div>
-      </label>
+        <div class="menu-item-left">
+          <span id="menu-theme-icon">☀️</span>
+          <span id="menu-theme-label">Light theme</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="theme-toggle" onchange="toggleTheme()">
+          <div class="toggle-track"></div>
+        </label>
       </div>
       <button class="menu-item" onclick="showSubpanel('presets')">
         <div class="menu-item-left"><span>📋</span><span id="menu-presets-label">Presets</span></div>
@@ -976,29 +1025,20 @@
         <div class="menu-item-left"><span>⚙️</span><span id="menu-placeholder-label">Coming soon…</span></div>
       </div>
     </div>
-    <!-- Generic subpanel (readme / copyright) -->
     <div id="menu-subpanel">
       <button id="subpanel-back" class="subpanel-back" onclick="showMenuMain()">← Back</button>
       <div class="subpanel-title" id="subpanel-title"></div>
       <div class="subpanel-body" id="subpanel-body"></div>
     </div>
-
-    <!-- Presets subpanel -->
     <div id="presets-subpanel" style="display:none; flex-direction:column; gap:6px;">
       <button class="subpanel-back" onclick="showMenuMain()">← Back</button>
       <div class="subpanel-title" id="presets-title">Presets</div>
-
-      <!-- Last used -->
       <div class="preset-last" id="preset-last-section" style="display:none;">
         <div class="preset-last-label">Last used</div>
         <div class="preset-last-name" id="preset-last-name">—</div>
         <button class="preset-btn" onclick="loadLastUsed()">Load</button>
       </div>
-
-      <!-- Saved presets list -->
       <div class="preset-list" id="preset-list"></div>
-
-      <!-- Save current -->
       <div class="preset-save-row">
         <input type="text" id="preset-name-input" placeholder="Preset name…" maxlength="30">
         <button onclick="savePreset()">Save</button>
@@ -1057,7 +1097,7 @@
 
 <script>
 
-  // Language Translations
+  // ── Language Translations ──
   const lang = {
     en: {
       subtitle:         'Work - Relax - Repeat',
@@ -1099,47 +1139,55 @@
       createdBy:        'Created by Mil Stamenković',
       appNameTitle:     '<span style="color:red">Mil</span> <span style="color:red">Wo</span>rk <span style="color:red">T</span>imer',
       headerName:       'Task name',
+      resumeTitle:      'Session in progress',
+      resumeMeta:       'Step {step} of {total} · {time} left on current task',
+      resumeYes:        'Resume',
+      resumeNo:         'Discard',
     },
     sr: {
-      subtitle:         'Рад - Одмор - Поново',       
-      notifText:        'Одобрите нотификације за овај вебсајт за аларм.',      
-      notifBtn:         'Одобри',                       
-      notifPwa:         'Инсталирајте ову страницу као "PWA" за лакшу и офлајн употребу.', 
-      headerType:       'Тип',                        
-      totalTime:        'Време',                   
-      btnAddTask:       '+ Рад',                       
-      btnAddPause:      '+ Пауза',                      
-      btnStart:         'ПОЧНИ',                        
-      stepLabel:        'Корак',                         
-      stepOf:           'од',                           
-      badgeTask:        'Задатак',                         
-      badgeBreak:       'ПАУЗА',                        
-      btnPause:         'ПАУЗА',                        
-      btnResume:        'НАСТАВИ',                       
-      btnSkip:          'ПРЕСКОШИ →',                       
-      btnFinish:        'КРАЈ',                       
-      queueTitle:       'Следи',                      
-      btnEdit:          '← Преправи сесију',               
-      doneTitle:        'Сесија завршена',             
-      btnNewSession:    'НОВА СЕСИЈА',                  
-      remainingSession: 'остало у сесији',         
-      taskLabel:        'РАД',                         
-      pauseLabel:       'ПАУЗА',                        
-      taskPlaceholder:  'Рад',                   
-      pausePlaceholder: 'Пауза',                        
-      notifUpNext:      'Следи',                      
-      notifDone:        'Сесија завршена!',            
-      notifFinishTitle: '✔ Сесија завршена!',         
-      notifFinishBody:  'задатка завшено. Одличан посао!',  
-      taskWord:         'задатак',                         
-      tasksWord:        'задатка',                        
-      breakWord:        'пауза',                        
+      subtitle:         'Рад - Одмор - Поново',
+      notifText:        'Одобрите нотификације за овај вебсајт за аларм.',
+      notifBtn:         'Одобри',
+      notifPwa:         'Инсталирајте ову страницу као "PWA" за лакшу и офлајн употребу.',
+      headerType:       'Тип',
+      totalTime:        'Време',
+      btnAddTask:       '+ Рад',
+      btnAddPause:      '+ Пауза',
+      btnStart:         'ПОЧНИ',
+      stepLabel:        'Корак',
+      stepOf:           'од',
+      badgeTask:        'Задатак',
+      badgeBreak:       'ПАУЗА',
+      btnPause:         'ПАУЗА',
+      btnResume:        'НАСТАВИ',
+      btnSkip:          'ПРЕСКОЧИ →',
+      btnFinish:        'КРАЈ',
+      queueTitle:       'Следи',
+      btnEdit:          '← Преправи сесију',
+      doneTitle:        'Сесија завршена',
+      btnNewSession:    'НОВА СЕСИЈА',
+      remainingSession: 'остало у сесији',
+      taskLabel:        'РАД',
+      pauseLabel:       'ПАУЗА',
+      taskPlaceholder:  'Рад',
+      pausePlaceholder: 'Пауза',
+      notifUpNext:      'Следи',
+      notifDone:        'Сесија завршена!',
+      notifFinishTitle: '✔ Сесија завршена!',
+      notifFinishBody:  'задатка завшено. Одличан посао!',
+      taskWord:         'задатак',
+      tasksWord:        'задатка',
+      breakWord:        'пауза',
       breaksWord:       'паузе',
-      completedWord:    'завршено',   
-      minLabel:         'мин',   
+      completedWord:    'завршено',
+      minLabel:         'мин',
       createdBy:        'Направио Милан Стаменковић',
-      appNameTitle:     'Миланов радни тајмер',   
-      headerName:       'Име задатка',        
+      appNameTitle:     'Миланов радни тајмер',
+      headerName:       'Име задатка',
+      resumeTitle:      'Сесија у току',
+      resumeMeta:       'Корак {step} од {total} · {time} остало на тренутном задатку',
+      resumeYes:        'Настави',
+      resumeNo:         'Одбаци',
     }
   };
 
@@ -1168,8 +1216,10 @@
     document.getElementById('createdBy').textContent        = l.createdBy;
     document.getElementById('appNameTitle').innerHTML       = l.appNameTitle;
     document.getElementById('header-name').textContent      = l.headerName;
+    document.getElementById('resume-title').textContent     = l.resumeTitle;
+    document.getElementById('resume-btn-yes').textContent   = l.resumeYes;
+    document.getElementById('resume-btn-no').textContent    = l.resumeNo;
     document.documentElement.style.setProperty('--min-label', `'${l.minLabel}'`);
-    // Update placeholders in existing task rows without rebuilding
     document.querySelectorAll('.task-row').forEach((row, i) => {
       const input = row.querySelector('input[type="text"]');
       if (input) {
@@ -1183,6 +1233,7 @@
     });
     updateTotalLabel();
   }
+
   // ── Burger Menu ──
   const menuText = {
     en: {
@@ -1202,23 +1253,22 @@
     sr: {
       langLabel:        'Toggle for English',
       themeLabelDark:   'Притисните за тамну тему',
-      themeLabelLight:  'Притисните за светлу тему',      
-      readmeLabel:      'Упутство',            
-      copyrightLabel:   'Ауторска права',      
-      placeholderLabel: 'Ускоро...',             
-      backLabel:        '← Назад',             
+      themeLabelLight:  'Притисните за светлу тему',
+      readmeLabel:      'Упутство',
+      copyrightLabel:   'Ауторска права',
+      placeholderLabel: 'Ускоро...',
+      backLabel:        '← Назад',
       subpanelBack:     '← Назад',
       readmeTitle:      'Упутство',
       readmeBody:       '"MilWoT" је једноставан тајмер за рад.\n\nДодајте задатке и паузе, подесите њихова трајања, затим кликните ПОЧНИ. Тајмер иде кроз сесију аутоматски и обавештава Вас када се сваки корак заврши.\n\nСавет: Користите ▲▼ ручице да промените редослед.\nКликните на РАД/ПАУЗА да промените тип.',
       copyrightTitle:   'Ауторска права',
       copyrightBody:    '© 2026 Милан Стаменковић\nЋуприја, Србија\n\nНаправљено уз помоћ бесплатног "Claude AI".\nСва права задржана.',
-      presetsLabel:      'Поставке'
+      presetsLabel:     'Поставке'
     }
   };
 
   function openMenu() {
     showMenuMain();
-    // Sync toggles with current state
     document.getElementById('lang-toggle').checked = currentLang === 'sr';
     document.getElementById('theme-toggle').checked = document.body.classList.contains('light');
     applyMenuText();
@@ -1236,7 +1286,7 @@
   function showSubpanel(type) {
     if (type === 'presets') { showPresetsPanel(); return; }
     document.getElementById('presets-subpanel').style.display = 'none';
-    document.getElementById('menu-subpanel').style.display = '';  // ← clear inline style
+    document.getElementById('menu-subpanel').style.display = '';
     document.getElementById('menu-subpanel').classList.remove('open');
     const m = menuText[currentLang];
     document.getElementById('menu-main').classList.add('hidden');
@@ -1258,14 +1308,15 @@
 
   function applyMenuText() {
     const m = menuText[currentLang];
-    document.getElementById('menu-lang-label').textContent      = m.langLabel;
-    const isLight = document.body.classList.contains('light'); document.getElementById('menu-theme-label').textContent = isLight ? m.themeLabelDark : m.themeLabelLight;
-    document.getElementById('menu-readme-label').textContent    = m.readmeLabel;
-    document.getElementById('menu-copyright-label').textContent = m.copyrightLabel;
-    document.getElementById('menu-placeholder-label').textContent = m.placeholderLabel;
-    document.getElementById('subpanel-back').textContent = m.subpanelBack;
-    document.getElementById('menu-theme-icon').textContent = isLight ? '🌙' : '☀️';
-    document.getElementById('menu-presets-label').textContent = m.presetsLabel;
+    document.getElementById('menu-lang-label').textContent       = m.langLabel;
+    const isLight = document.body.classList.contains('light');
+    document.getElementById('menu-theme-label').textContent      = isLight ? m.themeLabelDark : m.themeLabelLight;
+    document.getElementById('menu-readme-label').textContent     = m.readmeLabel;
+    document.getElementById('menu-copyright-label').textContent  = m.copyrightLabel;
+    document.getElementById('menu-placeholder-label').textContent= m.placeholderLabel;
+    document.getElementById('subpanel-back').textContent         = m.subpanelBack;
+    document.getElementById('menu-theme-icon').textContent       = isLight ? '🌙' : '☀️';
+    document.getElementById('menu-presets-label').textContent    = m.presetsLabel;
   }
 
   // ── Presets ──
@@ -1304,7 +1355,6 @@
   }
 
   function renderPresetsList() {
-    // Last used
     const last = getLastUsed();
     const lastSection = document.getElementById('preset-last-section');
     if (last && last.tasks && last.tasks.length > 0) {
@@ -1314,7 +1364,6 @@
       lastSection.style.display = 'none';
     }
 
-    // Saved presets
     const presets = getPresets();
     const list = document.getElementById('preset-list');
     list.innerHTML = '';
@@ -1389,10 +1438,10 @@
   }
 
   function toggleTheme() {
-  const isLight = document.getElementById('theme-toggle').checked;
-  document.body.classList.toggle('light', isLight);
-  document.getElementById('menu-theme-icon').textContent  = isLight ? '🌙' : '☀️';
-  document.getElementById('menu-theme-label').textContent = isLight ? menuText[currentLang].themeLabelDark : menuText[currentLang].themeLabelLight;
+    const isLight = document.getElementById('theme-toggle').checked;
+    document.body.classList.toggle('light', isLight);
+    document.getElementById('menu-theme-icon').textContent  = isLight ? '🌙' : '☀️';
+    document.getElementById('menu-theme-label').textContent = isLight ? menuText[currentLang].themeLabelDark : menuText[currentLang].themeLabelLight;
   }
 
   // ── State ──
@@ -1404,6 +1453,107 @@
   let isPaused = false;
   let stepDuration = 0;
   let stepElapsed = 0;
+
+  // ── Session Persistence ──
+  const SESSION_KEY = 'milwot-session';
+
+  function saveSession() {
+    try {
+      localStorage.setItem(SESSION_KEY, JSON.stringify({
+        tasks,
+        currentStep,
+        secondsLeft,
+        totalSecondsLeft,
+        stepDuration,
+        stepElapsed
+      }));
+    } catch(e) {}
+  }
+
+  function clearSession() {
+    localStorage.removeItem(SESSION_KEY);
+  }
+
+  function getSavedSession() {
+    try { return JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); }
+    catch(e) { return null; }
+  }
+
+  function checkResumeSession() {
+    const saved = getSavedSession();
+    if (!saved || !saved.tasks || saved.tasks.length === 0) return;
+
+    const l = lang[currentLang];
+    const m = Math.floor(saved.secondsLeft / 60);
+    const s = saved.secondsLeft % 60;
+    const timeStr = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+
+    const metaText = l.resumeMeta
+      .replace('{step}',  saved.currentStep + 1)
+      .replace('{total}', saved.tasks.length)
+      .replace('{time}',  timeStr);
+
+    document.getElementById('resume-meta').textContent = metaText;
+    document.getElementById('resume-banner').classList.add('visible');
+  }
+
+  function resumeSession() {
+    const saved = getSavedSession();
+    if (!saved) return;
+
+    document.getElementById('resume-banner').classList.remove('visible');
+
+    // Restore all state
+    tasks            = saved.tasks;
+    currentStep      = saved.currentStep;
+    secondsLeft      = saved.secondsLeft;
+    totalSecondsLeft = saved.totalSecondsLeft;
+    stepDuration     = saved.stepDuration;
+    stepElapsed      = saved.stepElapsed;
+
+    // Show timer view
+    document.getElementById('header-section').style.display = 'none';
+    document.getElementById('editor').style.display         = 'none';
+    document.getElementById('done-view').style.display      = 'none';
+    document.getElementById('timer-view').style.display     = 'flex';
+
+    const l = lang[currentLang];
+    const t = tasks[currentStep];
+    const isPauseStep = t.type === 'pause';
+
+    const nameEl = document.getElementById('current-name');
+    nameEl.textContent = t.name;
+    nameEl.classList.toggle('is-pause', isPauseStep);
+
+    document.getElementById('type-badge').textContent = isPauseStep ? l.badgeBreak : l.badgeTask;
+    document.getElementById('step-label-text').innerHTML =
+      `${l.stepLabel} <span id="step-num">${currentStep + 1}</span> ${l.stepOf} <span id="step-total">${tasks.length}</span>`;
+
+    const fill = document.getElementById('progress-fill');
+    fill.classList.toggle('is-pause', isPauseStep);
+    fill.style.width = ((stepElapsed / stepDuration) * 100) + '%';
+
+    document.getElementById('skip-btn').textContent =
+      currentStep < tasks.length - 1 ? l.btnSkip : l.btnFinish;
+
+    // Always restore as paused — user hits Resume to continue
+    isPaused = true;
+    const btn = document.getElementById('pause-resume-btn');
+    btn.textContent       = l.btnResume;
+    btn.style.borderColor = 'red';
+    btn.style.color       = 'green';
+
+    updateClock();
+    renderQueue();
+
+    clearInterval(timerInterval);
+    timerInterval = setInterval(tick, 1000);
+  }
+
+  function discardSession() {
+    clearSession();
+    document.getElementById('resume-banner').classList.remove('visible');
+  }
 
   // ── Notifications ──
   function checkNotifBanner() {
@@ -1566,7 +1716,6 @@
     document.getElementById('type-badge').textContent = isPauseStep ? l.badgeBreak : l.badgeTask;
     document.getElementById('step-num').textContent = currentStep + 1;
 
-    // Update step label text
     document.getElementById('step-label-text').innerHTML =
       `${l.stepLabel} <span id="step-num">${currentStep + 1}</span> ${l.stepOf} <span id="step-total">${tasks.length}</span>`;
 
@@ -1596,6 +1745,7 @@
     stepElapsed++;
 
     updateClock();
+    saveSession();  // ← persist state every tick
 
     const pct = (stepElapsed / stepDuration) * 100;
     document.getElementById('progress-fill').style.width = pct + '%';
@@ -1668,6 +1818,7 @@
   function finishSession() {
     const l = lang[currentLang];
     clearInterval(timerInterval);
+    clearSession();  // ← clean up on normal finish
     document.getElementById('timer-view').style.display = 'none';
     document.getElementById('done-view').style.display = 'flex';
     const taskCount  = tasks.filter(t => t.type === 'task').length;
@@ -1680,6 +1831,7 @@
 
   function backToEditor() {
     clearInterval(timerInterval);
+    clearSession();  // ← clean up if user manually exits
     document.getElementById('header-section').style.display = 'flex';
     document.getElementById('timer-view').style.display = 'none';
     document.getElementById('done-view').style.display = 'none';
@@ -1713,6 +1865,7 @@
   ];
   renderEditor();
   checkNotifBanner();
+  checkResumeSession();  // ← check for saved session on every load
 
   Sortable.create(document.getElementById('task-list'), {
     handle: '.drag-handle',
