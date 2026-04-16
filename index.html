@@ -4,7 +4,7 @@
 <!-- Version G -->
 <!-- Created with help of Free Claude AI -->
 <!-- Created: 23.02.2026. - Ćuprija, Serbia -->
-<!-- Revised: 06.04.2026. - Ćuprija, Serbia -->
+<!-- Revised: 17.04.2026. - Ćuprija, Serbia -->
 
 <!-- index.html is always latest version of MilWoT -->
 <!-- Always just copy/paste code from latest MilWoT version into here and change REVISED field and Index Version above -->
@@ -816,7 +816,7 @@
     left: env(titlebar-area-x, 0);
     width: env(titlebar-area-width, 100%);
     height: env(titlebar-area-height, 40px);
-    background: red);
+    background: red;
     app-region: drag;
     -webkit-app-region: drag;
   }
@@ -968,9 +968,10 @@
 
 <!-- Notification permission banner -->
 <div id="notif-banner">
-  <span style="text-align: center;" id="notif-text">Enable notifications for this website for Alarm</span>
+  <span style="font-style: italic; text-align: center;" id="notif-text">Enable notifications for this website for Alarm</span>
   <button onclick="requestNotifPermission()" id="notif-btn">Enable</button>
-  <p style="font-style: italic; text-align: center;" id="notif-pwa">Install this page as PWA for easier & offline use.</p>
+  <span style="font-style: italic; text-align: center;" id="notif-pwa">Install this page as PWA for easier & offline use.</span>
+  <button onclick="triggerInstall()" id="install-btn">Install</button>
 </div>
 
 <!-- ── RESUME BANNER ── -->
@@ -1096,6 +1097,41 @@
 </div>
 
 <script>
+
+  // -- Install PWA listener --
+  let deferredPrompt;
+  const installBtn = document.getElementById('install-btn');
+
+    // 1. Listen for the browser's install signal
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault(); // Stop the default mini-infobar from appearing
+    deferredPrompt = e;  // Save the event for later
+    installBtn.style.display = 'block'; // Now show your custom button
+  });
+
+    // 2. Handle the button click
+  installBtn.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt(); // Show the official install dialog
+      const { outcome } = await deferredPrompt.userChoice;
+      console.log(`User choice: ${outcome}`);
+      deferredPrompt = null; // Clear the saved event
+      installBtn.style.display = 'none'; // Hide button again
+    }
+  });
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      // This creates a tiny 'virtual' service worker file to satisfy PWA requirements
+      const swCode = `
+        self.addEventListener('install', e => self.skipWaiting());
+        self.addEventListener('fetch', e => e.respondWith(fetch(e.request)));
+      `;
+      const blob = new Blob([swCode], { type: 'text/javascript' });
+      const url = URL.createObjectURL(blob);
+      navigator.serviceWorker.register(url);
+    });
+  }
 
   // ── Language Translations ──
   const lang = {
@@ -1582,6 +1618,16 @@
       });
       setTimeout(() => n.close(), 8000);
     } catch(e) {}
+  }
+
+  // -- Install PWA --
+  function triggerInstall() {
+    if (!deferredInstallPrompt) return;
+    deferredInstallPrompt.prompt();
+    deferredInstallPrompt.userChoice.then(() => {
+      deferredInstallPrompt = null;
+      document.getElementById('install-btn').style.display = 'none';
+    });
   }
 
   // ── Audio ──
