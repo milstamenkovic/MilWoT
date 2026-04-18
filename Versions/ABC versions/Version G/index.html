@@ -4,10 +4,7 @@
 <!-- Version G -->
 <!-- Created with help of Free Claude AI -->
 <!-- Created: 23.02.2026. - Ćuprija, Serbia -->
-<!-- Revised: 06.04.2026. - Ćuprija, Serbia -->
-
-<!-- index.html is always latest version of MilWoT -->
-<!-- Always just copy/paste code from latest MilWoT version into here and change REVISED field and Index Version above -->
+<!-- Revised: 18.04.2026. - Ćuprija, Serbia -->
 
 
 
@@ -816,7 +813,7 @@
     left: env(titlebar-area-x, 0);
     width: env(titlebar-area-width, 100%);
     height: env(titlebar-area-height, 40px);
-    background: red);
+    background: red;
     app-region: drag;
     -webkit-app-region: drag;
   }
@@ -968,9 +965,10 @@
 
 <!-- Notification permission banner -->
 <div id="notif-banner">
-  <span style="text-align: center;" id="notif-text">Enable notifications for this website for Alarm</span>
+  <span style="font-style: italic; text-align: center;" id="notif-text">Enable notifications for this website for Alarm</span>
   <button onclick="requestNotifPermission()" id="notif-btn">Enable</button>
-  <p style="font-style: italic; text-align: center;" id="notif-pwa">Install this page as PWA for easier & offline use.</p>
+  <span style="font-style: italic; text-align: center;" id="notif-pwa">Install this page as PWA for easier & offline use.</span>
+  <button onclick="triggerInstall()" id="install-btn">Install</button>
 </div>
 
 <!-- ── RESUME BANNER ── -->
@@ -1096,6 +1094,25 @@
 </div>
 
 <script>
+
+  // -- SW.JS file --
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js');
+  }
+
+  // -- Install PWA listener --
+  let deferredInstallPrompt = null;
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredInstallPrompt = e;
+    document.getElementById('install-row').style.display = 'flex';
+  });
+
+  window.addEventListener('appinstalled', () => {
+    document.getElementById('install-row').style.display = 'none';
+    deferredInstallPrompt = null;
+  });
 
   // ── Language Translations ──
   const lang = {
@@ -1414,18 +1431,26 @@
   }
 
   function savePreset() {
-    const nameInput = document.getElementById('preset-name-input');
-    const name = nameInput.value.trim();
-    if (!name) { nameInput.focus(); return; }
-    if (tasks.length === 0) return;
+  const nameInput = document.getElementById('preset-name-input');
+  const name = nameInput.value.trim();
+  if (!name) { nameInput.focus(); return; }
+  if (tasks.length === 0) return;
 
-    const presets = getPresets();
-    if (presets.length >= MAX_PRESETS) {
-      alert('Maximum 10 presets reached. Delete one first.');
-      return;
-    }
+  const presets = getPresets();
+  const existingIndex = presets.findIndex(p => p.name === name);
 
-    presets.push({ name, tasks: JSON.parse(JSON.stringify(tasks)) });
+    if (existingIndex !== -1) {
+      const confirmed = confirm('Overwrite "' + name + '"?');
+      if (!confirmed) return;
+      presets[existingIndex] = { name, tasks: JSON.parse(JSON.stringify(tasks)) };
+    } else {
+      if (presets.length >= MAX_PRESETS) {
+        alert('Maximum 10 presets reached. Delete one first.');
+        return;
+      }
+      presets.push({ name, tasks: JSON.parse(JSON.stringify(tasks)) });
+      }
+
     savePresets(presets);
     nameInput.value = '';
     renderPresetsList();
@@ -1584,6 +1609,16 @@
     } catch(e) {}
   }
 
+  // -- Install PWA --
+  function triggerInstall() {
+    if (!deferredInstallPrompt) return;
+    deferredInstallPrompt.prompt();
+    deferredInstallPrompt.userChoice.then(() => {
+      deferredInstallPrompt = null;
+      document.getElementById('install-row').style.display = 'none';
+    });
+  }
+
   // ── Audio ──
   const AudioCtx = window.AudioContext || window.webkitAudioContext;
   function beep(freq = 880, dur = 0.15, vol = 0.4, type = 'sine') {
@@ -1655,7 +1690,9 @@
                oninput="tasks[${i}].name=this.value" />
         <div class="minutes-wrap">
           <input type="number" max="999" value="${t.minutes}"
-                 oninput="tasks[${i}].minutes=parseInt(this.value)||0;updateTotalLabel()" />
+            oninput="tasks[${i}].minutes=parseInt(this.value)||0;updateTotalLabel()"
+            onfocus="if(this.value==='0')this.value=''"
+            onblur="if(this.value==='')this.value='0'" />
         </div>
         <button class="remove" onclick="removeTask(${i})">×</button>
       `;
