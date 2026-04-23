@@ -1,10 +1,10 @@
 <!-- MilWoT - Mil Work Timer -->
 <!-- Simple work timer with continues timers for tasks and pauses by Mil Stamenković -->
 <!-- © 2026 Mil Stamenković -->
-<!-- Version G -->
+<!-- Version H -->
 <!-- Created with help of Free Claude AI -->
 <!-- Created: 23.02.2026. - Ćuprija, Serbia -->
-<!-- Revised: 18.04.2026. - Ćuprija, Serbia -->
+<!-- Revised: 24.04.2026. - Ćuprija, Serbia -->
 
 
 
@@ -1011,9 +1011,29 @@
       </button>
       <div class="menu-divider"></div>
       <button class="menu-item" onclick="showSubpanel('readme')">
-        <div class="menu-item-left"><span>📖</span><span id="menu-readme-label">Read Me</span></div>
+        <div class="menu-item-left"><span>📖</span><span id="menu-readme-label">README</span></div>
         <span style="color:var(--muted)">›</span>
       </button>
+
+      <!-- v OTHER PAGES IN MENU v -->
+
+      <button class="menu-item" onclick="showSubpanel('changelog')">
+        <div class="menu-item-left"><span>🧾</span><span id="menu-changelog-label">Changelog</span></div>
+        <span style="color:var(--muted)">›</span>
+      </button>
+
+      <button class="menu-item" onclick="showSubpanel('roadmap')">
+        <div class="menu-item-left"><span>🗺</span><span id="menu-roadmap-label">Roadmap</span></div>
+        <span style="color:var(--muted)">›</span>
+      </button>
+
+      <button class="menu-item" onclick="showSubpanel('issues')">
+        <div class="menu-item-left"><span>❗</span><span id="menu-issues-label">Issues</span></div>
+        <span style="color:var(--muted)">›</span>
+      </button>
+
+      <!-- ^ OTHER PAGES IN MENU ^ -->
+
       <button class="menu-item" onclick="showSubpanel('copyright')">
         <div class="menu-item-left"><span>©</span><span id="menu-copyright-label">Copyright</span></div>
         <span style="color:var(--muted)">›</span>
@@ -1257,30 +1277,48 @@
       langLabel:        'Притисните за српски',
       themeLabelDark:   'Toggle for Dark theme',
       themeLabelLight:  'Toggle for Light theme',
-      readmeLabel:      'Read Me',
       copyrightLabel:   'Copyright',
       placeholderLabel: 'Coming soon...',
       subpanelBack:     '← Back',
-      readmeTitle:      'Read Me',
-      readmeBody:       '"MilWoT" is a simple work timer.\n\nAdd tasks and pauses, set their durations, then hit START. The timer runs through your session automatically and alerts you when each step ends.\n\nTip: Drag the ▲▼ handle to reorder tasks.\nClick TASK/PAUSE to toggle the type.',
+      readmeLabel:      'README',
+      readmeTitle:      'README',
+      readmeBody:       '"MilWoT" is a simple work timer.\n\nAdd tasks and pauses, set their durations, then hit START. The timer runs through your session automatically and alerts you when each step ends.\n\nTip: Drag the ▲▼ handle to reorder tasks.\nClick TASK/PAUSE to toggle the type.\n\n<i>This website has notifications and works <u>offline</u> if it is installed as <u>PWA</u>.</i>',
       copyrightTitle:   'Copyright',
       copyrightBody:    '© 2026 Mil Stamenković\nĆuprija, Serbia\n\nCreated with help of Claude AI.\nAll rights reserved.',
       presetsLabel:     'Presets',
+      changelogLabel:   'Changelog',
+      changelogTitle:   'Changelog',
+      changelogBody:    '<u>Fixes and changes to current and last version:</u>\n<i>(More <a href="https://milstamenkovic.github.io/MilWoT/changelog.md" target="_blank" rel="noopener noreferrer" style="color:red;">here</a>)</i>\n\nVersion G (vG)\n<pre>    - ...;</pre>',
+      roadmapLabel:     'Roadmap',
+      roadmapTitle:     'Roadmap',
+      roadmapBody:      '<u>Ideas for future versions:</u>\n\nVersion 1.1 (v1.1)\n\<pre>    - ...</pre>\n\nVersion 1.2 (v1.2)\n<pre>    - ...</pre>',
+      issuesLabel:      'Issues',
+      issuesTitle:      'Issues',
+      issuesBody:       'Use GitHub to report <u>issues</u> for "MilWoT" PWA.\n<a href="https://github.com/milstamenkovic/MilWoT/issues" target="_blank" rel="noopener noreferrer" style="color:red;">REPORT ISSUES</a>'
     },
     sr: {
       langLabel:        'Toggle for English',
       themeLabelDark:   'Притисните за тамну тему',
       themeLabelLight:  'Притисните за светлу тему',
-      readmeLabel:      'Упутство',
       copyrightLabel:   'Ауторска права',
       placeholderLabel: 'Ускоро...',
       backLabel:        '← Назад',
       subpanelBack:     '← Назад',
-      readmeTitle:      'Упутство',
-      readmeBody:       '"MilWoT" је једноставан тајмер за рад.\n\nДодајте задатке и паузе, подесите њихова трајања, затим кликните ПОЧНИ. Тајмер иде кроз сесију аутоматски и обавештава Вас када се сваки корак заврши.\n\nСавет: Користите ▲▼ ручице да промените редослед.\nКликните на РАД/ПАУЗА да промените тип.',
+      readmeLabel:      'ПРОЧИТАЈ МЕ',
+      readmeTitle:      'ПРОЧИТАЈ МЕ',
+      readmeBody:       '"MilWoT" је једноставан тајмер за рад.\n\nДодајте задатке и паузе, подесите њихова трајања, затим кликните ПОЧНИ. Тајмер иде кроз сесију аутоматски и обавештава Вас када се сваки корак заврши.\n\nСавет: Користите ▲▼ ручице да промените редослед.\nКликните на РАД/ПАУЗА да промените тип.\n\n<i>Овај вебсајт има нотификације и ради <u>без интернета</u> ако је инсталиран као <u>"PWA"</u>.</i>',
       copyrightTitle:   'Ауторска права',
       copyrightBody:    '© 2026 Милан Стаменковић\nЋуприја, Србија\n\nНаправљено уз помоћ бесплатног "Claude AI".\nСва права задржана.',
-      presetsLabel:     'Поставке'
+      presetsLabel:     'Поставке',
+      changelogLabel:   'Измене (Changelog)',
+      changelogTitle:   'Измене (Changelog)',
+      changelogBody:    '<u>Преправке и промене на садашњој и претходној верзији:</u>\n<i>(Више <a href="https://milstamenkovic.github.io/MilWoT/changelog.md" target="_blank" rel="noopener noreferrer" style="color:red;">овде</a>)</i>\n\nВерзија "G" (vG)\n<pre>    - ...;</pre>',
+      roadmapLabel:     'Развој (Roadmap)',
+      roadmapTitle:     'Развој (Roadmap)',
+      roadmapBody:      '<u>Идеје за будуће верзије:</u>\n\nВерзија 1.1 (v1.1)\n\<pre>    - ...</pre>\n\nВерзија 1.2 (v1.2)\n<pre>    - ...</pre>',
+      issuesLabel:      'Проблеми',
+      issuesTitle:      'Проблеми',
+      issuesBody:       'Користите "GitHub" да пријавите <u>проблеме</u> за "`MilWoT` PWA".\n<a href="https://github.com/milstamenkovic/MilWoT/issues" target="_blank" rel="noopener noreferrer" style="color:red;">ПРИЈАВИТЕ ПРОБЛЕМЕ</a>'
     }
   };
 
@@ -1311,9 +1349,20 @@
     if (type === 'readme') {
       document.getElementById('subpanel-title').textContent = m.readmeTitle;
       document.getElementById('subpanel-body').innerHTML = m.readmeBody.replace(/\n/g, '<br>');
-    } else {
+    } else if (type === 'copyright') {
       document.getElementById('subpanel-title').textContent = m.copyrightTitle;
       document.getElementById('subpanel-body').innerHTML = m.copyrightBody.replace(/\n/g, '<br>');
+    } else if (type === 'changelog') {
+      document.getElementById('subpanel-title').textContent = m.changelogTitle;
+      document.getElementById('subpanel-body').innerHTML = m.changelogBody.replace(/\n/g, '<br>');
+    }
+    else if (type === 'roadmap') {
+      document.getElementById('subpanel-title').textContent = m.roadmapTitle;
+      document.getElementById('subpanel-body').innerHTML = m.roadmapBody.replace(/\n/g, '<br>');
+    }
+    else if (type === 'issues') {
+      document.getElementById('subpanel-title').textContent = m.issuesTitle;
+      document.getElementById('subpanel-body').innerHTML = m.issuesBody.replace(/\n/g, '<br>');
     }
   }
 
@@ -1330,6 +1379,9 @@
     document.getElementById('menu-theme-label').textContent      = isLight ? m.themeLabelDark : m.themeLabelLight;
     document.getElementById('menu-readme-label').textContent     = m.readmeLabel;
     document.getElementById('menu-copyright-label').textContent  = m.copyrightLabel;
+    document.getElementById('menu-changelog-label').textContent  = m.changelogLabel;
+    document.getElementById('menu-roadmap-label').textContent  = m.roadmapLabel;
+    document.getElementById('menu-issues-label').textContent  = m.issuesLabel;
     document.getElementById('menu-placeholder-label').textContent= m.placeholderLabel;
     document.getElementById('subpanel-back').textContent         = m.subpanelBack;
     document.getElementById('menu-theme-icon').textContent       = isLight ? '🌙' : '☀️';
