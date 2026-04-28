@@ -4,7 +4,7 @@
 <!-- Version H -->
 <!-- Created with help of Free Claude AI -->
 <!-- Created: 23.02.2026. - Ćuprija, Serbia -->
-<!-- Revised: 24.04.2026. - Ćuprija, Serbia -->
+<!-- Revised: 28.04.2026. - Ćuprija, Serbia -->
 
 
 
@@ -1039,27 +1039,25 @@
         <span style="color:var(--muted)">›</span>
       </button>
       <div class="menu-divider"></div>
-      <div class="menu-item placeholder">
-        <div class="menu-item-left"><span>⚙️</span><span id="menu-placeholder-label">Coming soon…</span></div>
-      </div>
     </div>
     <div id="menu-subpanel">
-      <button id="subpanel-back" class="subpanel-back" onclick="showMenuMain()">← Back</button>
+      <button id="subpanel-back" id="presets-back" class="subpanel-back" onclick="showMenuMain()">← Back</button>
       <div class="subpanel-title" id="subpanel-title"></div>
       <div class="subpanel-body" id="subpanel-body"></div>
     </div>
     <div id="presets-subpanel" style="display:none; flex-direction:column; gap:6px;">
-      <button class="subpanel-back" onclick="showMenuMain()">← Back</button>
+      <button class="subpanel-back" id="presets-back" onclick="showMenuMain()">← Back</button>
       <div class="subpanel-title" id="presets-title">Presets</div>
+      <div class="subpanel-body" id="presets-body"></div>
       <div class="preset-last" id="preset-last-section" style="display:none;">
-        <div class="preset-last-label">Last used</div>
+        <div class="preset-last-label" id="preset-last">Last used</div>
         <div class="preset-last-name" id="preset-last-name">—</div>
-        <button class="preset-btn" onclick="loadLastUsed()">Load</button>
+        <button class="preset-btn" id="preset-load" onclick="loadLastUsed()">Load</button>
       </div>
       <div class="preset-list" id="preset-list"></div>
       <div class="preset-save-row">
-        <input type="text" id="preset-name-input" placeholder="Preset name…" maxlength="30">
-        <button onclick="savePreset()">Save</button>
+        <input type="text" id="preset-name-input" placeholder="" maxlength="30">
+        <button id="preset-save" onclick="savePreset()">Save</button>
       </div>
     </div>
   </div>
@@ -1161,8 +1159,8 @@
       remainingSession: 'remaining in session',
       taskLabel:        'TASK',
       pauseLabel:       'PAUSE',
-      taskPlaceholder:  'Task name…',
-      pausePlaceholder: 'Pause',
+      taskPlaceholder:  'Task name',
+      pausePlaceholder: 'Pause name',
       notifUpNext:      'Up next',
       notifDone:        'Session complete!',
       notifFinishTitle: '✔ Session Complete!',
@@ -1206,8 +1204,8 @@
       remainingSession: 'остало у сесији',
       taskLabel:        'РАД',
       pauseLabel:       'ПАУЗА',
-      taskPlaceholder:  'Рад',
-      pausePlaceholder: 'Пауза',
+      taskPlaceholder:  'Име задатка',
+      pausePlaceholder: 'Име паузе',
       notifUpNext:      'Следи',
       notifDone:        'Сесија завршена!',
       notifFinishTitle: '✔ Сесија завршена!',
@@ -1278,7 +1276,6 @@
       themeLabelDark:   'Toggle for Dark theme',
       themeLabelLight:  'Toggle for Light theme',
       copyrightLabel:   'Copyright',
-      placeholderLabel: 'Coming soon...',
       subpanelBack:     '← Back',
       readmeLabel:      'README',
       readmeTitle:      'README',
@@ -1286,6 +1283,16 @@
       copyrightTitle:   'Copyright',
       copyrightBody:    '© 2026 Mil Stamenković\nĆuprija, Serbia\n\nCreated with help of Claude AI.\nAll rights reserved.',
       presetsLabel:     'Presets',
+      presetsTitle:     'Presets',
+      presetsBody:      'Presets are  manualy saved custom timers (tasks & pauses).\n- Customize timer, then open this menu to save the preset. You can load/delete presets from here too.\n- To edit saved timer, load timer you want to edit, customize it again, then save it with the same name.',
+      presetsBack:      '← Back',
+      presetsName:      'Preset name',
+      presetsLoad:      'Load',
+      presetsSave:      'Save',
+      presetsList:      'Presets list',
+      presetsLast:      'Last preset',
+      presetEmpty:      'No presets',
+      loadButton:       'Load',
       changelogLabel:   'CHANGELOG',
       changelogTitle:   'CHANGELOG',
       changelogBody:    '<u>Fixes and changes to current and last version:</u>\n<i>(More <a href="https://milstamenkovic.github.io/MilWoT/CHANGELOG" target="_blank" rel="noopener noreferrer" style="color:red;">here</a>)</i>\n(Order - <i>Newest of top</i>)\n\nVersion G (vG)\n<pre>    - ...;</pre>',
@@ -1301,7 +1308,6 @@
       themeLabelDark:   'Притисните за тамну тему',
       themeLabelLight:  'Притисните за светлу тему',
       copyrightLabel:   'Ауторска права',
-      placeholderLabel: 'Ускоро...',
       backLabel:        '← Назад',
       subpanelBack:     '← Назад',
       readmeLabel:      'ПРОЧИТАЈ МЕ',
@@ -1310,6 +1316,16 @@
       copyrightTitle:   'Ауторска права',
       copyrightBody:    '© 2026 Милан Стаменковић\nЋуприја, Србија\n\nНаправљено уз помоћ бесплатног "Claude AI".\nСва права задржана.',
       presetsLabel:     'Поставке',
+      presetsTitle:     'Поставке',
+      presetsBody:      'Поставке су ручно сачувани подешени тајмери (задаци и паузе).\n- Подесите тајмер, затим отворите овај мени да сачувате поставку. Можете учитати/обрисати поставке одавде исто тако.\n- Да бисте преправили поставку, учитајте тајмер који желите да преправите, подесите га поново, затим га сачувајте са истим именом.',
+      presetsBack:      '← Назад',
+      presetsName:      'Име поставке',
+      presetsLoad:      'Учитај',
+      presetsSave:      'Сачувај',
+      presetsList:      'Листа поставки',
+      presetsLast:      'Последња поставка',
+      presetEmpty:      'Нема поставки',
+      loadButton:       'Учитај',
       changelogLabel:   'ИЗМЕНЕ (CHANGELOG)',
       changelogTitle:   'ИЗМЕНЕ (CHANGELOG)',
       changelogBody:    '<u>Преправке и промене на садашњој и претходној верзији:</u>\n<i>(Више <a href="https://milstamenkovic.github.io/MilWoT/CHANGELOG" target="_blank" rel="noopener noreferrer" style="color:red;">овде</a>)</i>\n(Уређење - <i>Новије на врху</i>)\n\nВерзија "G" (vG)\n<pre>    - ...;</pre>',
@@ -1346,7 +1362,10 @@
     const m = menuText[currentLang];
     document.getElementById('menu-main').classList.add('hidden');
     document.getElementById('menu-subpanel').classList.add('open');
-    if (type === 'readme') {
+    if (type === 'presets') {
+      document.getElementById('subpanel-title').textContent = m.readmeTitle;
+      document.getElementById('subpanel-body').innerHTML = m.readmeBody.replace(/\n/g, '<br>');
+    } else if (type === 'readme') {
       document.getElementById('subpanel-title').textContent = m.readmeTitle;
       document.getElementById('subpanel-body').innerHTML = m.readmeBody.replace(/\n/g, '<br>');
     } else if (type === 'copyright') {
@@ -1380,12 +1399,18 @@
     document.getElementById('menu-readme-label').textContent     = m.readmeLabel;
     document.getElementById('menu-copyright-label').textContent  = m.copyrightLabel;
     document.getElementById('menu-changelog-label').textContent  = m.changelogLabel;
-    document.getElementById('menu-roadmap-label').textContent  = m.roadmapLabel;
-    document.getElementById('menu-issues-label').textContent  = m.issuesLabel;
-    document.getElementById('menu-placeholder-label').textContent= m.placeholderLabel;
+    document.getElementById('menu-roadmap-label').textContent    = m.roadmapLabel;
+    document.getElementById('menu-issues-label').textContent     = m.issuesLabel;
     document.getElementById('subpanel-back').textContent         = m.subpanelBack;
     document.getElementById('menu-theme-icon').textContent       = isLight ? '🌙' : '☀️';
     document.getElementById('menu-presets-label').textContent    = m.presetsLabel;
+    document.getElementById('presets-title').textContent         = m.presetsTitle;
+    document.getElementById('presets-back').textContent          = m.presetsBack;
+    document.getElementById('preset-name-input').textContent     = m.presetsName;
+    document.getElementById('preset-load').textContent           = m.presetsLoad;
+    document.getElementById('preset-save').textContent           = m.presetsSave;
+    document.getElementById('preset-last').textContent           = m.presetsLast;
+    document.getElementById('preset-list').textContent           = m.presetsList;
   }
 
   // ── Presets ──
@@ -1420,6 +1445,7 @@
     document.getElementById('menu-main').classList.add('hidden');
     document.getElementById('menu-subpanel').style.display    = 'none';
     document.getElementById('presets-subpanel').style.display = 'flex';
+    document.getElementById('presets-body').innerHTML = menuText[currentLang].presetsBody.replace(/\n/g, '<br>');
     renderPresetsList();
   }
 
@@ -1438,7 +1464,7 @@
     list.innerHTML = '';
 
     if (presets.length === 0) {
-      list.innerHTML = '<div class="preset-empty">No saved presets yet.</div>';
+      list.innerHTML = `<div class="preset-empty" id="preset-empty">${menuText[currentLang].presetEmpty}</div>`;
       return;
     }
 
@@ -1451,7 +1477,7 @@
           <div class="preset-item-meta">${presetMeta(p.tasks)}</div>
         </div>
         <div class="preset-item-btns">
-          <button class="preset-btn" onclick="loadPreset(${i})">Load</button>
+          <button class="preset-btn" id="load-button" onclick="loadPreset(${i})">${menuText[currentLang].presetsLoad}</button>
           <button class="preset-btn del" onclick="deletePreset(${i})">✕</button>
         </div>
       `;
@@ -1946,11 +1972,11 @@
 
   // ── Init ──
   tasks = [
-    { name: '...', minutes: 0, type: 'task' },
-    { name: '...', minutes: 0, type: 'pause' },
-    { name: '...', minutes: 0, type: 'task' },
-    { name: '...', minutes: 0, type: 'task' },
-    { name: '...', minutes: 0, type: 'pause' },
+    { minutes: 0, type: 'task' },
+    { minutes: 0, type: 'pause' },
+    { minutes: 0, type: 'task' },
+    { minutes: 0, type: 'task' },
+    { minutes: 0, type: 'pause' },
   ];
   renderEditor();
   checkNotifBanner();
