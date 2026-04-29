@@ -4,12 +4,12 @@
   "description": "MilWoT -- Mil Work Timer",
   "start_url": "/MilWoT/",
   "scope": "/MilWoT/",
-  "version": "Version G",
+  "version": "Version H",
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone"],
   "background_color": "#000000",
   "theme_color": "#000000",
   "orientation": "any",
+  "screenshots": "[]",
   "lang": "en",
   "icons": [
     {
@@ -30,5 +30,10 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ]
+  ],
+  "launch_handler": {
+    "client_mode": "navigate_existing"
+  },
+  "display_override": ["window-controls-overlay"],
+  "window_size": {"width": 400, "height": 400}
 }

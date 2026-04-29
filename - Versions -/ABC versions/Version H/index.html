@@ -958,6 +958,13 @@
     padding: 10px 0;
   }
 
+  #size-hint {
+    display: flex;
+    justify-content: center;
+    color: red;
+    font-size: 0.6em;
+  }
+
 </style>
 </head>
 <body>
@@ -1055,6 +1062,7 @@
         <span style="color:var(--muted)">›</span>
       </button>
       <div class="menu-divider"></div>
+      <div id="size-hint"></div>
     </div>
     <div id="menu-subpanel">
       <button id="subpanel-back" id="presets-back" class="subpanel-back" onclick="showMenuMain()">← Back</button>
@@ -1127,7 +1135,22 @@
   <button class="start-btn" onclick="backToEditor()" id="btn-new-session">NEW SESSION</button>
 </div>
 
+  <!-- PWA HINT ADJUST SIZE -->
+  <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 border border-slate-100 text-center">
+    <div id="status-text" class="text-slate-600 font-medium text-lg"></div>
+  </div>
+
 <script>
+
+  // If PWA then hint user to adjust window size
+  function checkPWA() {
+    const isPWA = window.matchMedia('(display-mode: standalone)').matches;
+      if (isPWA) {
+        document.getElementById('size-hint').textContent = "Customize your PWA window size";
+      }
+  }
+  checkPWA();
+  window.matchMedia('(display-mode: standalone)').addEventListener('change', checkPWA);
 
   // -- SW.JS file --
   if ('serviceWorker' in navigator) {
