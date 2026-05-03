@@ -20,8 +20,9 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
 
-<style>
-  :root {
+<style> 
+
+:root {
     --bg: #000000;
     --surface: #1d1d1d;
     --border: #2a2a2a;
@@ -965,6 +966,35 @@
     font-size: 0.6em;
   }
 
+  #warning-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #warning-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+    animation: popIn 0.15s ease;
+  }
+
+  .warning-btns {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
 </style>
 </head>
 <body>
@@ -1080,9 +1110,20 @@
       </div>
       <div class="preset-list" id="preset-list"></div>
       <div class="preset-save-row">
-        <input type="text" id="preset-name-input" placeholder="" maxlength="30">
+	     
         <button id="preset-save" onclick="savePreset()">Save</button>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- -- WARNING POP-UP-- -->
+<div id="warning-overlay" onclick="handleConfirmOverlayClick(event)">
+  <div id="warning-panel">
+    <div class="warning-message" id="warning-message"></div>
+    <div class="warning-btns">
+      <button id="warning-yes" onclick="warningYes()">Yes</button>
+      <button id="warning-cancel" onclick="warningCancel()">Cancel</button>
     </div>
   </div>
 </div>
@@ -1151,6 +1192,33 @@
   }
   checkPWA();
   window.matchMedia('(display-mode: standalone)').addEventListener('change', checkPWA);
+
+  // Warning Pop-Up presets
+  let confirmCallback = null;
+
+  function showWarning(message, onYes) {
+    document.getElementById('warning-message').textContent = message;
+    confirmCallback = onYes;
+    document.getElementById('warning-overlay').style.display = 'flex';
+  }
+
+  function confirmYes() {
+    if (confirmCallback) confirmCallback();
+    closeWarning();
+  }
+
+  function confirmCancel() {
+    closeWarning();
+  }
+
+  function closeWarning() {
+    document.getElementById('warning-overlay').style.display = 'none';
+    confirmCallback = null;
+  }
+
+  function handleWarningOverlayClick(e) {
+    if (e.target === document.getElementById('warning-overlay')) closeWarning();
+  }
 
   // -- SW.JS file --
   if ('serviceWorker' in navigator) {
@@ -1331,13 +1399,14 @@
       presetsList:      'Presets list',
       presetsLast:      'Last preset',
       presetEmpty:      'No presets',
+      presetOverwrite:  'Are you sure you want to overwrite',
+      presetMax:        'You have reached maximum of 10 saved presets. Please remove older saved presets to be able to save new ones.',
       loadButton:       'Load',
       changelogLabel:   'CHANGELOG',
       changelogTitle:   'CHANGELOG',
       changelogBody:    '<u>Fixes and changes to current and last version:</u>\n<i>(More <a href="https://milstamenkovic.github.io/MilWoT/CHANGELOG" target="_blank" rel="noopener noreferrer" style="color:red;">here</a>)</i>\n(Order - <i>Newest of top</i>)\n\nVersion G (vG)\n<pre>    - ...;</pre>',
       roadmapLabel:     'ROADMAP',
       roadmapTitle:     'ROADMAP',
-      roadmapBody:      '<u>Ideas for future versions:</u>\n<i>(More <a href="https://milstamenkovic.github.io/MilWoT/ROADMAP" target="_blank" rel="noopener noreferrer" style="color:red;">here</a>)</i>\n(Order - <i>Newest of top</i>)\n\nVersion 1.1 (v1.1)\n\<pre>    - ...</pre>\n\nVersion 1.2 (v1.2)\n<pre>    - ...</pre>',
       issuesLabel:      'Issues',
       issuesTitle:      'Issues',
       issuesBody:       'Use GitHub to report <u>issues</u> for "MilWoT" PWA.\n<a href="https://github.com/milstamenkovic/MilWoT/issues" target="_blank" rel="noopener noreferrer" style="color:red;">REPORT ISSUES</a>'
@@ -1364,6 +1433,8 @@
       presetsList:      'Листа поставки',
       presetsLast:      'Последња поставка',
       presetEmpty:      'Нема поставки',
+      presetOverwrite:  'Да ли сте сигурни да желите да преснимите поставку',
+      presetMax:        'Достигли сте максимум од 10 снимљених поставки. Молимо вас да обришете старе поставке, како бисте могли да сачувате нове.',
       loadButton:       'Учитај',
       changelogLabel:   'ИЗМЕНЕ (CHANGELOG)',
       changelogTitle:   'ИЗМЕНЕ (CHANGELOG)',
@@ -1558,14 +1629,21 @@
   const existingIndex = presets.findIndex(p => p.name === name);
 
     if (existingIndex !== -1) {
-      const confirmed = confirm('Overwrite "' + name + '"?');
-      if (!confirmed) return;
+      const confirmed = showWarning(
+        lang[currentLang].presetOverwrite + name + lang[currentLang].presetOverwrite2,
+        () => {
+          presets[existingIndex] = { name, tasks: JSON.parse(JSON.stringify(tasks)) };
+          savePresets(presets);
+          nameInput.value = '';
+          renderPresetsList();
+        }
+      );
+      return;
       presets[existingIndex] = { name, tasks: JSON.parse(JSON.stringify(tasks)) };
     } else {
       if (presets.length >= MAX_PRESETS) {
-        alert('Maximum 10 presets reached. Delete one first.');
-        return;
-      }
+        alert(lang[currentLang].presetMax);
+      };
       presets.push({ name, tasks: JSON.parse(JSON.stringify(tasks)) });
       }
 
