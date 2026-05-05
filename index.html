@@ -1,10 +1,10 @@
 <!-- MilWoT - Mil Work Timer -->
 <!-- Simple work timer with continues timers for tasks and pauses by Mil Stamenković -->
 <!-- © 2026 Mil Stamenković -->
-<!-- Version H -->
+<!-- Version J -->
 <!-- Created with help of Free Claude AI -->
 <!-- Created:   23.02.2026. - Ćuprija, Serbia -->
-<!-- Revised:   04.05.2026. - Ćuprija, Serbia -->
+<!-- Revised:   06.05.2026. - Ćuprija, Serbia -->
 <!-- Published: 23.02.2026. - Ćuprija, Serbia -->
 
 
@@ -1121,12 +1121,12 @@
 </div>
 
 <!-- -- WARNING POP-UP-- -->
-<div id="warning-overlay" onclick="handleConfirmOverlayClick(event)">
+<div id="warning-overlay" onclick="handleWarningOverlayClick(event)">
   <div id="warning-panel">
     <div class="warning-message" id="warning-message"></div>
     <div class="warning-btns">
-      <button id="warning-yes" onclick="warningYes()">Yes</button>
-      <button id="warning-cancel" onclick="warningCancel()">Cancel</button>
+      <button id="warning-yes" onclick="confirmYes()">Yes</button>
+      <button id="warning-cancel" onclick="confrimCancel()">Cancel</button>
     </div>
   </div>
 </div>
@@ -1646,6 +1646,7 @@
     } else {
       if (presets.length >= MAX_PRESETS) {
         alert(lang[currentLang].presetMax);
+				return;
       };
       presets.push({ name, tasks: JSON.parse(JSON.stringify(tasks)) });
       }
@@ -2093,11 +2094,11 @@
 
   // ── Init ──
   tasks = [
-    { minutes: 0, type: 'task' },
-    { minutes: 0, type: 'pause' },
-    { minutes: 0, type: 'task' },
-    { minutes: 0, type: 'task' },
-    { minutes: 0, type: 'pause' },
+    { name: '', minutes: 0, type: 'task' },
+    { name: '', minutes: 0, type: 'pause' },
+    { name: '', minutes: 0, type: 'task' },
+    { name: '', minutes: 0, type: 'task' },
+    { name: '', minutes: 0, type: 'pause' },
   ];
   renderEditor();
   checkNotifBanner();
