@@ -4,7 +4,7 @@
 <!-- Version H -->
 <!-- Created with help of Free Claude AI -->
 <!-- Created:   23.02.2026. - Ćuprija, Serbia -->
-<!-- Revised:   29.04.2026. - Ćuprija, Serbia -->
+<!-- Revised:   04.05.2026. - Ćuprija, Serbia -->
 <!-- Published: 23.02.2026. - Ćuprija, Serbia -->
 
 
@@ -1011,7 +1011,7 @@
     <p class="subtitle" id="subtitle" style="margin-bottom:0; line-height:1">Work - Relax - Repeat</p>
     <button id="burger-btn" onclick="openMenu()">
       <span></span><span></span><span></span>
-    </button>
+		</button>
   </div>
 </div>
 
@@ -1042,7 +1042,10 @@
       <div class="menu-heading">MilWoT</div>
       <div class="menu-divider"></div>
       <div class="menu-item">
-        <div class="menu-item-left"><span>🌐</span><span id="menu-lang-label">Serbian / Srpski</span></div>
+        <div
+					class="menu-item-left"><span>🌐</span><span
+						id="menu-lang-label">Serbian
+						/ Српски</span></div>
         <label class="toggle-switch">
           <input type="checkbox" id="lang-toggle" onchange="menuToggleLang()">
           <div class="toggle-track"></div>
@@ -1110,11 +1113,11 @@
       </div>
       <div class="preset-list" id="preset-list"></div>
       <div class="preset-save-row">
-	     
+        <input type="text" id="preset-name-input" placeholder="" maxlength="30">
         <button id="preset-save" onclick="savePreset()">Save</button>
       </div>
     </div>
-  </div>
+	</div>
 </div>
 
 <!-- -- WARNING POP-UP-- -->
