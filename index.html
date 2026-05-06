@@ -992,6 +992,13 @@
     animation: popIn 0.15s ease;
   }
 
+	.warning-btns {
+		display: flex;
+		flex-direction: row;
+		gap: 10px;
+		margin-top: 3px;
+	}
+
   .warning-yes {
 		background-color: #960000;
 		color: #000000;
@@ -1140,7 +1147,7 @@
 <div id="warning-overlay" onclick="handleWarningOverlayClick(event)">
   <div id="warning-panel">
     <div class="warning-message" id="warning-message"></div>
-    <div class="flex flex-column gap-5 mt-3">
+    <div class="warning-btns">
       <button class="warning-yes" id="warning-yes" onclick="confirmYes()">Yes</button>
       <button class="warning-cancel" id="warning-cancel" onclick="confrimCancel()">Cancel</button>
     </div>
