@@ -19,6 +19,9 @@
 <link rel="manifest" href="./manifest.json">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+
+
 
 <style> 
 
@@ -989,11 +992,24 @@
     animation: popIn 0.15s ease;
   }
 
-  .warning-btns {
-    display: flex;
-    gap: 4px;
-    flex-shrink: 0;
+  .warning-yes {
+		background-color: #960000;
+		color: #000000;
+		padding: 2px 6px;
+		border-radius: 3px;
+		font-size: 1em;
+		font-weight: 500;
   }
+
+  .warning-cancel {
+		background-color: #B3B3B3;
+		color: #000000;
+		padding: 2px 6px;
+		border-radius: 3px;
+		font-size: 1em;
+		font-weight: 500;
+  }
+
 
 </style>
 </head>
@@ -1124,9 +1140,9 @@
 <div id="warning-overlay" onclick="handleWarningOverlayClick(event)">
   <div id="warning-panel">
     <div class="warning-message" id="warning-message"></div>
-    <div class="warning-btns">
-      <button id="warning-yes" onclick="confirmYes()">Yes</button>
-      <button id="warning-cancel" onclick="confrimCancel()">Cancel</button>
+    <div class="flex flex-column gap-5 mt-3">
+      <button class="warning-yes" id="warning-yes" onclick="confirmYes()">Yes</button>
+      <button class="warning-cancel" id="warning-cancel" onclick="confrimCancel()">Cancel</button>
     </div>
   </div>
 </div>
@@ -1179,10 +1195,11 @@
   <button class="start-btn" onclick="backToEditor()" id="btn-new-session">NEW SESSION</button>
 </div>
 
-  <!-- PWA HINT ADJUST SIZE -->
-  <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 border border-slate-100 text-center">
-    <div id="status-text" class="text-slate-600 font-medium text-lg"></div>
-  </div>
+<!-- PWA HINT ADJUST SIZE
+<div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 border border-slate-100 text-center">
+	<div id="status-text" class="text-slate-600 font-medium text-lg"></div>
+</div>
+-->
 
 <script>
 
@@ -1288,6 +1305,9 @@
       resumeMeta:       'Step {step} of {total} · {time} left on current task',
       resumeYes:        'Resume',
       resumeNo:         'Discard',
+			presetOverwrite:  'Are you sure you want to overwrite preset ',
+			warningYes:       'Yes',
+			warningCancel:    'Cancel',
     },
     sr: {
       subtitle:         'Рад - Одмор - Поново',
@@ -1333,6 +1353,9 @@
       resumeMeta:       'Корак {step} од {total} · {time} остало на тренутном задатку',
       resumeYes:        'Настави',
       resumeNo:         'Одбаци',
+			presetOverwrite:  'Да ли сте сигурни да желите да преснимите поставку ',
+			warningYes:       'Да',
+			warningCancel:    'Откажи',
     }
   };
 
@@ -1364,6 +1387,8 @@
     document.getElementById('resume-title').textContent     = l.resumeTitle;
     document.getElementById('resume-btn-yes').textContent   = l.resumeYes;
     document.getElementById('resume-btn-no').textContent    = l.resumeNo;
+    document.getElementById('warning-yes').textContent      = l.warningYes;
+    document.getElementById('warning-cancel').textContent   = l.warningCancel;
     document.documentElement.style.setProperty('--min-label', `'${l.minLabel}'`);
     document.querySelectorAll('.task-row').forEach((row, i) => {
       const input = row.querySelector('input[type="text"]');
@@ -1402,7 +1427,6 @@
       presetsList:      'Presets list',
       presetsLast:      'Last preset',
       presetEmpty:      'No presets',
-      presetOverwrite:  'Are you sure you want to overwrite',
       presetMax:        'You have reached maximum of 10 saved presets. Please remove older saved presets to be able to save new ones.',
       loadButton:       'Load',
       changelogLabel:   'CHANGELOG',
@@ -1436,7 +1460,6 @@
       presetsList:      'Листа поставки',
       presetsLast:      'Последња поставка',
       presetEmpty:      'Нема поставки',
-      presetOverwrite:  'Да ли сте сигурни да желите да преснимите поставку',
       presetMax:        'Достигли сте максимум од 10 снимљених поставки. Молимо вас да обришете старе поставке, како бисте могли да сачувате нове.',
       loadButton:       'Учитај',
       changelogLabel:   'ИЗМЕНЕ (CHANGELOG)',
@@ -1633,7 +1656,7 @@
 
     if (existingIndex !== -1) {
       const confirmed = showWarning(
-        lang[currentLang].presetOverwrite + name + lang[currentLang].presetOverwrite2,
+        lang[currentLang].presetOverwrite + '"' + name + '"' + "?",
         () => {
           presets[existingIndex] = { name, tasks: JSON.parse(JSON.stringify(tasks)) };
           savePresets(presets);
@@ -1849,7 +1872,7 @@
   }
 
   // ── Editor ──
-  function addTask(name = '', minutes = 25) {
+  function addTask(name = '', minutes = 0) {
     tasks.push({ name, minutes, type: 'task' });
     renderEditor();
   }
@@ -2096,7 +2119,6 @@
   tasks = [
     { name: '', minutes: 0, type: 'task' },
     { name: '', minutes: 0, type: 'pause' },
-    { name: '', minutes: 0, type: 'task' },
     { name: '', minutes: 0, type: 'task' },
     { name: '', minutes: 0, type: 'pause' },
   ];
