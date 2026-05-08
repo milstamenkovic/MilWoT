@@ -1,0 +1,39 @@
+{
+  "name": "MilWoT",
+  "short_name": "MilWoT",
+  "description": "MilWoT -- Mil Work Timer",
+  "start_url": "/MilWoT/",
+  "scope": "/MilWoT/",
+  "version": "Version H",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "any",
+  "screenshots": "[]",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "./Media/Icons/icon192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./Media/Icons/icon512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./Media/Icons/icon1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "launch_handler": {
+    "client_mode": "navigate_existing"
+  },
+  "display_override": ["window-controls-overlay"],
+  "window_size": {"width": 400, "height": 400}
+}
