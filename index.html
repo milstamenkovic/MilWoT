@@ -1270,17 +1270,15 @@
 	// KEYBIDINGS LISTENERS
 	// KEYBIDINGS LISTENERS
 	document.addEventListener('keydown', (e) => {
+		const typing = e.target.matches('input, textarea');
 		if (e.key === 'Escape') {
-      if (e.target.matches('input, textarea')) {
-       	e.target.blur();
-      }
-    }
-		if (e.key === 'Escape') {
-    	document.getElementById('notif-banner').classList.add('hidden');
-  	}
+			if (typing) e.target.blur();
+			document.getElementById('notif-banner').classList.add('hidden');
+			closeMenu();
+			closeWarning();
+		}		
 		if (e.key === '+' && !e.target.matches('input, textarea')) addTask();
 		if (e.key === '-' && !e.target.matches('input, textarea')) addPause();
-  	if (e.key === 'Escape') closeMenu();
 		if (e.key === 'Backspace') showMenuMain();
 		if (e.key === 'l' && !e.target.matches('input, textarea')) {
 			const toggle = document.getElementById('lang-toggle');
@@ -1314,17 +1312,16 @@
 			showSubpanel('issues');
 		}
 		if (e.key === 'o' && !e.target.matches('input, textarea')) {
-			openmenu();
-			showsubpanel('copyright');
+			openMenu();
+			showSubpanel('copyright');
 		}
 		if (e.key === 'Enter') startSession();
 		if (e.key === 'k') nextStep();
 		if (e.key === 'u') {
 			const toggle = document.getElementById('pause-resume-btn');
-				toggle.checked = !toggle.checked;
 				togglePause();
-		  }
-		if (e.key === 'e') backToEditor();
+	  }
+		if (e.key === 'e' && !e.target.matches('input, textarea')) backToEditor();
 
 
 
