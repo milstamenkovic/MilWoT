@@ -4,7 +4,7 @@
 <!-- Version J -->
 <!-- Created with the help of Free Claude AI -->
 <!-- Created:   23.02.2026. - Ćuprija, Serbia -->
-<!-- Revised:   09.05.2026. - Ćuprija, Serbia -->
+<!-- Revised:   10.05.2026. - Ćuprija, Serbia -->
 <!-- Published: 23.02.2026. - Ćuprija, Serbia -->
 
 
@@ -1266,18 +1266,82 @@
     deferredInstallPrompt = null;
   });
 
-	// -- Esc=closeMenu listener --
+	// KEYBIDINGS LISTENERS
+	// KEYBIDINGS LISTENERS
+	// KEYBIDINGS LISTENERS
 	document.addEventListener('keydown', (e) => {
-  	if (e.key === 'Escape') closeMenu();
-	});
-
-	// -- Esc=requestNotifPermission listener
-	document.addEventListener('keydown', (e) => {
-  	if (e.key === 'Escape') {
+		if (e.key === 'Escape') {
+      if (e.target.matches('input, textarea')) {
+       	e.target.blur();
+      }
+    }
+		if (e.key === 'Escape') {
     	document.getElementById('notif-banner').classList.add('hidden');
   	}
+		if (e.key === '+' && !e.target.matches('input, textarea')) addTask();
+		if (e.key === '-' && !e.target.matches('input, textarea')) addPause();
+  	if (e.key === 'Escape') closeMenu();
+		if (e.key === 'Backspace') showMenuMain();
+		if (e.key === 'l' && !e.target.matches('input, textarea')) {
+			const toggle = document.getElementById('lang-toggle');
+	    toggle.checked = !toggle.checked;
+	    menuToggleLang();
+	  }
+		if (e.key === 't' && !e.target.matches('input, textarea')) {
+			const toggle = document.getElementById('theme-toggle');
+		  toggle.checked = !toggle.checked;
+		  toggleTheme();
+	  }
+		if (e.key === 'm' && !e.target.matches('input, textarea')) openMenu();
+		if (e.key === 'p' && !e.target.matches('input, textarea')) {
+			openMenu();
+			showSubpanel('presets');
+		}
+		if (e.key === 'r' && !e.target.matches('input, textarea')) {
+			openMenu();
+			showSubpanel('readme');
+		}
+		if (e.key === 'c' && !e.target.matches('input, textarea')) {
+			openMenu();
+			showSubpanel('changelog');
+		}
+		if (e.key === 'd' && !e.target.matches('input, textarea')) {
+			openMenu();
+			showSubpanel('roadmap');
+		}
+		if (e.key === 'i' && !e.target.matches('input, textarea')) {
+			openMenu();
+			showSubpanel('issues');
+		}
+		if (e.key === 'o' && !e.target.matches('input, textarea')) {
+			openmenu();
+			showsubpanel('copyright');
+		}
+		if (e.key === 'Enter') startSession();
+		if (e.key === 'k') nextStep();
+		if (e.key === 'u') {
+			const toggle = document.getElementById('pause-resume-btn');
+				toggle.checked = !toggle.checked;
+				togglePause();
+		  }
+		if (e.key === 'e') backToEditor();
+
+
+
+
+
+
+
+
 	});
 
+
+
+
+
+
+
+	
   // ── Language Translations ──
   const lang = {
     en: {
@@ -1433,7 +1497,7 @@
       subpanelBack:     '← Back',
       readmeLabel:      'README',
       readmeTitle:      'README',
-      readmeBody:       '"MilWoT" is a simple work timer.\n\nAdd tasks and pauses, set their durations, then hit START. The timer runs through your session automatically and alerts you when each step ends.\n\nTip: Drag the ▲▼ handle to reorder tasks.\nClick TASK/PAUSE to toggle the type.\n\n<i>This website has notifications and works <u>offline</u> if it is installed as <u>PWA</u>.</i>',
+      readmeBody:       '"MilWoT" is a simple work timer.\n\nAdd tasks and pauses, set their durations, then hit START. The timer runs through your session automatically and alerts you when each step ends.\n\nTip 1: Drag the ▲▼ handle to reorder tasks.\nClick TASK/PAUSE to toggle the type.\n\nTip 2: Use keys on keyboard for faster work inside menus.\nEach marked letter in menu represents which letter is used for what part of menu.\n"Escape" exit menu - "Backspace" go back in menu\n\n<i>This website has notifications and works <u>offline</u> if it is installed as <u>PWA</u>.</i>',
       copyrightTitle:   'Copyright',
       copyrightBody:    '© 2026 Mil Stamenković\nĆuprija, Serbia\n\nCreated with help of Claude AI.\nAll rights reserved.',
       presetsLabel:     'Presets',
@@ -1466,7 +1530,7 @@
       subpanelBack:     '← Назад',
       readmeLabel:      'ПРОЧИТАЈ МЕ',
       readmeTitle:      'ПРОЧИТАЈ МЕ',
-      readmeBody:       '"MilWoT" је једноставан тајмер за рад.\n\nДодајте задатке и паузе, подесите њихова трајања, затим кликните ПОЧНИ. Тајмер иде кроз сесију аутоматски и обавештава Вас када се сваки корак заврши.\n\nСавет: Користите ▲▼ ручице да промените редослед.\nКликните на РАД/ПАУЗА да промените тип.\n\n<i>Овај вебсајт има нотификације и ради <u>без интернета</u> ако је инсталиран као <u>"PWA"</u>.</i>',
+      readmeBody:       '"MilWoT" је једноставан тајмер за рад.\n\nДодајте задатке и паузе, подесите њихова трајања, затим кликните ПОЧНИ. Тајмер иде кроз сесију аутоматски и обавештава Вас када се сваки корак заврши.\n\nСавет 1: Користите ▲▼ ручице да промените редослед.\nКликните на РАД/ПАУЗА да промените тип.\n\n Савет 2: Користите тастере на тастатури за бржи рад у менију.\nСвако означено слово у менију представља који тастер се користи за који део менија.\n"Escape" излазак из менија - "Backspace" назад у менију\n\n<i>Овај вебсајт има нотификације и ради <u>без интернета</u> ако је инсталиран као <u>"PWA"</u>.</i>',
       copyrightTitle:   'Ауторска права',
       copyrightBody:    '© 2026 Милан Стаменковић\nЋуприја, Србија\n\nНаправљено уз помоћ бесплатног "Claude AI".\nСва права задржана.',
       presetsLabel:     'Поставке',

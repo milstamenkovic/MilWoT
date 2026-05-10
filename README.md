@@ -5,8 +5,11 @@
 Add tasks and pauses, set their durations, then hit START.
 The timer runs through your session automatically and alerts you when each step ends.
 
-Tip: Drag the ▲▼ handle to reorder tasks.
+Tip 1: Drag the ▲▼ handle to reorder tasks.
 Click TASK/PAUSE to toggle the type.
+
+Tip 2: Use keys on keyboard for faster work inside menus.
+Each marked letter in menu represents which letter is used for what part of menu.
 
 _This website has notifications and works *offline* if it is installed as *PWA*._
 
@@ -19,7 +22,10 @@ _This website has notifications and works *offline* if it is installed as *PWA*.
 Додајте задатке и паузе, подесите њихова трајања, затим кликните ПОЧНИ.
 Тајмер иде кроз сесију аутоматски и обавештава Вас када се сваки корак заврши.\
 
-Савет: Користите ▲▼ ручице да промените редослед.
+Савет 1: Користите ▲▼ ручице да промените редослед.
 Кликните на РАД/ПАУЗА да промените тип.
+
+Савет 2: Користите тастере на тастатури за бржи рад у менију.
+Свако означено слово у менију представља који тастер се користи за који део менија.
 
 _Овај вебсајт има нотификације и ради *без интернета* ко је инсталиран као *"PWA"*._
