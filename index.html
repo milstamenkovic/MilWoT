@@ -1062,9 +1062,12 @@
   <div id="menu-panel">
     <button id="menu-close" onclick="closeMenu()">×</button>
     <div id="menu-main">
-      <div class="menu-heading">MilWoT</div>
-      <div class="menu-divider"></div>
-      <div class="menu-item">
+      
+			<div class="menu-heading">MilWoT</div>
+      
+			<div class="menu-divider"></div>
+      
+			<div class="menu-item">
         <div
 					class="menu-item-left"><span>🌐</span><span
 						id="menu-lang-label">Serbian
@@ -1074,7 +1077,8 @@
           <div class="toggle-track"></div>
         </label>
       </div>
-      <div class="menu-item">
+      
+			<div class="menu-item">
         <div class="menu-item-left">
           <span id="menu-theme-icon">☀️</span>
           <span id="menu-theme-label">Light theme</span>
@@ -1084,17 +1088,25 @@
           <div class="toggle-track"></div>
         </label>
       </div>
-      <button class="menu-item" onclick="showSubpanel('presets')">
+
+			<button class="menu-item" onclick="showSubpanel('presets')">
         <div class="menu-item-left"><span>📋</span><span id="menu-presets-label">Presets</span></div>
         <span style="color:var(--muted)">›</span>
       </button>
+
       <div class="menu-divider"></div>
-      <button class="menu-item" onclick="showSubpanel('readme')">
+      
+			<!-- OTHER PAGES IN MENU -->
+			     
+			<button class="menu-item" onclick="showSubpanel('readme')">
         <div class="menu-item-left"><span>📖</span><span id="menu-readme-label">README</span></div>
         <span style="color:var(--muted)">›</span>
       </button>
-
-      <!-- v OTHER PAGES IN MENU v -->
+      
+			<button class="menu-item" onclick="showSubpanel('keybindings')">
+        <div class="menu-item-left"><span>⌨</span><span id="menu-keybindings-label">Keybindings</span></div>
+        <span style="color:var(--muted)">›</span>
+      </button>
 
       <button class="menu-item" onclick="showSubpanel('changelog')">
         <div class="menu-item-left"><span>🧾</span><span id="menu-changelog-label">CHANGELOG</span></div>
@@ -1111,8 +1123,6 @@
         <span style="color:var(--muted)">›</span>
       </button>
 
-      <!-- ^ OTHER PAGES IN MENU ^ -->
-
       <button class="menu-item" onclick="showSubpanel('copyright')">
         <div class="menu-item-left"><span>©</span><span id="menu-copyright-label">Copyright</span></div>
         <span style="color:var(--muted)">›</span>
@@ -1120,7 +1130,10 @@
       <div class="menu-divider"></div>
       <div id="size-hint"></div>
     </div>
-    <div id="menu-subpanel">
+ 
+		<!-- MENU SUB-PANEL -->
+
+		<div id="menu-subpanel">
       <button id="subpanel-back" id="presets-back" class="subpanel-back" onclick="showMenuMain()">← Back</button>
       <div class="subpanel-title" id="subpanel-title"></div>
       <div class="subpanel-body" id="subpanel-body"></div>
@@ -1141,6 +1154,7 @@
       </div>
     </div>
 	</div>
+
 </div>
 
 <!-- -- WARNING POP-UP-- -->
@@ -1266,9 +1280,9 @@
     deferredInstallPrompt = null;
   });
 
-	// KEYBIDINGS LISTENERS
-	// KEYBIDINGS LISTENERS
-	// KEYBIDINGS LISTENERS
+	// KEYBINDINGS LISTENERS
+	// KEYBINDINGS LISTENERS
+	// KEYBINDINGS LISTENERS
 	document.addEventListener('keydown', (e) => {
 		const typing = e.target.matches('input, textarea');
 		if (e.key === 'Escape') {
@@ -1295,9 +1309,13 @@
 			openMenu();
 			showSubpanel('presets');
 		}
-		if (e.key === 'r' && !e.target.matches('input, textarea')) {
+		if (e.key === 'r' && !e.ctrlKey && !e.target.matches('input, textarea')) {
 			openMenu();
 			showSubpanel('readme');
+		}
+		if (e.key === 'k' && !e.target.matches('input, textarea')) {
+			openMenu();
+			showSubpanel('keybindings');
 		}
 		if (e.key === 'c' && !e.target.matches('input, textarea')) {
 			openMenu();
@@ -1316,7 +1334,7 @@
 			showSubpanel('copyright');
 		}
 		if (e.key === 'Enter') startSession();
-		if (e.key === 'k') nextStep();
+		if (e.key === 'n') nextStep();
 		if (e.key === 'u') {
 			const toggle = document.getElementById('pause-resume-btn');
 				togglePause();
@@ -1495,6 +1513,9 @@
       readmeLabel:      'README',
       readmeTitle:      'README',
       readmeBody:       '"MilWoT" is a simple work timer.\n\nAdd tasks and pauses, set their durations, then hit START. The timer runs through your session automatically and alerts you when each step ends.\n\nTip 1: Drag the ▲▼ handle to reorder tasks.\nClick TASK/PAUSE to toggle the type.\n\nTip 2: Use keys on keyboard for faster work inside menus.\nEach marked letter in menu represents which letter is used for what part of menu.\n"Escape" exit menu - "Backspace" go back in menu\n\n<i>This website has notifications and works <u>offline</u> if it is installed as <u>PWA</u>.</i>',
+			keybindingsLabel: 'Keybindings',
+			keybindingsTitle: 'Keybindings',
+			keybindingsBody:  '...these are the keybindings...;\n\n<pre>ESCAPE     = Close menus;</pre><pre>CTRL + r   = Reset timers by reloading page;</pre>',
       copyrightTitle:   'Copyright',
       copyrightBody:    '© 2026 Mil Stamenković\nĆuprija, Serbia\n\nCreated with help of Claude AI.\nAll rights reserved.',
       presetsLabel:     'Presets',
@@ -1528,6 +1549,9 @@
       readmeLabel:      'ПРОЧИТАЈ МЕ',
       readmeTitle:      'ПРОЧИТАЈ МЕ',
       readmeBody:       '"MilWoT" је једноставан тајмер за рад.\n\nДодајте задатке и паузе, подесите њихова трајања, затим кликните ПОЧНИ. Тајмер иде кроз сесију аутоматски и обавештава Вас када се сваки корак заврши.\n\nСавет 1: Користите ▲▼ ручице да промените редослед.\nКликните на РАД/ПАУЗА да промените тип.\n\n Савет 2: Користите тастере на тастатури за бржи рад у менију.\nСвако означено слово у менију представља који тастер се користи за који део менија.\n"Escape" излазак из менија - "Backspace" назад у менију\n\n<i>Овај вебсајт има нотификације и ради <u>без интернета</u> ако је инсталиран као <u>"PWA"</u>.</i>',
+			keybindingsLabel: 'Скраћенице тaстери',
+			keybindingsTitle: 'Скраћенице тaстери',
+			keybindingsBody:  '...ово су скраћенице које можете...',
       copyrightTitle:   'Ауторска права',
       copyrightBody:    '© 2026 Милан Стаменковић\nЋуприја, Србија\n\nНаправљено уз помоћ бесплатног "Claude AI".\nСва права задржана.',
       presetsLabel:     'Поставке',
@@ -1579,11 +1603,14 @@
     document.getElementById('menu-main').classList.add('hidden');
     document.getElementById('menu-subpanel').classList.add('open');
     if (type === 'presets') {
-      document.getElementById('subpanel-title').textContent = m.readmeTitle;
-      document.getElementById('subpanel-body').innerHTML = m.readmeBody.replace(/\n/g, '<br>');
+      document.getElementById('subpanel-title').textContent = m.presetsTitle;
+      document.getElementById('subpanel-body').innerHTML = m.presetsBody.replace(/\n/g, '<br>');
     } else if (type === 'readme') {
       document.getElementById('subpanel-title').textContent = m.readmeTitle;
       document.getElementById('subpanel-body').innerHTML = m.readmeBody.replace(/\n/g, '<br>');
+    } else if (type === 'keybindings') {
+      document.getElementById('subpanel-title').textContent = m.keybindingsTitle;
+      document.getElementById('subpanel-body').innerHTML = m.keybindingsBody.replace(/\n/g, '<br>');
     } else if (type === 'copyright') {
       document.getElementById('subpanel-title').textContent = m.copyrightTitle;
       document.getElementById('subpanel-body').innerHTML = m.copyrightBody.replace(/\n/g, '<br>');
@@ -1609,25 +1636,26 @@
 
   function applyMenuText() {
     const m = menuText[currentLang];
-    document.getElementById('menu-lang-label').textContent       = m.langLabel;
+    document.getElementById('menu-lang-label').textContent         = m.langLabel;
     const isLight = document.body.classList.contains('light');
-    document.getElementById('menu-theme-label').textContent      = isLight ? m.themeLabelDark : m.themeLabelLight;
-    document.getElementById('menu-readme-label').textContent     = m.readmeLabel;
-    document.getElementById('menu-copyright-label').textContent  = m.copyrightLabel;
-    document.getElementById('menu-changelog-label').textContent  = m.changelogLabel;
-    document.getElementById('menu-roadmap-label').textContent    = m.roadmapLabel;
-    document.getElementById('menu-issues-label').textContent     = m.issuesLabel;
-    document.getElementById('subpanel-back').textContent         = m.subpanelBack;
-    document.getElementById('menu-theme-icon').textContent       = isLight ? '🌙' : '☀️';
-    document.getElementById('menu-presets-label').textContent    = m.presetsLabel;
-    document.getElementById('presets-title').textContent         = m.presetsTitle;
-    document.getElementById('presets-back').textContent          = m.presetsBack;
-    document.getElementById('preset-name-input').textContent     = m.presetsName;
-    document.getElementById('preset-load').textContent           = m.presetsLoad;
-    document.getElementById('preset-save').textContent           = m.presetsSave;
-    document.getElementById('preset-last').textContent           = m.presetsLast;
-    document.getElementById('preset-list').textContent           = m.presetsList;
-    document.getElementById('preset-name-input').placeholder     = m.presetsName;
+    document.getElementById('menu-theme-label').textContent        = isLight ? m.themeLabelDark : m.themeLabelLight;
+    document.getElementById('menu-readme-label').textContent       = m.readmeLabel;
+    document.getElementById('menu-keybindings-label').textContent  = m.keybindingsLabel;
+    document.getElementById('menu-copyright-label').textContent    = m.copyrightLabel;
+    document.getElementById('menu-changelog-label').textContent    = m.changelogLabel;
+    document.getElementById('menu-roadmap-label').textContent      = m.roadmapLabel;
+    document.getElementById('menu-issues-label').textContent       = m.issuesLabel;
+    document.getElementById('subpanel-back').textContent           = m.subpanelBack;
+    document.getElementById('menu-theme-icon').textContent         = isLight ? '🌙' : '☀️';
+    document.getElementById('menu-presets-label').textContent      = m.presetsLabel;
+    document.getElementById('presets-title').textContent           = m.presetsTitle;
+    document.getElementById('presets-back').textContent            = m.presetsBack;
+    document.getElementById('preset-name-input').textContent       = m.presetsName;
+    document.getElementById('preset-load').textContent             = m.presetsLoad;
+    document.getElementById('preset-save').textContent             = m.presetsSave;
+    document.getElementById('preset-last').textContent             = m.presetsLast;
+    document.getElementById('preset-list').textContent             = m.presetsList;
+    document.getElementById('preset-name-input').placeholder       = m.presetsName;
   }
 
   // ── Presets ──

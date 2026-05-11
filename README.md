@@ -10,7 +10,8 @@ Click TASK/PAUSE to toggle the type.
 
 Tip 2: Use keys on keyboard for faster work inside menus.
 Each marked letter in menu represents which letter is used for what part of menu.
-
+(_Read the "Keybindings" menu inside "MilWoT"_)
+ 
 _This website has notifications and works *offline* if it is installed as *PWA*._
 
 ---
@@ -27,5 +28,6 @@ _This website has notifications and works *offline* if it is installed as *PWA*.
 
 Савет 2: Користите тастере на тастатури за бржи рад у менију.
 Свако означено слово у менију представља који тастер се користи за који део менија.
+(_Прочитајте "Скраћенице тастери" мени у "MilWoT"_)
 
 _Овај вебсајт има нотификације и ради *без интернета* ко је инсталиран као *"PWA"*._
