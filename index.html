@@ -1290,6 +1290,7 @@
 			document.getElementById('notif-banner').classList.add('hidden');
 			closeMenu();
 			closeWarning();
+			discardSession();
 		}		
 		if (e.key === '+' && !e.target.matches('input, textarea')) addTask();
 		if (e.key === '-' && !e.target.matches('input, textarea')) addPause();
@@ -1334,20 +1335,13 @@
 			showSubpanel('copyright');
 		}
 		if (e.key === 'Enter') startSession();
-		if (e.key === 'n') nextStep();
+		if (e.key === 'n') nextStep(); //Skip button
 		if (e.key === 'u') {
 			const toggle = document.getElementById('pause-resume-btn');
 				togglePause();
 	  }
 		if (e.key === 'e' && !e.target.matches('input, textarea')) backToEditor();
-
-
-
-
-
-
-
-
+		if (e.key === 'x' && !e.target.matches('input, textarea')) resumeSession();
 	});
 
 
