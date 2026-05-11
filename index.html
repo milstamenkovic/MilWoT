@@ -4,7 +4,7 @@
 <!-- Version J -->
 <!-- Created with the help of Free Claude AI -->
 <!-- Created:   23.02.2026. - Ćuprija, Serbia -->
-<!-- Revised:   10.05.2026. - Ćuprija, Serbia -->
+<!-- Revised:   12.05.2026. - Ćuprija, Serbia -->
 <!-- Published: 23.02.2026. - Ćuprija, Serbia -->
 
 
@@ -1809,6 +1809,8 @@
   let isPaused = false;
   let stepDuration = 0;
   let stepElapsed = 0;
+	let stepStartTime = null;
+	let stepStartSecondsLeft = 0;
 
   // ── Session Persistence ──
   const SESSION_KEY = 'milwot-session';
@@ -1856,6 +1858,8 @@
   function resumeSession() {
     const saved = getSavedSession();
     if (!saved) return;
+		stepStartTime = Date.now();
+		stepStartSecondsLeft = secondsLeft;
 
     document.getElementById('resume-banner').classList.remove('visible');
 
@@ -2075,6 +2079,8 @@
     secondsLeft = stepDuration;
     stepElapsed = 0;
     isPaused = false;
+		stepStartTime = Date.now();
+		stepStartSecondsLeft = stepDuration;
 
     const isPauseStep = t.type === 'pause';
     const nameEl = document.getElementById('current-name');
@@ -2106,42 +2112,43 @@
     timerInterval = setInterval(tick, 1000);
   }
 
-  function tick() {
-    if (isPaused) return;
-    secondsLeft--;
-    totalSecondsLeft--;
-    stepElapsed++;
-
-    updateClock();
-    saveSession();  // ← persist state every tick
-
-    const pct = (stepElapsed / stepDuration) * 100;
-    document.getElementById('progress-fill').style.width = pct + '%';
-
-    if (secondsLeft <= 0) {
-      clearInterval(timerInterval);
-      alertSound();
-      flash(tasks[currentStep].type === 'pause' ? 'rgba(107,197,168,0.2)' : 'rgba(232,197,71,0.2)');
-
-      const l = lang[currentLang];
-      const finishedName = tasks[currentStep].name;
-      const nextTask = tasks[currentStep + 1];
-      const notifBody = nextTask
-        ? `${l.notifUpNext}: ${nextTask.name} (${nextTask.minutes} min)`
-        : l.notifDone;
-      sendNotification(`⏱ ${finishedName}`, notifBody);
-
-      setTimeout(() => {
-        if (currentStep < tasks.length - 1) {
-          currentStep++;
-          totalSecondsLeft = tasks.slice(currentStep).reduce((s, t) => s + t.minutes * 60, 0);
-          startStep();
-        } else {
-          finishSession();
-        }
-      }, 800);
-    }
-  }
+	function tick() {
+	  if (isPaused) return;
+	
+	  const elapsed = Math.floor((Date.now() - stepStartTime) / 1000);
+	  secondsLeft = Math.max(0, stepStartSecondsLeft - elapsed);
+	  stepElapsed = elapsed;
+		totalSecondsLeft = secondsLeft + tasks.slice(currentStep + 1).reduce((s, t) => s + t.minutes * 60, 0);
+	  updateClock();
+	  saveSession();
+	
+	  const pct = (stepElapsed / stepDuration) * 100;
+	  document.getElementById('progress-fill').style.width = pct + '%';
+	
+	  if (secondsLeft <= 0) {
+	    clearInterval(timerInterval);
+	    alertSound();
+	    flash(tasks[currentStep].type === 'pause' ? 'rgba(107,197,168,0.2)' : 'rgba(232,197,71,0.2)');
+	
+	    const l = lang[currentLang];
+	    const finishedName = tasks[currentStep].name;
+	    const nextTask = tasks[currentStep + 1];
+	    const notifBody = nextTask
+	      ? `${l.notifUpNext}: ${nextTask.name} (${nextTask.minutes} min)`
+	      : l.notifDone;
+	    sendNotification(`⏱ ${finishedName}`, notifBody);
+	
+	    setTimeout(() => {
+	      if (currentStep < tasks.length - 1) {
+	        currentStep++;
+	        totalSecondsLeft = tasks.slice(currentStep).reduce((s, t) => s + t.minutes * 60, 0);
+	        startStep();
+	      } else {
+	        finishSession();
+	      }
+	    }, 800);
+	  }
+	}
 
   function updateClock() {
     const l = lang[currentLang];
