@@ -1563,6 +1563,7 @@
       changelogBody:    '<u>Fixes and changes to current and last version:</u>\n<i>(More <a href="https://milstamenkovic.github.io/MilWoT/CHANGELOG" target="_blank" rel="noopener noreferrer" style="color:red;">here</a>)</i>\n(Order - <i>Newest of top</i>)\n\nVersion G (vG)\n<pre>    - ...;</pre>',
       roadmapLabel:     'ROADMAP',
       roadmapTitle:     'ROADMAP',
+			roadmapBody:      '<u>Ideas for future versions:</u>\n<i>(More at <a href="https://milstamenkovic.github.io/MilWoT/ROADMAP" target="_blank" rel="noopener noreferrer" style="color:red;">here</a>)</i>\n(Order - <i>Newest on top</i>)\n\nVersion 1.1 (v1.1)\n\<pre>    - ...</pre>\n\nVersion 1.2 (v1.2)\n<pre>    - ...</pre>',
       issuesLabel:      'Issues',
       issuesTitle:      'Issues',
       issuesBody:       'Use GitHub to report <u>issues</u> for "MilWoT" PWA.\n<a href="https://github.com/milstamenkovic/MilWoT/issues" target="_blank" rel="noopener noreferrer" style="color:red;">REPORT ISSUES</a>'
@@ -1650,12 +1651,10 @@
     } else if (type === 'changelog') {
       document.getElementById('subpanel-title').textContent = m.changelogTitle;
       document.getElementById('subpanel-body').innerHTML = m.changelogBody.replace(/\n/g, '<br>');
-    }
-    else if (type === 'roadmap') {
+    } else if (type === 'roadmap') {
       document.getElementById('subpanel-title').textContent = m.roadmapTitle;
       document.getElementById('subpanel-body').innerHTML = m.roadmapBody.replace(/\n/g, '<br>');
-    }
-    else if (type === 'issues') {
+    } else if (type === 'issues') {
       document.getElementById('subpanel-title').textContent = m.issuesTitle;
       document.getElementById('subpanel-body').innerHTML = m.issuesBody.replace(/\n/g, '<br>');
     }
