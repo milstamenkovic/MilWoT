@@ -1,5 +1,12 @@
-<!-- Created: 01h08'52'' - 15.05.2026. - Ćuprija, Serbia - Mil Stamenković -->
-<!-- Revised: 03h14'02'' - 15.05.2026. - Ćuprija, Serbia - Mil Stamenković -->
+<!-- MilWoT - Mil Work Timer -->
+<!-- AI Disclaimer -->
+<!-- © 2026 Mil Stamenković -->
+<!-- Version J -->
+<!-- Created with the help of Free Claude AI -->
+<!-- Created:   15.02.2026. - Ćuprija, Serbia -->
+<!-- Revised:   16.05.2026. - Ćuprija, Serbia -->
+
+
 
 
 
@@ -7,13 +14,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>AI Disclaimer / "AI" ограђивање</title>
 	<link rel="icon" href="./Media/Icons/icon192.png" type="image/png">
+	<link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap" rel="stylesheet">
 </head>
 
 <style>
+
+* {
+	font-family: 'Cascadia Code';
+}
 
 body {
 	display: flex;
@@ -23,13 +35,23 @@ body {
 
 
 h1 {
-	color: #960000;
 	display: block;
 	text-align: center;
+	color: #960000;
 }
 
 h2 {
+	font-size: 1.3em;
 	text-decoration: underline;
+}
+
+h3 {
+	font-size: 1em;
+	font-style: italic;
+}
+
+p {
+	width: 100%;
 }
 
 .main-background {
@@ -47,22 +69,24 @@ h2 {
 }
 
 .text-background {
-	justify-items: center;
 	background-color: #121212;
 	width: 90%;
+	padding: 1em;
 	border-radius: 6px;
 }
 
+.text-background h2 {
+	display: flex;
+	justify-content: center;
+}
 
+.segment {
+	white-space: nowrap;
+}
 
-
-	.segment {
-		white-space: nowrap;
-	}
-
-	.divider {
-		display: inline-block;
-	}
+.divider {
+	display: inline-block;
+}
 
 /* Styles for screens 480px or narrower */
 @media (max-width: 1280px) {
@@ -81,15 +105,29 @@ h2 {
   }
 }
 
+.buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 1em;
+}
 
+button {
+	background-color: #121212;
+	color: #afafaf;
+	padding: 0.5em;
+	border-radius: 3px;
+	border-style: none;
+	cursor: pointer;
+}
 
+code {
+	background-color: #2d2d2d;
+}
 
-
-
-
-
-
-
+p, ul {
+	font-size: 0.9em;
+}
 
 
 </style>
@@ -103,22 +141,73 @@ h2 {
 				<span class="segment">AI DISCLAIMER</span>
 				<span class="divider">/</span>
 				<span class="segment">"AI" ОГРАЂИВАЊЕ</span>
-			</h1>	
+			</h1>
+				
+			<div class="buttons">
+				<a href="#eng"><button>English</button></a>
+				<a href="#srp"><button>Српски</button></a>
+			</div>
+
 		</div>
 		
 		<!-- ENGLISH -->
 		<div class="text-background">
-			<h2>AI Disclaimer</h2>
-			<p>...</p>
+			<h2 id="eng">AI Disclaimer</h2>
+			<h3>Personal disclaimer by "MilWoT" author <u>Mil Stamenković</u> for AI usage in "MilWoT" project.<br>--May 16, 2026.</h3>
+			<p>All ideas, design, UI and UX and similar is 100% mine (Mil Stamenković).<br>AI was not used for any of that.<br>Every part of "MilWoT" is fully my IP.</p>
+			<p>Complete code was writen by hand by me, with Visual Studio Code at first and then with core/basic Neovim.<br>AI was not used for auto-writing code, it was not used inside Visual Studio Code (as agent in sidebar or chat or any other way) and it was not used inside Neovim.</p>
+			<p>In ever file that was made with any help from AI, disclaimer was written in pre-code (top of file).</p>
+			<p><u>WHAT DID I WROTE AND CREATED?</u><br>(100% of what is listed)</p>
+			<ul style="margin-top: -1em;">
+				<li>HTML</li>
+				<li>CSS</li>
+				<li>manifest.json</li>
+				<li>MARKDOWN (.md) files</li>
+				<li>Logo</li>
+				<li>Icons</li>
+			</ul>
+			<p><u>WHAT WAS AI NOT USED FOR?</u>
+			<ul style="margin-top: -1em;">
+				<li>AI was never used by feeding it with code or files and in return getting code or files back with solutions.</li>
+				<li>AI was never used for <u>prompt-product</u> type of interaction.<br>I never told AI what to do and to do it for me, after which I would just push changes to GitHub, for public usage.</li>
+				<li>AI was never used to give me ideas and advices what "MilWoT" should have and how should it behave, how it should look, what people would like or won't like.</li>
+				<li>AI was never used for writing text and translations.
+	Every typo and gramatical error is 100% mine.<br>Every typo and gramatical error is 100% mine.</li>
+			</ul>
+			<p><u>WHAT KIND OF AI WAS USED?</u></p>
+			<ul style="margin-top: -1em;">
+				<li>Free plan Claude AI</li>
+			</ul>
+			<p><u>WHERE WAS AI USED?</u></p>
+			<ul style="margin-top: -1em;">
+				<li>100% for more advanced JavaScript stuff inside index.html</li>
+				<li>sw.js</li>
+			</ul>
+			<p><u>WHAT WAS AI USED FOR</u></p>
+			<ul style="margin-top: -1em;">
+				<li>I am good with HTML and CSS and I only know basic JAVASCRIPT.<br>AI was used to help me understand what I need to do and why something works like it does.</li>
+				<li>I wrote complete code by hand and all JAVASCRIPT implementation inside HTML but for more advanced JAVASCRIPT I used Free Claude AI to either <u>guide me</u> or <u>give me line of code</u> for something.</li>
+				<p style="margin-top:0.5em;margin-bottom:0;">EXAMPLES</p>
+				<ol>
+					<li>I knew how to translate UI and have a toogle for English and Serbian UI. What I didn't know was that I have to have different translations for <code>const menuText = {}</code> and for <code>const lang = {}</code>. Not that I didn't know how to do it, but that I had to create different translations in general. My UI was broken until I asked Free Claude AI what am I doing wrong and after few quiestions-answers back and forth, Free Claude AI told me that I probably don't have good translation logic inside code and that I need to check that out.</li>
+					<li>Using Escape keyboard key to <u>hide</u> and not to <u>enable</u> notification banner and PWA installation. My code for Escape keybinding was always enabling notifications and I didn't know what I was doing wrong. I told Free Claude AI about my problem and after few questions-answers I got the answer that I have to change eventListener. After that I made listener for <code>document.getElementById('notif-banner').classList.add('hidden')</code> and problem was fixed. I was listening wrong hidden.</li>
+					<li>It helped me to understand difference between real time clock and clock with ticks, which browser throttles (which makes clock to pause or time to move slower).</li>
+					<li>Other examples are similar to these three ones, more or less.</li>
+				</ol>
+			</ul>
+
+
 		</div>
 
 		<!-- SERBIAN -->
 		<div class="text-background">
-			<h2>"AI" ограђивање</h2>
+			<h2 id="srp">"AI" ограђивање</h2>
 			<p>...</p>
 		</div>
 
 	</div>
+	
+		
 
 	<!-- Add BACK TO APP -->
 	<!-- Add COPYRIGHT -->
@@ -127,6 +216,7 @@ h2 {
 </body>
 
 <script>
+
 
 
 </script>
