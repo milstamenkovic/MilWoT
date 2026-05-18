@@ -3,8 +3,8 @@
 <!-- © 2026 Mil Stamenković -->
 <!-- Version J -->
 <!-- Created with the help of Free Claude AI -->
-<!-- Created:   15.02.2026. - Ćuprija, Serbia -->
-<!-- Revised:   16.05.2026. - Ćuprija, Serbia -->
+<!-- Created: 15.02.2026. - Ćuprija, Serbia -->
+<!-- Revised: 18.05.2026. - Ćuprija, Serbia -->
 
 
 
@@ -16,7 +16,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>AI Disclaimer / "AI" ограђивање</title>
+	<title>AI Disclaimer / "AI" напомена</title>
 	<link rel="icon" href="./Media/Icons/icon192.png" type="image/png">
 	<link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap" rel="stylesheet">
 </head>
@@ -80,36 +80,29 @@ p {
 	justify-content: center;
 }
 
-.segment {
+.title {
 	white-space: nowrap;
 }
 
-.divider {
+.titleDivider {
 	display: inline-block;
 }
 
 /* Styles for screens 480px or narrower */
 @media (max-width: 1280px) {
-  .divider {
+  .titleDivider {
     display: block;    /* Forces the line break */
     font-size: 0;      /* Hides the original "/" */
     margin: 10px 0;    /* Optional: adds some space around the break */
   }
 
-  .divider::before {
+  .titleDivider::before {
     content: "";     /* Adds the hyphen */
     font-size: 2rem;   /* Resets font size to match the H1 */
     display: block;
 		text-align: center;
 		color: #960000;
   }
-}
-
-.buttons {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	gap: 1em;
 }
 
 button {
@@ -121,6 +114,25 @@ button {
 	cursor: pointer;
 }
 
+.buttons {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	gap: 8px;
+}
+
+.buttons a:first-child { 
+	margin-right: auto;
+}
+
+.buttons a:last-child {
+	margin-left: auto;
+}
+
+backBtn {
+	font-size: 0.75em;
+}
+
 code {
 	background-color: #2d2d2d;
 }
@@ -128,7 +140,6 @@ code {
 p, ul {
 	font-size: 0.9em;
 }
-
 
 </style>
 
@@ -138,23 +149,25 @@ p, ul {
 		
 		<div>
 			<h1>
-				<span class="segment">AI DISCLAIMER</span>
-				<span class="divider">/</span>
-				<span class="segment">"AI" ОГРАЂИВАЊЕ</span>
+				<span class="title">AI DISCLAIMER</span>
+				<span class="titleDivider">/</span>
+				<span class="title">"AI" НАПОМЕНА</span>
 			</h1>
 				
 			<div class="buttons">
-				<a href="#eng"><button>English</button></a>
-				<a href="#srp"><button>Српски</button></a>
+				<a href=".."><button class="backBtn">Back</button></a>
+				<a href="#engDisclaimer"><button>English</button></a>
+				<a href="#srpDisclaimer"><button>Српски</button></a>
+				<a href=".."><button class="backBtn">Назад</button></a>
 			</div>
 
 		</div>
 		
 		<!-- ENGLISH -->
 		<div class="text-background">
-			<h2 id="eng">AI Disclaimer</h2>
-			<h3>Personal disclaimer by "MilWoT" author <u>Mil Stamenković</u> for AI usage in "MilWoT" project.<br>--May 16, 2026.</h3>
-			<p>All ideas, design, UI and UX and similar is 100% mine (Mil Stamenković).<br>AI was not used for any of that.<br>Every part of "MilWoT" is fully my IP.</p>
+			<h2 id="engDisclaimer">AI Disclaimer</h2>
+			<h3>Personal disclaimer by "MilWoT" author <u>Mil Stamenković</u> for Artificial Intelligence (AI) usage in "MilWoT" project.<br>--May 16, 2026.</h3>
+			<p>All ideas, design, UI and UX and similar is 100% mine (Mil Stamenković).<br>AI was not used for any of that.<br>Every part of "MilWoT" is fully my Intellectual Property (IP).</p>
 			<p>Complete code was writen by hand by me, with Visual Studio Code at first and then with core/basic Neovim.<br>AI was not used for auto-writing code, it was not used inside Visual Studio Code (as agent in sidebar or chat or any other way) and it was not used inside Neovim.</p>
 			<p>In ever file that was made with any help from AI, disclaimer was written in pre-code (top of file).</p>
 			<p><u>WHAT DID I WROTE AND CREATED?</u><br>(100% of what is listed)</p>
@@ -171,8 +184,7 @@ p, ul {
 				<li>AI was never used by feeding it with code or files and in return getting code or files back with solutions.</li>
 				<li>AI was never used for <u>prompt-product</u> type of interaction.<br>I never told AI what to do and to do it for me, after which I would just push changes to GitHub, for public usage.</li>
 				<li>AI was never used to give me ideas and advices what "MilWoT" should have and how should it behave, how it should look, what people would like or won't like.</li>
-				<li>AI was never used for writing text and translations.
-	Every typo and gramatical error is 100% mine.<br>Every typo and gramatical error is 100% mine.</li>
+				<li>AI was never used for writing text and translations.<br>Every typo and gramatical error is 100% mine.</li>
 			</ul>
 			<p><u>WHAT KIND OF AI WAS USED?</u></p>
 			<ul style="margin-top: -1em;">
@@ -196,13 +208,61 @@ p, ul {
 				</ol>
 			</ul>
 
+		<a href="#"><button>⬆ TOP ⬆</button></a>
 
 		</div>
 
 		<!-- SERBIAN -->
 		<div class="text-background">
-			<h2 id="srp">"AI" ограђивање</h2>
-			<p>...</p>
+			<h2 id="srpDisclaimer">"AI" напомена</h2>
+			<h3>Лична напомена "MilWoT" аутора <u>Милана Стаменковића</u> за коришћење вештачке интелигенције ("AI") у "MilWoT" пројекту.<br>--16. мај 2026.</h3>
+			<p>Све идеје, дизајн, кориснички интерфејс ("UI") и корисничко искуство ("UX") је 100% моје (Милана Стаменковића).<br>"AI" није коришћена за било шта од тог.<br>Сваки део "MilWoT" je потпуно моја интелектуална својима ("IP").</p>
+			<p>Комплетан код је ручно написан од моје стране, са "Visual Studio Code" у почетку, а онда са чистим/основним "Neovim".<br>"AI" никада није коришћена за аутоматизовано писање кода, није коришћена унутар "Visual Studio Code" (као агент у бочној траци или на било који други начин) и није коришћена унутар "Neovim".</p>
+			<p>У сваком фајлу који је направљен уз било какву помоћ "AI", ограђивање је написано у заглављу кода (врх фајла).</p>
+			<p><u>ШТА САМ ЈА НАПИСАО И НАПРАВИО?</u><br>(100% од онога што је набројано)</p>
+			<ul style="margin-top: -1em;">
+				<li>HTML</li>
+				<li>CSS</li>
+				<li>manifest.json</li>
+				<li>"MARKDOWN (.md)" фајлови</li>
+				<li>Лого</li>
+				<li>Иконице</li>
+			</ul>
+			<p><u>ЗА ШТА "AI" НИЈЕ КОРИШЋЕНА?</u>
+			<ul style="margin-top: -1em;">
+				<li>"AI" никада није коришћена тако што је храњена кодом или фајловима, заузврат дајући код или фајлове са решењима.</li>
+				<li>"AI" никада није коришћена за <u>упит-производ</u> врсту интеракције.<br>Никада нисам тражио од "AI" да нешто уради за мене и како да уради, након чега бих ја за послао промене на "GitHub", за јавно коришћење. </li>
+				<li>"AI" никада није коришћена да ми даје идеје и савете шта "MilWoT" треба да има и како да се понаша, како да изгледа, шта би људи волели или не би волели.</li>
+				<li>"AI" никада није коришћена за писање текста и за преводе.<br>Свако прогутано слово и граматичка грешка је 100% моја.</li>
+			</ul>
+
+
+
+
+
+
+			<p><u>WHAT KIND OF AI WAS USED?</u></p>
+			<ul style="margin-top: -1em;">
+				<li>Free plan Claude AI</li>
+			</ul>
+			<p><u>WHERE WAS AI USED?</u></p>
+			<ul style="margin-top: -1em;">
+				<li>100% for more advanced JavaScript stuff inside index.html</li>
+				<li>sw.js</li>
+			</ul>
+			<p><u>WHAT WAS AI USED FOR</u></p>
+			<ul style="margin-top: -1em;">
+				<li>I am good with HTML and CSS and I only know basic JAVASCRIPT.<br>AI was used to help me understand what I need to do and why something works like it does.</li>
+				<li>I wrote complete code by hand and all JAVASCRIPT implementation inside HTML but for more advanced JAVASCRIPT I used Free Claude AI to either <u>guide me</u> or <u>give me line of code</u> for something.</li>
+				<p style="margin-top:0.5em;margin-bottom:0;">EXAMPLES</p>
+				<ol>
+					<li>I knew how to translate UI and have a toogle for English and Serbian UI. What I didn't know was that I have to have different translations for <code>const menuText = {}</code> and for <code>const lang = {}</code>. Not that I didn't know how to do it, but that I had to create different translations in general. My UI was broken until I asked Free Claude AI what am I doing wrong and after few quiestions-answers back and forth, Free Claude AI told me that I probably don't have good translation logic inside code and that I need to check that out.</li>
+					<li>Using Escape keyboard key to <u>hide</u> and not to <u>enable</u> notification banner and PWA installation. My code for Escape keybinding was always enabling notifications and I didn't know what I was doing wrong. I told Free Claude AI about my problem and after few questions-answers I got the answer that I have to change eventListener. After that I made listener for <code>document.getElementById('notif-banner').classList.add('hidden')</code> and problem was fixed. I was listening wrong hidden.</li>
+					<li>It helped me to understand difference between real time clock and clock with ticks, which browser throttles (which makes clock to pause or time to move slower).</li>
+					<li>Other examples are similar to these three ones, more or less.</li>
+				</ol>
+			</ul>
+
 		</div>
 
 	</div>
