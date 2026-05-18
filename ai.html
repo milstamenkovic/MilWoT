@@ -33,6 +33,10 @@ body {
 	background-color: #000000;
 }
 
+a {
+	color: red;
+	font-size: 0.75em;
+}
 
 h1 {
 	display: block;
@@ -141,6 +145,12 @@ p, ul {
 	font-size: 0.9em;
 }
 
+.pageTop {
+	display: flex;
+	gap: 1em;
+	text-decoration: none;
+}
+
 </style>
 
 <body>
@@ -198,11 +208,11 @@ p, ul {
 			<p><u>WHAT WAS AI USED FOR</u></p>
 			<ul style="margin-top: -1em;">
 				<li>I am good with HTML and CSS and I only know basic JAVASCRIPT.<br>AI was used to help me understand what I need to do and why something works like it does.</li>
-				<li>I wrote complete code by hand and all JAVASCRIPT implementation inside HTML but for more advanced JAVASCRIPT I used Free Claude AI to either <u>guide me</u> or <u>give me line of code</u> for something.</li>
+				<li>I wrote complete code by hand and all JAVASCRIPT implementation inside HTML, but for more advanced JAVASCRIPT I used Free Claude AI to either <u>guide me</u> or <u>give me line of code</u> for something.</li>
 				<p style="margin-top:0.5em;margin-bottom:0;">EXAMPLES</p>
 				<ol>
-					<li>I knew how to translate UI and have a toogle for English and Serbian UI. What I didn't know was that I have to have different translations for <code>const menuText = {}</code> and for <code>const lang = {}</code>. Not that I didn't know how to do it, but that I had to create different translations in general. My UI was broken until I asked Free Claude AI what am I doing wrong and after few quiestions-answers back and forth, Free Claude AI told me that I probably don't have good translation logic inside code and that I need to check that out.</li>
-					<li>Using Escape keyboard key to <u>hide</u> and not to <u>enable</u> notification banner and PWA installation. My code for Escape keybinding was always enabling notifications and I didn't know what I was doing wrong. I told Free Claude AI about my problem and after few questions-answers I got the answer that I have to change eventListener. After that I made listener for <code>document.getElementById('notif-banner').classList.add('hidden')</code> and problem was fixed. I was listening wrong hidden.</li>
+					<li>I knew how to translate UI and have a toogle for English and Serbian UI. What I didn't know was that I have to have different translations for <code>const menuText = {}</code> and for <code>const lang = {}</code>. Not that I didn't know how to do it, but that I had to create different translations in general. My UI was broken until I asked Free Claude AI what am I doing wrong and after few questions-answers back and forth, Free Claude AI told me that I probably don't have good translation logic inside code and that I need to check that out.</li>
+					<li>Using Escape keyboard key to <u>hide</u> and not to <u>enable</u> notification banner and PWA installation. My code for Escape keybinding was always enabling notifications and I didn't know what I was doing wrong. I told Free Claude AI about my problem and after few questions-answers I got the answer that I have to change <code>eventListener</code>. After that I made listener for <code>document.getElementById('notif-banner').classList.add('hidden')</code> and problem was fixed. I was "listening" wrong "hidden".</li>
 					<li>It helped me to understand difference between real time clock and clock with ticks, which browser throttles (which makes clock to pause or time to move slower).</li>
 					<li>Other examples are similar to these three ones, more or less.</li>
 				</ol>
@@ -235,51 +245,37 @@ p, ul {
 				<li>"AI" никада није коришћена да ми даје идеје и савете шта "MilWoT" треба да има и како да се понаша, како да изгледа, шта би људи волели или не би волели.</li>
 				<li>"AI" никада није коришћена за писање текста и за преводе.<br>Свако прогутано слово и граматичка грешка је 100% моја.</li>
 			</ul>
-
-
-
-
-
-
-			<p><u>WHAT KIND OF AI WAS USED?</u></p>
+			<p><u>КОЈА ВРСТА "AI" ЈЕ КОРИШЋЕНА?</u></p>
 			<ul style="margin-top: -1em;">
-				<li>Free plan Claude AI</li>
+				<li>"Claude AI" са бесплатним планом</li>
 			</ul>
-			<p><u>WHERE WAS AI USED?</u></p>
+			<p><u>ГДЕ ЈЕ "AI" КОРИШЋЕНА?</u></p>
 			<ul style="margin-top: -1em;">
-				<li>100% for more advanced JavaScript stuff inside index.html</li>
+				<li> 100% за напредније ствари са "JavaScript" унутра "index.html"</li>
 				<li>sw.js</li>
 			</ul>
-			<p><u>WHAT WAS AI USED FOR</u></p>
+			<p><u>ЗА ШТА ЈЕ "AI" КОРИШЋЕНА?</u></p>
 			<ul style="margin-top: -1em;">
-				<li>I am good with HTML and CSS and I only know basic JAVASCRIPT.<br>AI was used to help me understand what I need to do and why something works like it does.</li>
-				<li>I wrote complete code by hand and all JAVASCRIPT implementation inside HTML but for more advanced JAVASCRIPT I used Free Claude AI to either <u>guide me</u> or <u>give me line of code</u> for something.</li>
-				<p style="margin-top:0.5em;margin-bottom:0;">EXAMPLES</p>
+				<li>Знам добро да радим са "HTML" и са "CSS" и знам само основне ствари са "JAVASCRIPT".<br>"AI" је коришћена да ми помогне да разумем шта треба да урадим и како нешто функционише.</li>
+				<li>Цео код сам написао ручно и сву "JAVASCRIPT" употребу унутар "HTML", али за напредније "JAVASCRIPT" ствари користио сам бесплатни "Claude AI" или да ме <u>усмери</u> или да ми <u>да линију кода</u> за нешто.</li>
+				<p style="margin-top:0.5em;margin-bottom:0;">ПРИМЕРИ</p>
 				<ol>
-					<li>I knew how to translate UI and have a toogle for English and Serbian UI. What I didn't know was that I have to have different translations for <code>const menuText = {}</code> and for <code>const lang = {}</code>. Not that I didn't know how to do it, but that I had to create different translations in general. My UI was broken until I asked Free Claude AI what am I doing wrong and after few quiestions-answers back and forth, Free Claude AI told me that I probably don't have good translation logic inside code and that I need to check that out.</li>
-					<li>Using Escape keyboard key to <u>hide</u> and not to <u>enable</u> notification banner and PWA installation. My code for Escape keybinding was always enabling notifications and I didn't know what I was doing wrong. I told Free Claude AI about my problem and after few questions-answers I got the answer that I have to change eventListener. After that I made listener for <code>document.getElementById('notif-banner').classList.add('hidden')</code> and problem was fixed. I was listening wrong hidden.</li>
-					<li>It helped me to understand difference between real time clock and clock with ticks, which browser throttles (which makes clock to pause or time to move slower).</li>
-					<li>Other examples are similar to these three ones, more or less.</li>
+					<li>Знао сам како да преведем кориснички интерфејс ("UI") и како да направим прекидач за српски и енглески кориснички интерфејс ("UI"). Оно што нисам знао је да морам да имам различите преводе за <code>const menuText = {}</code> и за <code>const lang = {}</code>. Није да нисам знао како то да урадим, него нисам знао да ми је различит превод уопште потребан. Мој кориснички интерфејс ("UI") је био покварен све док нисам питао бесплатни "Claude AI" шта радим погрешно и након неколико питања-одговара напред назад, бесплатни "Claude AI" ми је рекао да највероватније немам добру логику превода унутар кода и да морам то да проверим.</li>
+					<li>Коришћење "Escape" тастера на тастатури да <u>сакрије</u>, а не да <u>одобри</u> нотификације у банеру за нотификације и инсталацију "PWA". Мој код за "Escape" скраћеницу је увек одобравао нотификације и нисам знао шта радим погрешно. Рекао сам бесплатном "Claude AI" за мој проблем и након неколико питања-одговора добио сам одговор да морам да променим <code>eventListener</code>. Након тога сам направио "listener" за <code>document.getElementById('notif-banner').classList.add('hidden')</code> и проблем је поправљен. "Слушао" сам погрешно "сакривање".</li>
+					<li>Помогла ми је да разумем разлику између правог протока времена на сату и кликовима сата које прегледач ("browser") пригушује ("throttle") (што чини да се сат заустави или да време тече спорије).</li>
+					<li>Остали примери који су слични овим примерима, мање или више.</li>
 				</ol>
 			</ul>
 
 		</div>
 
+	<a href="#" class="pageTop"><button>PAGE TOP</button><button>ВРХ СТРАНЕ</button></a>
+	<a href=".." style="margin-top: -1em;" target="_blank"><button>MilWoT</button></a>
+
+	<div><a href="https://milstamenkovic.pages.dev" target="_blank">© 2026 Mil Stamenković / © 2026 Милан Стаменковић</a></div>
+
 	</div>
 	
-		
-
-	<!-- Add BACK TO APP -->
-	<!-- Add COPYRIGHT -->
-	<!-- Add ...something else???... -->
-
 </body>
-
-<script>
-
-
-
-</script>
-
 
 </html>
