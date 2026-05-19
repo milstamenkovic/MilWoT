@@ -4,7 +4,7 @@
 <!-- Version J -->
 <!-- Created with the help of Free Claude AI -->
 <!-- Created:   23.02.2026. - Ćuprija, Serbia -->
-<!-- Revised:   16.05.2026. - Ćuprija, Serbia -->
+<!-- Revised:   19.05.2026. - Ćuprija, Serbia -->
 <!-- Published: 23.02.2026. - Ćuprija, Serbia -->
 
 
@@ -1049,6 +1049,7 @@
   <button onclick="requestNotifPermission()" id="notif-btn">Enable</button>
   <span style="font-style: italic; text-align: center;" id="notif-pwa">Install this page as PWA for easier & offline use.</span>
   <button onclick="triggerInstall()" id="install-btn">Install</button>
+	<a href="#" onclick="openMenu(); showSubpanel('readme')"><p style="text-align: center; text-decoration: underline; text-decoration-color:red;" id="notif-readme">Read "DISCLAIMER" in "ABOUT 'MilWoT'" before using MilWoT! Click 👆 me</p></a>
 </div>
 
 <!-- ── RESUME BANNER ── -->
@@ -1132,6 +1133,7 @@
         <span style="color:var(--muted)">›</span>
       </button>
       <div class="menu-divider"></div>
+			<a href="https://milstamenkovic.pages.dev" style="font-size:0.75em; color:red; text-align:center;" target="_blank">© 2026 Mil Stamenković<br>© 2026 Милан Стаменковић</a>
       <div id="size-hint"></div>
     </div>
  
@@ -1432,6 +1434,7 @@
 			presetOverwrite:  'Are you sure you want to overwrite preset ',
 			warningYes:       'Yes',
 			warningCancel:    'Cancel',
+			notifReadme:      'Read "DISCLAIMER" inside "ABOUT \'MilWoT\'" before using MilWoT! Click 👆 me',
     },
     sr: {
       subtitle:         'Рад - Одмор - Поново',
@@ -1480,6 +1483,7 @@
 			presetOverwrite:  'Да ли сте сигурни да желите да преснимите поставку ',
 			warningYes:       'Да',
 			warningCancel:    'Откажи',
+			notifReadme:      'Прочитајте "ОДРИЦАЊЕ ОДГОВОРНОСТИ" у "О \'MilWoT\'" пре коришћења "MilWoT"! Кликни 👆 ме',
     }
   };
 
@@ -1497,6 +1501,7 @@
     document.getElementById('notif-text').textContent       = l.notifText;
     document.getElementById('notif-btn').textContent        = l.notifBtn;
     document.getElementById('notif-pwa').textContent        = l.notifPwa;
+    document.getElementById('notif-readme').textContent     = l.notifReadme;
     document.getElementById('header-type').textContent      = l.headerType;
     document.getElementById('btn-add-task').textContent     = l.btnAddTask;
     document.getElementById('btn-add-pause').textContent    = l.btnAddPause;
@@ -1538,9 +1543,7 @@
       subpanelBack:     '← Back',
       readmeLabel:      'ABOUT "MilWoT" (README)',
       readmeTitle:      'ABOUT "MilWoT" (README)',
-      readmeBody:       '"MilWoT" is a simple work timer.\n\nAdd tasks and pauses, set their durations, then hit START. The timer runs through your session automatically and alerts you when each step ends.\n\nTip 1: Drag the ▲▼ handle to reorder tasks.\nClick TASK/PAUSE to toggle the type.\n\nTip 2: Use keys on keyboard for faster work inside menus.\n"Escape" exit menu - "Backspace" go back in menu\n\n<i>This website has <u>notifications</u> and works <u>offline</u> if it is installed as <u>PWA</u>.</i>\n\n<u>"MilWoT as website and PWA will forever be free and open-source.</u>\n\n<button style="color:red" onclick="showSubpanel(\'disclaimer\')">Disclaimer</button>',
-			disclaimerTitle:  'Disclaimer',
-			disclaimerBody:   '... disclaimer...',
+      readmeBody:       '"MilWoT" is a simple work timer.\n\nAdd tasks and pauses, set their durations, then hit START. The timer runs through your session automatically and alerts you when each step ends.\n\nTip 1: Drag the ▲▼ handle to reorder tasks.\nClick TASK/PAUSE to toggle the type.\n\nTip 2: Use keys on keyboard for faster work inside menus.\n"Escape" exit menu - "Backspace" go back in menu\n\n<i>This website has <u>notifications</u> and works <u>offline</u> if it is installed as <u>PWA</u>.</i>\n\n<u>"MilWoT as website and PWA will forever be free and open-source.</u>\n\n<a href="ai.html" target="_blank"><button style="color:red")">AI Disclaimer</button></a>\n\n<a href="disclaimer.html" target="_blank"><button style="color:red")">Disclaimer</button></a>',
 			keybindingsLabel: 'Keybindings',
 			keybindingsTitle: 'Keybindings',
 			keybindingsBody:  'These are the keybinds that you can use for faster work:\n\n<pre>ESCAPE         <span style="color:var(--accent)">=</span> Close menus;</pre><pre>BACKSPACE      <span style="color:var(--accent)">=</span> Back in menu;</pre><pre>ENTER          <span style="color:var(--accent)">=</span> Enter/Confirm/Save;</pre><pre>TAB/SHIFT+TAB  <span style="color:var(--accent)">=</span> Move from field to field;</pre><pre>ARROWS UP/DOWN <span style="color:var(--accent)">=</span> Add and subtract minutes;<pre>CTRL + r       <span style="color:var(--accent)">=</span> Reset timer by reloading page;</pre>\n<pre>+     <span style="color:var(--accent)">=</span> Add task;</pre><pre>-     <span style="color:var(--accent)">=</span> Add pause;</pre><pre>ENTER <span style="color:var(--accent)">=</span> Start timer;</pre>\n<pre>m <span style="color:var(--accent)">=</span> Menu (Burger menu);</pre>\n<pre>l <span style="color:var(--accent)">=</span> Language toggle;</pre><pre>t <span style="color:var(--accent)">=</span> Theme toggle;</pre><pre>p <span style="color:var(--accent)">=</span> Presets;</pre>\n</pre><pre>a <span style="color:var(--accent)">=</span> ABOUT MilWoT (README);</pre><pre>w <span style="color:var(--accent)">=</span> MilWoT Disclaimer;</pre><pre>k <span style="color:var(--accent)">=</span> Keybindings;</pre><pre>g <span style="color:var(--accent)">=</span> CHANGELOG;</pre><pre>r <span style="color:var(--accent)">=</span> ROADMAP;</pre><pre>i <span style="color:var(--accent)">=</span> Issues;</pre><pre>c <span style="color:var(--accent)">=</span> Copyright;</pre>\n<pre>u <span style="color:var(--accent)">=</span> Pause & Resume timer;</pre><pre>s <span style="color:var(--accent)">=</span> Skip task;</pre><pre>e <span style="color:var(--accent)">=</span> Edit sessions;</pre>\n<pre>SPACE  <span style="color:var(--accent)">=</span> Resume session;</pre><pre>ESCAPE <span style="color:var(--accent)">=</span> Discard session;</pre>',
@@ -1566,7 +1569,7 @@
 			roadmapBody:      '<u>Ideas for future versions:</u>\n<i>(More at <a href="https://milstamenkovic.github.io/MilWoT/ROADMAP" target="_blank" rel="noopener noreferrer" style="color:red;">here</a>)</i>\n(Order - <i>Newest on top</i>)\n\nVersion 1.1 (v1.1)\n\<pre>    - ...</pre>\n\nVersion 1.2 (v1.2)\n<pre>    - ...</pre>',
       issuesLabel:      'Issues',
       issuesTitle:      'Issues',
-      issuesBody:       'Use GitHub to report <u>issues</u> for "MilWoT" PWA.\n<a href="https://github.com/milstamenkovic/MilWoT/issues" target="_blank" rel="noopener noreferrer" style="color:red;">REPORT ISSUES</a>'
+      issuesBody:       'Use GitHub to report <u>issues</u> for "MilWoT" PWA.\n<a href="https://github.com/milstamenkovic/MilWoT/issues" target="_blank" rel="noopener noreferrer" style="color:red;">REPORT ISSUES</a>',
     },
     sr: {
       langLabel:        'Toggle for English',
@@ -1577,9 +1580,7 @@
       subpanelBack:     '← Назад',
       readmeLabel:      'O "MilWoT" (ПРОЧИТАЈ МЕ)',
       readmeTitle:      'O "MilWoT" (ПРОЧИТАЈ МЕ)',
-      readmeBody:       '"MilWoT" је једноставан тајмер за рад.\n\nДодајте задатке и паузе, подесите њихова трајања, затим кликните ПОЧНИ. Тајмер иде кроз сесију аутоматски и обавештава Вас када се сваки корак заврши.\n\nСавет 1: Користите ▲▼ ручице да промените редослед.\nКликните на РАД/ПАУЗА да промените тип.\n\n Савет 2: Користите тастере на тастатури за бржи рад у менију.\n"Escape" излазак из менија - "Backspace" назад у менију\n\n<i>Овај вебсајт има <u>нотификације</u> и ради <u>без интернета</u> ако је инсталиран као <u>"PWA"</u>.</i>\n\n<u>"MilWoT" као вебсајт и "PWA" ће заувек бити бесплатан и отвореног кода.</u>\n\n<button style="color:red" onclick="showSubpanel(\'disclaimer\')">Ограђивање</button>',
-			disclaimerTitle:  'Ограђивање',
-			disclaimerBody:   '... ограђивање...',
+      readmeBody:       '"MilWoT" је једноставан тајмер за рад.\n\nДодајте задатке и паузе, подесите њихова трајања, затим кликните ПОЧНИ. Тајмер иде кроз сесију аутоматски и обавештава Вас када се сваки корак заврши.\n\nСавет 1: Користите ▲▼ ручице да промените редослед.\nКликните на РАД/ПАУЗА да промените тип.\n\n Савет 2: Користите тастере на тастатури за бржи рад у менију.\n"Escape" излазак из менија - "Backspace" назад у менију\n\n<i>Овај вебсајт има <u>нотификације</u> и ради <u>без интернета</u> ако је инсталиран као <u>"PWA"</u>.</i>\n\n<u>"MilWoT" као вебсајт и "PWA" ће заувек бити бесплатан и отвореног кода.</u>\n\n<a href="ai" target="_blank"><button style="color:red")">"AI" напомена</button></a>\n\n<a href="odgovornost.html" target="_blank"><button style="color:red")">Одрицање одговорност</button></a>',
 			keybindingsLabel: 'Скраћенице тaстери',
 			keybindingsTitle: 'Скраћенице тастери',
 			keybindingsBody:  'Ово су скраћенице тастери које можете користити за бржи рад:\n\n<pre>ESCAPE         <span style="color:var(--accent)">=</span> Затвори мени;</pre><pre>BACKSPACE      <span style="color:var(--accent)">=</span> Назад у менију;</pre><pre>ENTER          <span style="color:var(--accent)">=</span> "Enter"/Потврди/Сними;</pre><pre>TAB/SHIFT+TAB  <span style="color:var(--accent)">=</span> Кретање од поља до поља;<pre>ARROWS UP/DOWN <span style="color:var(--accent)">=</span> Додавање и одузимање минута;<pre>CTRL + r       <span style="color:var(--accent)">=</span> Ресет тајмера освежавањем стране</pre>\n<pre>+     <span style="color:var(--accent)">=</span> Додај задатак;</pre><pre>-     <span style="color:var(--accent)">=</span> Додај паузу;</pre><pre>ENTER <span style="color:var(--accent)">=</span> Покрени тајмер;</pre>\n<pre>m <span style="color:var(--accent)">=</span> Мени (Бургер мени);</pre>\n<pre>l <span style="color:var(--accent)">=</span> Промена језика;</pre><pre>t <span style="color:var(--accent)">=</span> Промена теме;</pre><pre>p <span style="color:var(--accent)">=</span> Поставке;</pre>\n<pre>a <span style="color:var(--accent)">=</span> О "MilWoT" (ПРОЧИТАЈ МЕ);</pre><pre>w <span style="color:var(--accent)">=</span> "MilWoT" ограђивање;</pre><pre>k <span style="color:var(--accent)">=</span> Скраћенице тастер;</pre><pre>g <span style="color:var(--accent)">=</span> ПРОМЕНЕ (CHANGELOG);</pre><pre>r <span style="color:var(--accent)">=</span> РАЗВОЈ (ROADMAP);</pre><pre>i <span style="color:var(--accent)">=</span> Проблеми;</pre><pre>c <span style="color:var(--accent)">=</span> Ауторска права;</pre>\n<pre>u <span style="color:var(--accent)">=</span> Пауза и наставаи тајмера;</pre><pre>s <span style="color:var(--accent)">=</span> Прескочи задатак;</pre><pre>e <span style="color:var(--accent)">=</span> Преправи сесију;</pre>\n<pre>SPACE  <span style="color:var(--accent)">=</span> Настави сесију;</pre><pre>ESCAPE <span style="color:var(--accent)">=</span> Обустави сесију;</pre>',
@@ -1605,7 +1606,7 @@
       roadmapBody:      '<u>Идеје за будуће верзије:</u>\n<i>(Више <a href="https://milstamenkovic.github.io/MilWoT/ROADMAP" target="_blank" rel="noopener noreferrer" style="color:red;">овде</a>)</i>\n(Уређење - <i>Новије на врху</i>)\n\nВерзија 1.1 (v1.1)\n\<pre>    - ...</pre>\n\nВерзија 1.2 (v1.2)\n<pre>    - ...</pre>',
       issuesLabel:      'Проблеми',
       issuesTitle:      'Проблеми',
-      issuesBody:       'Користите "GitHub" да пријавите <u>проблеме</u> за "MilWoT PWA".\n<a href="https://github.com/milstamenkovic/MilWoT/issues" target="_blank" rel="noopener noreferrer" style="color:red;">ПРИЈАВИТЕ ПРОБЛЕМЕ</a>'
+      issuesBody:       'Користите "GitHub" да пријавите <u>проблеме</u> за "MilWoT PWA".\n<a href="https://github.com/milstamenkovic/MilWoT/issues" target="_blank" rel="noopener noreferrer" style="color:red;">ПРИЈАВИТЕ ПРОБЛЕМЕ</a>',
     }
   };
 
