@@ -4,7 +4,7 @@
 <!-- Version J -->
 <!-- Created with the help of Free Claude AI -->
 <!-- Created:   23.02.2026. - Ćuprija, Serbia -->
-<!-- Revised:   19.05.2026. - Ćuprija, Serbia -->
+<!-- Revised:   20.05.2026. - Ćuprija, Serbia -->
 <!-- Published: 23.02.2026. - Ćuprija, Serbia -->
 
 
@@ -1032,7 +1032,7 @@
 
 <div id="header-section" style="display:flex; flex-direction:column; align-items:center;">
   <p id="appNameTitle"><span style="color:red">Mil</span> <span style="color:red">Wo</span>rk <span style="color:red">T</span>imer</p>
-  <p id="createdBy" style="font-size: 0.75em; font-style: italic;">Created by Mil Stamenković</p>
+  <p id="createdBy" style="font-size: 0.75em; font-style: italic;">Created by Mil Stamenković -- EXPERIMENTAL PRODUCT - NOT FOR USE (YET)</p>
   <br>
   <div style="display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:30px;">
     <p class="subtitle" id="subtitle" style="margin-bottom:0; line-height:1">Work - Relax - Repeat</p>
@@ -1333,7 +1333,7 @@
 			openMenu();
 			showSubpanel('readme');
 		}
-		// MILWOT DISLAIMER = w
+		// MILWOT DISCLAIMER = w
 		// ... add sub-menu here...
 		// KEYBINDINGS = k
 		if (e.key === 'k' && !e.target.matches('input, textarea')) {
@@ -1367,7 +1367,7 @@
 				togglePause();
 	  }
 		// SKIP TASK = s
-		if (e.key === 's') nextStep(); //Skip button
+		if (e.key === 's' && !e.target.matches('input, textarea')) nextStep();
 		// EDIT SESSION = e
 		if (e.key === 'e' && !e.target.matches('input, textarea')) backToEditor();
 		// SESSION WARNING
@@ -1424,7 +1424,7 @@
       breaksWord:       'breaks',
       completedWord:    'completed',
       minLabel:         'min',
-      createdBy:        'Created by Mil Stamenković',
+      createdBy:        'Created by Mil Stamenković -- EXPERIMENTAL PRODUCT - NOT FOR USE (YET)',
       appNameTitle:     '<span style="color:red">Mil</span> <span style="color:red">Wo</span>rk <span style="color:red">T</span>imer',
       headerName:       'Task name',
       resumeTitle:      'Session in progress',
@@ -1473,7 +1473,7 @@
       breaksWord:       'паузе',
       completedWord:    'завршено',
       minLabel:         'мин',
-      createdBy:        'Направио Милан Стаменковић',
+      createdBy:        'Направио Милан Стаменковић -- ЕКСПЕРИМЕНТАЛНИ ПРОИЗВОД - НИЈЕ ЗА КОРИШЋЕЊЕ (ЈОШ УВЕК)',
       appNameTitle:     'Миланов радни тајмер',
       headerName:       'Име задатка',
       resumeTitle:      'Сесија у току',
@@ -1580,7 +1580,7 @@
       subpanelBack:     '← Назад',
       readmeLabel:      'O "MilWoT" (ПРОЧИТАЈ МЕ)',
       readmeTitle:      'O "MilWoT" (ПРОЧИТАЈ МЕ)',
-      readmeBody:       '"MilWoT" је једноставан тајмер за рад.\n\nДодајте задатке и паузе, подесите њихова трајања, затим кликните ПОЧНИ. Тајмер иде кроз сесију аутоматски и обавештава Вас када се сваки корак заврши.\n\nСавет 1: Користите ▲▼ ручице да промените редослед.\nКликните на РАД/ПАУЗА да промените тип.\n\n Савет 2: Користите тастере на тастатури за бржи рад у менију.\n"Escape" излазак из менија - "Backspace" назад у менију\n\n<i>Овај вебсајт има <u>нотификације</u> и ради <u>без интернета</u> ако је инсталиран као <u>"PWA"</u>.</i>\n\n<u>"MilWoT" као вебсајт и "PWA" ће заувек бити бесплатан и отвореног кода.</u>\n\n<a href="ai" target="_blank"><button style="color:red")">"AI" напомена</button></a>\n\n<a href="odgovornost.html" target="_blank"><button style="color:red")">Одрицање одговорност</button></a>',
+      readmeBody:       '"MilWoT" је једноставан тајмер за рад.\n\nДодајте задатке и паузе, подесите њихова трајања, затим кликните ПОЧНИ. Тајмер иде кроз сесију аутоматски и обавештава Вас када се сваки корак заврши.\n\nСавет 1: Користите ▲▼ ручице да промените редослед.\nКликните на РАД/ПАУЗА да промените тип.\n\n Савет 2: Користите тастере на тастатури за бржи рад у менију.\n"Escape" излазак из менија - "Backspace" назад у менију\n\n<i>Овај вебсајт има <u>нотификације</u> и ради <u>без интернета</u> ако је инсталиран као <u>"PWA"</u>.</i>\n\n<u>"MilWoT" као вебсајт и "PWA" ће заувек бити бесплатан и отвореног кода.</u>\n\n<a href="ai" target="_blank"><button style="color:red")">"AI" напомена</button></a>\n\n<a href="odgovornost.html" target="_blank"><button style="color:red")">Одрицање одговорности</button></a>',
 			keybindingsLabel: 'Скраћенице тaстери',
 			keybindingsTitle: 'Скраћенице тастери',
 			keybindingsBody:  'Ово су скраћенице тастери које можете користити за бржи рад:\n\n<pre>ESCAPE         <span style="color:var(--accent)">=</span> Затвори мени;</pre><pre>BACKSPACE      <span style="color:var(--accent)">=</span> Назад у менију;</pre><pre>ENTER          <span style="color:var(--accent)">=</span> "Enter"/Потврди/Сними;</pre><pre>TAB/SHIFT+TAB  <span style="color:var(--accent)">=</span> Кретање од поља до поља;<pre>ARROWS UP/DOWN <span style="color:var(--accent)">=</span> Додавање и одузимање минута;<pre>CTRL + r       <span style="color:var(--accent)">=</span> Ресет тајмера освежавањем стране</pre>\n<pre>+     <span style="color:var(--accent)">=</span> Додај задатак;</pre><pre>-     <span style="color:var(--accent)">=</span> Додај паузу;</pre><pre>ENTER <span style="color:var(--accent)">=</span> Покрени тајмер;</pre>\n<pre>m <span style="color:var(--accent)">=</span> Мени (Бургер мени);</pre>\n<pre>l <span style="color:var(--accent)">=</span> Промена језика;</pre><pre>t <span style="color:var(--accent)">=</span> Промена теме;</pre><pre>p <span style="color:var(--accent)">=</span> Поставке;</pre>\n<pre>a <span style="color:var(--accent)">=</span> О "MilWoT" (ПРОЧИТАЈ МЕ);</pre><pre>w <span style="color:var(--accent)">=</span> "MilWoT" ограђивање;</pre><pre>k <span style="color:var(--accent)">=</span> Скраћенице тастер;</pre><pre>g <span style="color:var(--accent)">=</span> ПРОМЕНЕ (CHANGELOG);</pre><pre>r <span style="color:var(--accent)">=</span> РАЗВОЈ (ROADMAP);</pre><pre>i <span style="color:var(--accent)">=</span> Проблеми;</pre><pre>c <span style="color:var(--accent)">=</span> Ауторска права;</pre>\n<pre>u <span style="color:var(--accent)">=</span> Пауза и наставаи тајмера;</pre><pre>s <span style="color:var(--accent)">=</span> Прескочи задатак;</pre><pre>e <span style="color:var(--accent)">=</span> Преправи сесију;</pre>\n<pre>SPACE  <span style="color:var(--accent)">=</span> Настави сесију;</pre><pre>ESCAPE <span style="color:var(--accent)">=</span> Обустави сесију;</pre>',
