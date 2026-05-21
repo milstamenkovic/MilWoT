@@ -4,7 +4,7 @@
 <!-- Version J -->
 <!-- Created with the help of Free Claude AI -->
 <!-- Created:   23.02.2026. - Ćuprija, Serbia -->
-<!-- Revised:   20.05.2026. - Ćuprija, Serbia -->
+<!-- Revised:   21.05.2026. - Ćuprija, Serbia -->
 <!-- Published: 23.02.2026. - Ćuprija, Serbia -->
 
 
@@ -391,7 +391,7 @@
 
   .resume-btn-no:hover { border-color: var(--danger); color: var(--danger); }
 
-  /* ── TIMER VIEW ── */
+  /* -- TIMER SCREEN -- */
   #timer-view {
     display: none;
     flex-direction: column;
@@ -687,7 +687,7 @@
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 24px;
-    width: 360px;
+    width: 480px;
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -1303,9 +1303,9 @@
 		// BACK = BACKSPACE
 		if (e.key === 'Backspace') showMenuMain();
 		// ADD TASK = +
-		if (e.key === '+' && !e.target.matches('input, textarea')) addTask();
+		if (e.key === '+' && !e.ctrlKey && !e.target.matches('input, textarea')) addTask();
 		// ADD PAUSE = -
-		if (e.key === '-' && !e.target.matches('input, textarea')) addPause();
+		if (e.key === '-' && !e.ctrlKey && !e.target.matches('input, textarea')) addPause();
 		// START TIMER = ENTER
 		if (e.key === 'Enter') startSession();
 		// MENUS & SUB-MENUS
@@ -1346,7 +1346,7 @@
 			showSubpanel('changelog');
 		}
 		// ROADMAP = r
-		if (e.key === 'r' && !e.target.matches('input, textarea')) {
+		if (e.key === 'r' && !e.ctrlKey && !e.metaKey && !e.target.matches('input, textarea')) {
 			openMenu();
 			showSubpanel('roadmap');
 		}
@@ -1397,8 +1397,8 @@
       btnAddTask:       '+ Task',
       btnAddPause:      '+ Pause',
       btnStart:         'START',
-      stepLabel:        'Step',
-      stepOf:           'of',
+      stepLabel:        'STEP',
+      stepOf:           'OF',
       badgeTask:        'TASK',
       badgeBreak:       'BREAK',
       btnPause:         'PAUSE',
@@ -1446,8 +1446,8 @@
       btnAddTask:       '+ Рад',
       btnAddPause:      '+ Пауза',
       btnStart:         'ПОЧНИ',
-      stepLabel:        'Корак',
-      stepOf:           'од',
+      stepLabel:        'КОРАК',
+      stepOf:           'ОД',
       badgeTask:        'Задатак',
       badgeBreak:       'ПАУЗА',
       btnPause:         'ПАУЗА',
@@ -1543,7 +1543,7 @@
       subpanelBack:     '← Back',
       readmeLabel:      'ABOUT "MilWoT" (README)',
       readmeTitle:      'ABOUT "MilWoT" (README)',
-      readmeBody:       '"MilWoT" is a simple work timer.\n\nAdd tasks and pauses, set their durations, then hit START. The timer runs through your session automatically and alerts you when each step ends.\n\nTip 1: Drag the ▲▼ handle to reorder tasks.\nClick TASK/PAUSE to toggle the type.\n\nTip 2: Use keys on keyboard for faster work inside menus.\n"Escape" exit menu - "Backspace" go back in menu\n\n<i>This website has <u>notifications</u> and works <u>offline</u> if it is installed as <u>PWA</u>.</i>\n\n<u>"MilWoT as website and PWA will forever be free and open-source.</u>\n\n<a href="ai.html" target="_blank"><button style="color:red")">AI Disclaimer</button></a>\n\n<a href="disclaimer.html" target="_blank"><button style="color:red")">Disclaimer</button></a>',
+      readmeBody:       '"Mil Work Timer - MilWoT" is a simple work timer created by Mil Stamenković.\n\n"MilWoT" is hobby project of mine, but for a real personal need for a work timer, when I am writing stories for film, TV, books, etc. Need for a specific timer, that couldn\'t be found online.\n\nAdd tasks and pauses, set their durations, then hit START. The timer runs through your session automatically and alerts you when each step ends.\n\nTip 1: Drag the ▲▼ handle to reorder tasks.\nClick TASK/PAUSE to toggle the type.\n\nTip 2: Use keys on keyboard for faster work inside menus.\n"Escape" exit menu - "Backspace" go back in menu\n\nTip 3: To disable notification sound, just mute website or PWA with "CTRL+m"\n\n"MilWoT" is hobby project of mine, but for a real personal need for a work timer, when I am writing stories for film, TV, books, etc. Need for a specific timer, that couldn\'t be found online.\n\n<i>This website has <u>notifications</u> and works <u>offline</u> if it is installed as <u>PWA</u>.</i>\n\n<u>"MilWoT as website and PWA will forever be free and open-source.</u>\n\n<a href="ai.html" target="_blank"><button style="color:red")">AI Disclaimer</button></a>\n\n<a href="disclaimer.html" target="_blank"><button style="color:red")">Disclaimer</button></a>',
 			keybindingsLabel: 'Keybindings',
 			keybindingsTitle: 'Keybindings',
 			keybindingsBody:  'These are the keybinds that you can use for faster work:\n\n<pre>ESCAPE         <span style="color:var(--accent)">=</span> Close menus;</pre><pre>BACKSPACE      <span style="color:var(--accent)">=</span> Back in menu;</pre><pre>ENTER          <span style="color:var(--accent)">=</span> Enter/Confirm/Save;</pre><pre>TAB/SHIFT+TAB  <span style="color:var(--accent)">=</span> Move from field to field;</pre><pre>ARROWS UP/DOWN <span style="color:var(--accent)">=</span> Add and subtract minutes;<pre>CTRL + r       <span style="color:var(--accent)">=</span> Reset timer by reloading page;</pre>\n<pre>+     <span style="color:var(--accent)">=</span> Add task;</pre><pre>-     <span style="color:var(--accent)">=</span> Add pause;</pre><pre>ENTER <span style="color:var(--accent)">=</span> Start timer;</pre>\n<pre>m <span style="color:var(--accent)">=</span> Menu (Burger menu);</pre>\n<pre>l <span style="color:var(--accent)">=</span> Language toggle;</pre><pre>t <span style="color:var(--accent)">=</span> Theme toggle;</pre><pre>p <span style="color:var(--accent)">=</span> Presets;</pre>\n</pre><pre>a <span style="color:var(--accent)">=</span> ABOUT MilWoT (README);</pre><pre>w <span style="color:var(--accent)">=</span> MilWoT Disclaimer;</pre><pre>k <span style="color:var(--accent)">=</span> Keybindings;</pre><pre>g <span style="color:var(--accent)">=</span> CHANGELOG;</pre><pre>r <span style="color:var(--accent)">=</span> ROADMAP;</pre><pre>i <span style="color:var(--accent)">=</span> Issues;</pre><pre>c <span style="color:var(--accent)">=</span> Copyright;</pre>\n<pre>u <span style="color:var(--accent)">=</span> Pause & Resume timer;</pre><pre>s <span style="color:var(--accent)">=</span> Skip task;</pre><pre>e <span style="color:var(--accent)">=</span> Edit sessions;</pre>\n<pre>SPACE  <span style="color:var(--accent)">=</span> Resume session;</pre><pre>ESCAPE <span style="color:var(--accent)">=</span> Discard session;</pre>',
@@ -1580,7 +1580,7 @@
       subpanelBack:     '← Назад',
       readmeLabel:      'O "MilWoT" (ПРОЧИТАЈ МЕ)',
       readmeTitle:      'O "MilWoT" (ПРОЧИТАЈ МЕ)',
-      readmeBody:       '"MilWoT" је једноставан тајмер за рад.\n\nДодајте задатке и паузе, подесите њихова трајања, затим кликните ПОЧНИ. Тајмер иде кроз сесију аутоматски и обавештава Вас када се сваки корак заврши.\n\nСавет 1: Користите ▲▼ ручице да промените редослед.\nКликните на РАД/ПАУЗА да промените тип.\n\n Савет 2: Користите тастере на тастатури за бржи рад у менију.\n"Escape" излазак из менија - "Backspace" назад у менију\n\n<i>Овај вебсајт има <u>нотификације</u> и ради <u>без интернета</u> ако је инсталиран као <u>"PWA"</u>.</i>\n\n<u>"MilWoT" као вебсајт и "PWA" ће заувек бити бесплатан и отвореног кода.</u>\n\n<a href="ai" target="_blank"><button style="color:red")">"AI" напомена</button></a>\n\n<a href="odgovornost.html" target="_blank"><button style="color:red")">Одрицање одговорности</button></a>',
+      readmeBody:       '"Миланов радни тајмер - \'MilWoT\'" је једноставан тајмер за рад који је направио Милан Стаменковић.\n\nДодајте задатке и паузе, подесите њихова трајања, затим кликните ПОЧНИ. Тајмер иде кроз сесију аутоматски и обавештава Вас када се сваки корак заврши.\n\nСавет 1: Користите ▲▼ ручице да промените редослед.\nКликните на РАД/ПАУЗА да промените тип.\n\n Савет 2: Користите тастере на тастатури за бржи рад у менију.\n"Escape" излазак из менија - "Backspace" назад у менију\n\nСавет 3: Да бисте онеспособили звук нотификација, само искључите звук вебсајта и "PWA" са "CTRL+m"\n\n"MilWoT" је мој хоби пројекат, али из личне потребе за радним тајмером, када пишем приче за филмове, ТВ, књиге итд. Потреба за специфичним тајмером, који није могао да се пронађе на интернету.\n\n<i>Овај вебсајт има <u>нотификације</u> и ради <u>без интернета</u> ако је инсталиран као <u>"PWA"</u>.</i>\n\n<u>"MilWoT" као вебсајт и "PWA" ће заувек бити бесплатан и отвореног кода.</u>\n\n<a href="ai" target="_blank"><button style="color:red")">"AI" напомена</button></a>\n\n<a href="odgovornost.html" target="_blank"><button style="color:red")">Одрицање одговорности</button></a>',
 			keybindingsLabel: 'Скраћенице тaстери',
 			keybindingsTitle: 'Скраћенице тастери',
 			keybindingsBody:  'Ово су скраћенице тастери које можете користити за бржи рад:\n\n<pre>ESCAPE         <span style="color:var(--accent)">=</span> Затвори мени;</pre><pre>BACKSPACE      <span style="color:var(--accent)">=</span> Назад у менију;</pre><pre>ENTER          <span style="color:var(--accent)">=</span> "Enter"/Потврди/Сними;</pre><pre>TAB/SHIFT+TAB  <span style="color:var(--accent)">=</span> Кретање од поља до поља;<pre>ARROWS UP/DOWN <span style="color:var(--accent)">=</span> Додавање и одузимање минута;<pre>CTRL + r       <span style="color:var(--accent)">=</span> Ресет тајмера освежавањем стране</pre>\n<pre>+     <span style="color:var(--accent)">=</span> Додај задатак;</pre><pre>-     <span style="color:var(--accent)">=</span> Додај паузу;</pre><pre>ENTER <span style="color:var(--accent)">=</span> Покрени тајмер;</pre>\n<pre>m <span style="color:var(--accent)">=</span> Мени (Бургер мени);</pre>\n<pre>l <span style="color:var(--accent)">=</span> Промена језика;</pre><pre>t <span style="color:var(--accent)">=</span> Промена теме;</pre><pre>p <span style="color:var(--accent)">=</span> Поставке;</pre>\n<pre>a <span style="color:var(--accent)">=</span> О "MilWoT" (ПРОЧИТАЈ МЕ);</pre><pre>w <span style="color:var(--accent)">=</span> "MilWoT" ограђивање;</pre><pre>k <span style="color:var(--accent)">=</span> Скраћенице тастер;</pre><pre>g <span style="color:var(--accent)">=</span> ПРОМЕНЕ (CHANGELOG);</pre><pre>r <span style="color:var(--accent)">=</span> РАЗВОЈ (ROADMAP);</pre><pre>i <span style="color:var(--accent)">=</span> Проблеми;</pre><pre>c <span style="color:var(--accent)">=</span> Ауторска права;</pre>\n<pre>u <span style="color:var(--accent)">=</span> Пауза и наставаи тајмера;</pre><pre>s <span style="color:var(--accent)">=</span> Прескочи задатак;</pre><pre>e <span style="color:var(--accent)">=</span> Преправи сесију;</pre>\n<pre>SPACE  <span style="color:var(--accent)">=</span> Настави сесију;</pre><pre>ESCAPE <span style="color:var(--accent)">=</span> Обустави сесију;</pre>',
