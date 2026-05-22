@@ -4,7 +4,7 @@
 <!-- Version J -->
 <!-- Created with the help of Free Claude AI -->
 <!-- Created:   23.02.2026. - Ćuprija, Serbia -->
-<!-- Revised:   21.05.2026. - Ćuprija, Serbia -->
+<!-- Revised:   22.05.2026. - Ćuprija, Serbia -->
 <!-- Published: 23.02.2026. - Ćuprija, Serbia -->
 
 
@@ -1021,6 +1021,9 @@
 		font-weight: 500;
   }
 
+	.pause-name::placeholder {
+    color: #960000;
+	}
 
 </style>
 </head>
@@ -1362,7 +1365,7 @@
 		}
 		// TIMER SCREEN
 		// PAUSE & RESUME TIMER = u
-		if (e.key === 'u') {
+		if (e.key === 'u' && !e.target.matches('input, textarea')) {
 			const toggle = document.getElementById('pause-resume-btn');
 				togglePause();
 	  }
@@ -1407,6 +1410,7 @@
       btnFinish:        'FINISH',
       queueTitle:       'Up Next',
       btnEdit:          '← Edit session',
+			btnInstall:       'Install',
       doneTitle:        'Session Complete',
       btnNewSession:    'NEW SESSION',
       remainingSession: 'remaining in session',
@@ -1456,6 +1460,7 @@
       btnFinish:        'КРАЈ',
       queueTitle:       'Следи',
       btnEdit:          '← Преправи сесију',
+			btnInstall:       'Инсталирај',
       doneTitle:        'Сесија завршена',
       btnNewSession:    'НОВА СЕСИЈА',
       remainingSession: 'остало у сесији',
@@ -1510,6 +1515,7 @@
     document.getElementById('btn-edit').textContent         = l.btnEdit;
     document.getElementById('done-title').textContent       = l.doneTitle;
     document.getElementById('btn-new-session').textContent  = l.btnNewSession;
+		document.getElementById('install-btn').textContent      = l.btnInstall;
     document.getElementById('createdBy').textContent        = l.createdBy;
     document.getElementById('appNameTitle').innerHTML       = l.appNameTitle;
     document.getElementById('header-name').textContent      = l.headerName;
