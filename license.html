@@ -1,0 +1,225 @@
+<!-- MilWoT - Mil Work Timer -->
+<!-- License -->
+<!-- © 2026 Mil Stamenković -->
+<!-- Version J -->
+<!-- Created: 23.05.2026. - Ćuprija, Serbia -->
+<!-- Revised: 23.05.2026. - Ćuprija, Serbia -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>License / Лиценца</title>
+	<link rel="icon" href="./Media/Icons/icon192.png" type="image/png">
+	<link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+
+* {
+	font-family: 'Cascadia Code';
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	background-color: #000000;
+}
+
+a {
+	color: red;
+	font-size: 0.75em;
+}
+
+h1 {
+	display: block;
+	text-align: center;
+	color: #960000;
+}
+
+h2 {
+	font-size: 1.3em;
+	text-decoration: underline;
+}
+
+h3 {
+	font-size: 1em;
+	font-style: italic;
+}
+
+p {
+	width: 100%;
+}
+
+.main-background {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-items: center;
+	align-content: center;
+	background-color: #1d1d1d;
+	color: #afafaf;
+	width: max(50vw, 360px);
+	border-radius: 9px;
+	gap: 1em;
+	padding: 1em;
+}
+
+.text-background {
+	background-color: #121212;
+	width: 90%;
+	padding: 1em;
+	border-radius: 6px;
+}
+
+.text-background h2 {
+	display: flex;
+	justify-content: center;
+}
+
+.title {
+	white-space: nowrap;
+}
+
+.titleDivider {
+	display: inline-block;
+}
+
+/* Styles for screens 480px or narrower */
+@media (max-width: 1280px) {
+  .titleDivider {
+    display: block;    /* Forces the line break */
+    font-size: 0;      /* Hides the original "/" */
+    margin: 10px 0;    /* Optional: adds some space around the break */
+  }
+
+  .titleDivider::before {
+    content: "";     /* Adds the hyphen */
+    font-size: 2rem;   /* Resets font size to match the H1 */
+    display: block;
+		text-align: center;
+		color: #960000;
+  }
+}
+
+button {
+	background-color: #121212;
+	color: #afafaf;
+	padding: 0.5em;
+	border-radius: 3px;
+	border-style: none;
+	cursor: pointer;
+}
+
+.buttons {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	gap: 8px;
+}
+
+.buttons a:first-child { 
+	margin-right: auto;
+}
+
+.buttons a:last-child {
+	margin-left: auto;
+}
+
+backBtn {
+	font-size: 0.75em;
+}
+
+code {
+	background-color: #2d2d2d;
+}
+
+p, ul {
+	font-size: 0.9em;
+}
+
+.pageTop {
+	display: flex;
+	gap: 1em;
+	text-decoration: none;
+}
+
+.toTop {
+	display: flex;
+	align-items: center;
+}
+
+</style>
+
+<body>
+	
+	<div class="main-background">
+		
+		<div>
+			<h1>
+				<span class="title">CC BY-NC-SA</span>
+				<span class="titleDivider">/</span>
+				<span class="title">LICENSE</span>
+				<span class="titleDivider">/</span>
+				<span class="title">Лиценца</span>
+			</h1>
+				
+			<div class="buttons">
+				<a href=".."><button class="backBtn">Back</button></a>
+				<a href="#engLicense"><button>English</button></a>
+				<a href="#srpLicense"><button>Српски</button></a>
+				<a href=".."><button class="backBtn">Назад</button></a>
+			</div>
+
+		</div>
+		
+		<!-- ENGLISH -->
+		<div class="text-background">
+			<h2>CC BY-NC-SA</h2>
+			<h2 id="engLicense">License</h2>
+			<h3>CC BY-NC-SA 4.0</h3>
+			<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank">Read about license in full here!</a>
+			<p>This license exactly means:</p>
+			<ul>
+				<li>BY -- Credit to original author is required!</li>
+				<li>NC -- Any kind of commercial use is fully forbiden!</li>
+				<li>SA -- ShareALike, derivatives must use the same license!</li>
+			</ul>
+			<p>Copyright (c) 2026 Mil Stamenković - License CC BY-NC-SA 4.0</p>
+
+		<a href="#" style="display:flex;justify-content:center;text-decoration:none;"><button>⬆ TOP ⬆</button></a>
+
+		</div>
+
+		<!-- SERBIAN -->
+		<div class="text-background">
+			<h2>CC BY-NC-SA</h2>
+			<h2 id="srpLicense">Лиценца</h2>
+			<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.sr-latn" target="_blank">Прочитајте о лиценци у потпуности овде!</a>
+			<p>Ова лиценца буквално значи:</p>
+			<ul>
+				<li>BY -- Обавезно назначите оригиналног аутора!</li>
+				<li>NC -- Забрањена било каква комерцијална употреба!</li>
+				<li>SA -- Делите исто, производи настали из овог производа морају да имају исту лиценцу!</li>
+			</ul>
+			<p>Copyright (c) 2026 Милан Стаменковић - Лиценца "CC BY-NC-SA 4.0"</p>
+			<h3></h3>
+			<p></p>
+		</div>
+
+	<a href="#" class="pageTop"><button>PAGE TOP</button><button>ВРХ СТРАНЕ</button></a>
+	<a href=".." style="margin-top: -1em;" target="_blank"><button>MilWoT</button></a>
+
+	<div><a href="https://milstamenkovic.pages.dev" target="_blank">© 2026 Mil Stamenković / © 2026 Милан Стаменковић</a></div>
+
+	</div>
+	
+</body>
+
+</html>
