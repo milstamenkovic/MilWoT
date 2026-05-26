@@ -2,7 +2,7 @@
 License
 
 ## CC BY-NC-SA 4.0
-Read about license in full [here](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)!
+[Read about license in full here](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)!
 
 This license exactly means:
 - BY -- Credit to original author is required!
@@ -12,12 +12,14 @@ This license exactly means:
 ### Copyright (c) 2026 Mil Stamenković - License CC BY-NC-SA 4.0
 
 ---
+---
+---
 
 # CC BY-NC-SA
 Лиценца
 
 ## CC BY-NC-SA 4.0
-Прочитајте о лиценци у потпуности [овде](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)!
+[Прочитајте о лиценци у потпуности овде](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)!
 
 Ова лиценца буквално значи:
 - BY -- Обавезно назначите оригиналног аутора!
