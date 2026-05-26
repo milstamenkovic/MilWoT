@@ -4,7 +4,7 @@
 <!-- Version J -->
 <!-- Created with the help of Free Claude AI -->
 <!-- Created:   23.02.2026. - Ćuprija, Serbia -->
-<!-- Revised:   22.05.2026. - Ćuprija, Serbia -->
+<!-- Revised:   25.05.2026. - Ćuprija, Serbia -->
 <!-- Published: 23.02.2026. - Ćuprija, Serbia -->
 
 
@@ -1296,7 +1296,7 @@
 	// CLOSE MENU, SUB-MENUS, POP-UPS, WARNING, DISCARD SESSIONS = ESCAPE
 	document.addEventListener('keydown', (e) => {
 		const typing = e.target.matches('input, textarea');
-		if (e.key === 'Escape') {
+		if (e.code === 'Escape') {
 			if (typing) e.target.blur();
 			document.getElementById('notif-banner').classList.add('hidden');
 			closeMenu();
@@ -1304,78 +1304,78 @@
 			discardSession();
 		}
 		// BACK = BACKSPACE
-		if (e.key === 'Backspace') showMenuMain();
+		if (e.code === 'Backspace') showMenuMain();
 		// ADD TASK = +
-		if (e.key === '+' && !e.ctrlKey && !e.target.matches('input, textarea')) addTask();
+		if (e.code === 'Equal' && !e.ctrlKey && !e.target.matches('input, textarea')) addTask();
 		// ADD PAUSE = -
-		if (e.key === '-' && !e.ctrlKey && !e.target.matches('input, textarea')) addPause();
+		if (e.code === 'Minus' && !e.ctrlKey && !e.target.matches('input, textarea')) addPause();
 		// START TIMER = ENTER
-		if (e.key === 'Enter') startSession();
+		if (e.code === 'Enter') startSession();
 		// MENUS & SUB-MENUS
 		// BURGER MENU - MENU = m
-		if (e.key === 'm' && !e.target.matches('input, textarea')) openMenu();
+		if (e.code === 'KeyM' && !e.target.matches('input, textarea')) openMenu();
 		// LANGUAGE TOGGLE = l
-		if (e.key === 'l' && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyL' && !e.target.matches('input, textarea')) {
 			const toggle = document.getElementById('lang-toggle');
 	    toggle.checked = !toggle.checked;
 	    menuToggleLang();
 	  }
 		// THEME TOGGLE = t
-		if (e.key === 't' && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyT' && !e.target.matches('input, textarea')) {
 			const toggle = document.getElementById('theme-toggle');
 		  toggle.checked = !toggle.checked;
 		  toggleTheme();
 	  }
 		// PRESETS = p
-		if (e.key === 'p' && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyP' && !e.target.matches('input, textarea')) {
 			openMenu();
 			showSubpanel('presets');
 		}
 		// ABOUT MILWOT (README) = a
-		if (e.key === 'a' && !e.ctrlKey && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyA' && !e.ctrlKey && !e.target.matches('input, textarea')) {
 			openMenu();
 			showSubpanel('readme');
 		}
 		// MILWOT DISCLAIMER = w
 		// ... add sub-menu here...
 		// KEYBINDINGS = k
-		if (e.key === 'k' && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyK' && !e.target.matches('input, textarea')) {
 			openMenu();
 			showSubpanel('keybindings');
 		}
 		// CHANGELOG = g
-		if (e.key === 'g' && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyG' && !e.target.matches('input, textarea')) {
 			openMenu();
 			showSubpanel('changelog');
 		}
 		// ROADMAP = r
-		if (e.key === 'r' && !e.ctrlKey && !e.metaKey && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyR' && !e.ctrlKey && !e.metaKey && !e.target.matches('input, textarea')) {
 			openMenu();
 			showSubpanel('roadmap');
 		}
 		// ISSUES = i
-		if (e.key === 'i' && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyI' && !e.target.matches('input, textarea')) {
 			openMenu();
 			showSubpanel('issues');
 		}
 		// COPYRIGHT = c
-		if (e.key === 'c' && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyC' && !e.target.matches('input, textarea')) {
 			openMenu();
 			showSubpanel('copyright');
 		}
 		// TIMER SCREEN
 		// PAUSE & RESUME TIMER = u
-		if (e.key === 'u' && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyU' && !e.target.matches('input, textarea')) {
 			const toggle = document.getElementById('pause-resume-btn');
 				togglePause();
 	  }
 		// SKIP TASK = s
-		if (e.key === 's' && !e.target.matches('input, textarea')) nextStep();
+		if (e.code === 'KeyS' && !e.target.matches('input, textarea')) nextStep();
 		// EDIT SESSION = e
-		if (e.key === 'e' && !e.target.matches('input, textarea')) backToEditor();
+		if (e.code === 'KeyE' && !e.target.matches('input, textarea')) backToEditor();
 		// SESSION WARNING
 		// RESUME SESSION = SPACE
-		if (e.key === 'Space' && !e.target.matches('input, textarea')) resumeSession();
+		if (e.code === 'Space' && !e.target.matches('input, textarea')) resumeSession();
 		// DISCARD SESSION = ESCAPE
 		// Code is above with other ESCAPE keybindings
 	});
@@ -1549,6 +1549,7 @@
       subpanelBack:     '← Back',
       readmeLabel:      'ABOUT "MilWoT" (README)',
       readmeTitle:      'ABOUT "MilWoT" (README)',
+
       readmeBody:       '"Mil Work Timer - MilWoT" is a simple work timer created by Mil Stamenković.\n\n"MilWoT" is hobby project of mine, but for a real personal need for a work timer, when I am writing stories for film, TV, books, etc. Need for a specific timer, that couldn\'t be found online.\n\nAdd tasks and pauses, set their durations, then hit START. The timer runs through your session automatically and alerts you when each step ends.\n\nTip 1: Drag the ▲▼ handle to reorder tasks.\nClick TASK/PAUSE to toggle the type.\n\nTip 2: Use keys on keyboard for faster work inside menus.\n"Escape" exit menu - "Backspace" go back in menu\n\nTip 3: To disable notification sound, just mute website or PWA with "CTRL+m"\n\n"MilWoT" is hobby project of mine, but for a real personal need for a work timer, when I am writing stories for film, TV, books, etc. Need for a specific timer, that couldn\'t be found online.\n\n<i>This website has <u>notifications</u> and works <u>offline</u> if it is installed as <u>PWA</u>.</i>\n\n<u>"MilWoT as website and PWA will forever be free to use and under CC BY-NC-SA license avaialable to modify and share for free.</u>\n\n<a href="license" target="_blank"><button style="color:red">CC BY-NC-SA license</button></a>\n\n<a href="ai.html" target="_blank"><button style="color:red")">AI Disclaimer</button></a>\n\n<a href="disclaimer.html" target="_blank"><button style="color:red")">Disclaimer</button></a>',
 			keybindingsLabel: 'Keybindings',
 			keybindingsTitle: 'Keybindings',
@@ -2208,15 +2209,19 @@
     document.getElementById('total-left').textContent = totalStr;
   }
 
-  function togglePause() {
-    const l = lang[currentLang];
-    isPaused = !isPaused;
-    const btn = document.getElementById('pause-resume-btn');
-    btn.textContent       = isPaused ? l.btnResume : l.btnPause;
-    btn.style.borderColor = isPaused ? 'red'   : 'green';
-    btn.style.color       = isPaused ? 'green' : 'red';
-    beep(isPaused ? 440 : 660, 0.08);
-  }
+	function togglePause() {
+	  const l = lang[currentLang];
+	  isPaused = !isPaused;
+	  if (!isPaused) {
+	    stepStartTime = Date.now();
+	    stepStartSecondsLeft = secondsLeft;
+	  }
+	  const btn = document.getElementById('pause-resume-btn');
+	  btn.textContent       = isPaused ? l.btnResume : l.btnPause;
+	  btn.style.borderColor = isPaused ? 'red'   : 'green';
+	  btn.style.color       = isPaused ? 'green' : 'red';
+	  beep(isPaused ? 440 : 660, 0.08);
+	}
 
   function nextStep() {
     clearInterval(timerInterval);
