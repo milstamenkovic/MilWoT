@@ -14,6 +14,8 @@ Each marked letter in menu represents which letter is used for what part of menu
  
 _This website has notifications and works *offline* if it is installed as *PWA*._
 
+Read disclaimer [here](https://milwot.pages.dev/disclaimer)
+
 ---
 
 # MilWoT - Миланов радни тајмер
@@ -30,4 +32,6 @@ _This website has notifications and works *offline* if it is installed as *PWA*.
 Свако означено слово у менију представља који тастер се користи за који део менија.
 (_Прочитајте "Скраћенице тастери" мени у "MilWoT"_)
 
-_Овај вебсајт има нотификације и ради *без интернета* ко је инсталиран као *"PWA"*._
+_Овај вебсајт има нотификације и ради *без интернета ко је инсталиран као *"PWA"*._
+
+Прочитајте о одговорности [овде](https://milwot.pages.dev/odgovornost)
