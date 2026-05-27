@@ -4,7 +4,7 @@
 <!-- Version J -->
 <!-- Created with the help of Free Claude AI -->
 <!-- Created:   23.02.2026. - Ćuprija, Serbia -->
-<!-- Revised:   20.05.2026. - Ćuprija, Serbia -->
+<!-- Revised:   26.05.2026. - Ćuprija, Serbia -->
 <!-- Published: 23.02.2026. - Ćuprija, Serbia -->
 
 
@@ -391,7 +391,7 @@
 
   .resume-btn-no:hover { border-color: var(--danger); color: var(--danger); }
 
-  /* ── TIMER VIEW ── */
+  /* -- TIMER SCREEN -- */
   #timer-view {
     display: none;
     flex-direction: column;
@@ -687,7 +687,7 @@
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 24px;
-    width: 360px;
+    width: 480px;
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -1021,6 +1021,9 @@
 		font-weight: 500;
   }
 
+	.pause-name::placeholder {
+    color: #960000;
+	}
 
 </style>
 </head>
@@ -1133,6 +1136,8 @@
         <span style="color:var(--muted)">›</span>
       </button>
       <div class="menu-divider"></div>
+			<!-- Version & Copyright -->
+			<p style="font-size: 0.75em; color: var(--muted); text-align: center;">MilWoT - Version J</p>
 			<a href="https://milstamenkovic.pages.dev" style="font-size:0.75em; color:red; text-align:center;" target="_blank">© 2026 Mil Stamenković<br>© 2026 Милан Стаменковић</a>
       <div id="size-hint"></div>
     </div>
@@ -1293,7 +1298,7 @@
 	// CLOSE MENU, SUB-MENUS, POP-UPS, WARNING, DISCARD SESSIONS = ESCAPE
 	document.addEventListener('keydown', (e) => {
 		const typing = e.target.matches('input, textarea');
-		if (e.key === 'Escape') {
+		if (e.code === 'Escape') {
 			if (typing) e.target.blur();
 			document.getElementById('notif-banner').classList.add('hidden');
 			closeMenu();
@@ -1301,78 +1306,78 @@
 			discardSession();
 		}
 		// BACK = BACKSPACE
-		if (e.key === 'Backspace') showMenuMain();
+		if (e.code === 'Backspace') showMenuMain();
 		// ADD TASK = +
-		if (e.key === '+' && !e.target.matches('input, textarea')) addTask();
+		if (e.code === 'Equal' && !e.ctrlKey && !e.target.matches('input, textarea')) addTask();
 		// ADD PAUSE = -
-		if (e.key === '-' && !e.target.matches('input, textarea')) addPause();
+		if (e.code === 'Minus' && !e.ctrlKey && !e.target.matches('input, textarea')) addPause();
 		// START TIMER = ENTER
-		if (e.key === 'Enter') startSession();
+		if (e.code === 'Enter') startSession();
 		// MENUS & SUB-MENUS
 		// BURGER MENU - MENU = m
-		if (e.key === 'm' && !e.target.matches('input, textarea')) openMenu();
+		if (e.code === 'KeyM' && !e.target.matches('input, textarea')) openMenu();
 		// LANGUAGE TOGGLE = l
-		if (e.key === 'l' && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyL' && !e.target.matches('input, textarea')) {
 			const toggle = document.getElementById('lang-toggle');
 	    toggle.checked = !toggle.checked;
 	    menuToggleLang();
 	  }
 		// THEME TOGGLE = t
-		if (e.key === 't' && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyT' && !e.target.matches('input, textarea')) {
 			const toggle = document.getElementById('theme-toggle');
 		  toggle.checked = !toggle.checked;
 		  toggleTheme();
 	  }
 		// PRESETS = p
-		if (e.key === 'p' && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyP' && !e.target.matches('input, textarea')) {
 			openMenu();
 			showSubpanel('presets');
 		}
 		// ABOUT MILWOT (README) = a
-		if (e.key === 'a' && !e.ctrlKey && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyA' && !e.ctrlKey && !e.target.matches('input, textarea')) {
 			openMenu();
 			showSubpanel('readme');
 		}
 		// MILWOT DISCLAIMER = w
 		// ... add sub-menu here...
 		// KEYBINDINGS = k
-		if (e.key === 'k' && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyK' && !e.target.matches('input, textarea')) {
 			openMenu();
 			showSubpanel('keybindings');
 		}
 		// CHANGELOG = g
-		if (e.key === 'g' && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyG' && !e.target.matches('input, textarea')) {
 			openMenu();
 			showSubpanel('changelog');
 		}
 		// ROADMAP = r
-		if (e.key === 'r' && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyR' && !e.ctrlKey && !e.metaKey && !e.target.matches('input, textarea')) {
 			openMenu();
 			showSubpanel('roadmap');
 		}
 		// ISSUES = i
-		if (e.key === 'i' && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyI' && !e.target.matches('input, textarea')) {
 			openMenu();
 			showSubpanel('issues');
 		}
 		// COPYRIGHT = c
-		if (e.key === 'c' && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyC' && !e.target.matches('input, textarea')) {
 			openMenu();
 			showSubpanel('copyright');
 		}
 		// TIMER SCREEN
 		// PAUSE & RESUME TIMER = u
-		if (e.key === 'u') {
+		if (e.code === 'KeyU' && !e.target.matches('input, textarea')) {
 			const toggle = document.getElementById('pause-resume-btn');
 				togglePause();
 	  }
 		// SKIP TASK = s
-		if (e.key === 's' && !e.target.matches('input, textarea')) nextStep();
+		if (e.code === 'KeyS' && !e.target.matches('input, textarea')) nextStep();
 		// EDIT SESSION = e
-		if (e.key === 'e' && !e.target.matches('input, textarea')) backToEditor();
+		if (e.code === 'KeyE' && !e.target.matches('input, textarea')) backToEditor();
 		// SESSION WARNING
 		// RESUME SESSION = SPACE
-		if (e.key === 'Space' && !e.target.matches('input, textarea')) resumeSession();
+		if (e.code === 'Space' && !e.target.matches('input, textarea')) resumeSession();
 		// DISCARD SESSION = ESCAPE
 		// Code is above with other ESCAPE keybindings
 	});
@@ -1397,8 +1402,8 @@
       btnAddTask:       '+ Task',
       btnAddPause:      '+ Pause',
       btnStart:         'START',
-      stepLabel:        'Step',
-      stepOf:           'of',
+      stepLabel:        'STEP',
+      stepOf:           'OF',
       badgeTask:        'TASK',
       badgeBreak:       'BREAK',
       btnPause:         'PAUSE',
@@ -1407,6 +1412,7 @@
       btnFinish:        'FINISH',
       queueTitle:       'Up Next',
       btnEdit:          '← Edit session',
+			btnInstall:       'Install',
       doneTitle:        'Session Complete',
       btnNewSession:    'NEW SESSION',
       remainingSession: 'remaining in session',
@@ -1446,8 +1452,8 @@
       btnAddTask:       '+ Рад',
       btnAddPause:      '+ Пауза',
       btnStart:         'ПОЧНИ',
-      stepLabel:        'Корак',
-      stepOf:           'од',
+      stepLabel:        'КОРАК',
+      stepOf:           'ОД',
       badgeTask:        'Задатак',
       badgeBreak:       'ПАУЗА',
       btnPause:         'ПАУЗА',
@@ -1456,6 +1462,7 @@
       btnFinish:        'КРАЈ',
       queueTitle:       'Следи',
       btnEdit:          '← Преправи сесију',
+			btnInstall:       'Инсталирај',
       doneTitle:        'Сесија завршена',
       btnNewSession:    'НОВА СЕСИЈА',
       remainingSession: 'остало у сесији',
@@ -1509,7 +1516,8 @@
     document.getElementById('queue-title').textContent      = l.queueTitle;
     document.getElementById('btn-edit').textContent         = l.btnEdit;
     document.getElementById('done-title').textContent       = l.doneTitle;
-    document.getElementById('btn-new-session').textContent  = l.btnNewSession;
+		document.getElementById('btn-new-session').textContent  = l.btnNewSession;
+		document.getElementById('install-btn').textContent      = l.btnInstall;
     document.getElementById('createdBy').textContent        = l.createdBy;
     document.getElementById('appNameTitle').innerHTML       = l.appNameTitle;
     document.getElementById('header-name').textContent      = l.headerName;
@@ -1531,6 +1539,14 @@
       }
     });
     updateTotalLabel();
+		if (document.getElementById('timer-view').style.display === 'flex') {
+		  const t = tasks[currentStep];
+		  document.getElementById('step-label-text').innerHTML =
+		    `${l.stepLabel} <span id="step-num">${currentStep + 1}</span> ${l.stepOf} <span id="step-total">${tasks.length}</span>`;
+		  document.getElementById('type-badge').textContent = t.type === 'pause' ? l.badgeBreak : l.badgeTask;
+			document.getElementById('skip-btn').textContent = currentStep < tasks.length - 1 ? l.btnSkip : l.btnFinish;
+			document.getElementById('pause-resume-btn').textContent = isPaused ? l.btnResume : l.btnPause;
+		}
   }
 
   // ── Burger Menu ──
@@ -1543,7 +1559,8 @@
       subpanelBack:     '← Back',
       readmeLabel:      'ABOUT "MilWoT" (README)',
       readmeTitle:      'ABOUT "MilWoT" (README)',
-      readmeBody:       '"MilWoT" is a simple work timer.\n\nAdd tasks and pauses, set their durations, then hit START. The timer runs through your session automatically and alerts you when each step ends.\n\nTip 1: Drag the ▲▼ handle to reorder tasks.\nClick TASK/PAUSE to toggle the type.\n\nTip 2: Use keys on keyboard for faster work inside menus.\n"Escape" exit menu - "Backspace" go back in menu\n\n<i>This website has <u>notifications</u> and works <u>offline</u> if it is installed as <u>PWA</u>.</i>\n\n<u>"MilWoT as website and PWA will forever be free and open-source.</u>\n\n<a href="ai.html" target="_blank"><button style="color:red")">AI Disclaimer</button></a>\n\n<a href="disclaimer.html" target="_blank"><button style="color:red")">Disclaimer</button></a>',
+
+      readmeBody:       '"Mil Work Timer - MilWoT" is a simple work timer created by Mil Stamenković.\n\n"MilWoT" is hobby project of mine, but for a real personal need for a work timer, when I am writing stories for film, TV, books, etc. Need for a specific timer, that couldn\'t be found online.\n\nAdd tasks and pauses, set their durations, then hit START. The timer runs through your session automatically and alerts you when each step ends.\n\nTip 1: Drag the ▲▼ handle to reorder tasks.\nClick TASK/PAUSE to toggle the type.\n\nTip 2: Use keys on keyboard for faster work inside menus.\n"Escape" exit menu - "Backspace" go back in menu\n\nTip 3: To disable notification sound, just mute website or PWA with "CTRL+m"\n\n"MilWoT" is hobby project of mine, but for a real personal need for a work timer, when I am writing stories for film, TV, books, etc. Need for a specific timer, that couldn\'t be found online.\n\n<i>This website has <u>notifications</u> and works <u>offline</u> if it is installed as <u>PWA</u>.</i>\n\n<u>"MilWoT as website and PWA will forever be free to use and under CC BY-NC-SA license avaialable to modify and share for free.</u>\n\n<a href="licensePage" target="_blank"><button style="color:red">CC BY-NC-SA license</button></a>\n\n<a href="ai.html" target="_blank"><button style="color:red")">AI Disclaimer</button></a>\n\n<a href="disclaimer.html" target="_blank"><button style="color:red")">Disclaimer</button></a>',
 			keybindingsLabel: 'Keybindings',
 			keybindingsTitle: 'Keybindings',
 			keybindingsBody:  'These are the keybinds that you can use for faster work:\n\n<pre>ESCAPE         <span style="color:var(--accent)">=</span> Close menus;</pre><pre>BACKSPACE      <span style="color:var(--accent)">=</span> Back in menu;</pre><pre>ENTER          <span style="color:var(--accent)">=</span> Enter/Confirm/Save;</pre><pre>TAB/SHIFT+TAB  <span style="color:var(--accent)">=</span> Move from field to field;</pre><pre>ARROWS UP/DOWN <span style="color:var(--accent)">=</span> Add and subtract minutes;<pre>CTRL + r       <span style="color:var(--accent)">=</span> Reset timer by reloading page;</pre>\n<pre>+     <span style="color:var(--accent)">=</span> Add task;</pre><pre>-     <span style="color:var(--accent)">=</span> Add pause;</pre><pre>ENTER <span style="color:var(--accent)">=</span> Start timer;</pre>\n<pre>m <span style="color:var(--accent)">=</span> Menu (Burger menu);</pre>\n<pre>l <span style="color:var(--accent)">=</span> Language toggle;</pre><pre>t <span style="color:var(--accent)">=</span> Theme toggle;</pre><pre>p <span style="color:var(--accent)">=</span> Presets;</pre>\n</pre><pre>a <span style="color:var(--accent)">=</span> ABOUT MilWoT (README);</pre><pre>w <span style="color:var(--accent)">=</span> MilWoT Disclaimer;</pre><pre>k <span style="color:var(--accent)">=</span> Keybindings;</pre><pre>g <span style="color:var(--accent)">=</span> CHANGELOG;</pre><pre>r <span style="color:var(--accent)">=</span> ROADMAP;</pre><pre>i <span style="color:var(--accent)">=</span> Issues;</pre><pre>c <span style="color:var(--accent)">=</span> Copyright;</pre>\n<pre>u <span style="color:var(--accent)">=</span> Pause & Resume timer;</pre><pre>s <span style="color:var(--accent)">=</span> Skip task;</pre><pre>e <span style="color:var(--accent)">=</span> Edit sessions;</pre>\n<pre>SPACE  <span style="color:var(--accent)">=</span> Resume session;</pre><pre>ESCAPE <span style="color:var(--accent)">=</span> Discard session;</pre>',
@@ -1580,7 +1597,7 @@
       subpanelBack:     '← Назад',
       readmeLabel:      'O "MilWoT" (ПРОЧИТАЈ МЕ)',
       readmeTitle:      'O "MilWoT" (ПРОЧИТАЈ МЕ)',
-      readmeBody:       '"MilWoT" је једноставан тајмер за рад.\n\nДодајте задатке и паузе, подесите њихова трајања, затим кликните ПОЧНИ. Тајмер иде кроз сесију аутоматски и обавештава Вас када се сваки корак заврши.\n\nСавет 1: Користите ▲▼ ручице да промените редослед.\nКликните на РАД/ПАУЗА да промените тип.\n\n Савет 2: Користите тастере на тастатури за бржи рад у менију.\n"Escape" излазак из менија - "Backspace" назад у менију\n\n<i>Овај вебсајт има <u>нотификације</u> и ради <u>без интернета</u> ако је инсталиран као <u>"PWA"</u>.</i>\n\n<u>"MilWoT" као вебсајт и "PWA" ће заувек бити бесплатан и отвореног кода.</u>\n\n<a href="ai" target="_blank"><button style="color:red")">"AI" напомена</button></a>\n\n<a href="odgovornost.html" target="_blank"><button style="color:red")">Одрицање одговорности</button></a>',
+      readmeBody:       '"Миланов радни тајмер - \'MilWoT\'" је једноставан тајмер за рад који је направио Милан Стаменковић.\n\nДодајте задатке и паузе, подесите њихова трајања, затим кликните ПОЧНИ. Тајмер иде кроз сесију аутоматски и обавештава Вас када се сваки корак заврши.\n\nСавет 1: Користите ▲▼ ручице да промените редослед.\nКликните на РАД/ПАУЗА да промените тип.\n\n Савет 2: Користите тастере на тастатури за бржи рад у менију.\n"Escape" излазак из менија - "Backspace" назад у менију\n\nСавет 3: Да бисте онеспособили звук нотификација, само искључите звук интернет странице и "PWA" са "CTRL+m"\n\n"MilWoT" је мој хоби пројекат, али из личне потребе за радним тајмером, када пишем приче за филмове, ТВ, књиге итд. Потреба за специфичним тајмером, који није могао да се пронађе на интернету.\n\n<i>Овај вебсајт има <u>нотификације</u> и ради <u>без интернета</u> ако је инсталиран као <u>"PWA"</u>.</i>\n\n<u>"MilWoT" као вебсајт и "PWA" ће заувек бити бесплатан за коришћење и према "CC BY-NC-SA" лиценци слободан Pageза преправљање и бесплатно дељење.</u>\n\n<a href="licensePage#srpLicense" target="_blank"><button style="color:red">"CC BY-NC-SA" лиценца</button></a>\n\n<a href="ai#srpDisclaimer" target="_blank"><button style="color:red")">"AI" напомена</button></a>\n\n<a href="odgovornost.html" target="_blank"><button style="color:red")">Одрицање одговорности</button></a>',
 			keybindingsLabel: 'Скраћенице тaстери',
 			keybindingsTitle: 'Скраћенице тастери',
 			keybindingsBody:  'Ово су скраћенице тастери које можете користити за бржи рад:\n\n<pre>ESCAPE         <span style="color:var(--accent)">=</span> Затвори мени;</pre><pre>BACKSPACE      <span style="color:var(--accent)">=</span> Назад у менију;</pre><pre>ENTER          <span style="color:var(--accent)">=</span> "Enter"/Потврди/Сними;</pre><pre>TAB/SHIFT+TAB  <span style="color:var(--accent)">=</span> Кретање од поља до поља;<pre>ARROWS UP/DOWN <span style="color:var(--accent)">=</span> Додавање и одузимање минута;<pre>CTRL + r       <span style="color:var(--accent)">=</span> Ресет тајмера освежавањем стране</pre>\n<pre>+     <span style="color:var(--accent)">=</span> Додај задатак;</pre><pre>-     <span style="color:var(--accent)">=</span> Додај паузу;</pre><pre>ENTER <span style="color:var(--accent)">=</span> Покрени тајмер;</pre>\n<pre>m <span style="color:var(--accent)">=</span> Мени (Бургер мени);</pre>\n<pre>l <span style="color:var(--accent)">=</span> Промена језика;</pre><pre>t <span style="color:var(--accent)">=</span> Промена теме;</pre><pre>p <span style="color:var(--accent)">=</span> Поставке;</pre>\n<pre>a <span style="color:var(--accent)">=</span> О "MilWoT" (ПРОЧИТАЈ МЕ);</pre><pre>w <span style="color:var(--accent)">=</span> "MilWoT" ограђивање;</pre><pre>k <span style="color:var(--accent)">=</span> Скраћенице тастер;</pre><pre>g <span style="color:var(--accent)">=</span> ПРОМЕНЕ (CHANGELOG);</pre><pre>r <span style="color:var(--accent)">=</span> РАЗВОЈ (ROADMAP);</pre><pre>i <span style="color:var(--accent)">=</span> Проблеми;</pre><pre>c <span style="color:var(--accent)">=</span> Ауторска права;</pre>\n<pre>u <span style="color:var(--accent)">=</span> Пауза и наставаи тајмера;</pre><pre>s <span style="color:var(--accent)">=</span> Прескочи задатак;</pre><pre>e <span style="color:var(--accent)">=</span> Преправи сесију;</pre>\n<pre>SPACE  <span style="color:var(--accent)">=</span> Настави сесију;</pre><pre>ESCAPE <span style="color:var(--accent)">=</span> Обустави сесију;</pre>',
@@ -2202,15 +2219,19 @@
     document.getElementById('total-left').textContent = totalStr;
   }
 
-  function togglePause() {
-    const l = lang[currentLang];
-    isPaused = !isPaused;
-    const btn = document.getElementById('pause-resume-btn');
-    btn.textContent       = isPaused ? l.btnResume : l.btnPause;
-    btn.style.borderColor = isPaused ? 'red'   : 'green';
-    btn.style.color       = isPaused ? 'green' : 'red';
-    beep(isPaused ? 440 : 660, 0.08);
-  }
+	function togglePause() {
+	  const l = lang[currentLang];
+	  isPaused = !isPaused;
+	  if (!isPaused) {
+	    stepStartTime = Date.now();
+	    stepStartSecondsLeft = secondsLeft;
+	  }
+	  const btn = document.getElementById('pause-resume-btn');
+	  btn.textContent       = isPaused ? l.btnResume : l.btnPause;
+	  btn.style.borderColor = isPaused ? 'red'   : 'green';
+	  btn.style.color       = isPaused ? 'green' : 'red';
+	  beep(isPaused ? 440 : 660, 0.08);
+	}
 
   function nextStep() {
     clearInterval(timerInterval);
