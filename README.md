@@ -17,7 +17,7 @@ Tip 3: To disable notification sound, just mute website or PWA with "CTRL+m"
 
 This website has <u>notifications</u> and works <u>offline</u> if it is installed as PWA.
 
-<u>"MilWoT as website and PWA will forever be free to use and under CC BY-NC-SA license avaialable to modify and share for free.</u>
+_"MilWoT as website and PWA will forever be free to use and under CC BY-NC-SA license avaialable to modify and share for free._
 
 [CC BY-NC-SA license](https://milwot.pages.dev/licensePage)
 
@@ -25,7 +25,7 @@ This website has <u>notifications</u> and works <u>offline</u> if it is installe
 
 [Disclaimer](https://milwot.pages.dev/disclaimer.html)
 
-_Created and published 23.05.2026._
+_Created and published 23.02.2026. - Ćuprija, Serbia_
 
 ---
 
@@ -46,10 +46,12 @@ _Created and published 23.05.2026._
 
 Овај вебсајт има нотификације и ради без интернета ако је инсталиран као "PWA".
 
-"MilWoT" као вебсајт и "PWA" ће заувек бити бесплатан за коришћење и према "CC BY-NC-SA" лиценци слободан Pageза преправљање и бесплатно дељење.
+_"MilWoT" као вебсајт и "PWA" ће заувек бити бесплатан за коришћење и према "CC BY-NC-SA" лиценци слободан Pageза преправљање и бесплатно дељење._
 
 ["CC BY-NC-SA" лиценца](https://milwot.pages.dev/licensePage#srpLicense)
 
-["AI" напомена](https://milwot.pages.dev/ai#srp.html)
+["AI" напомена](https://milwot.pages.dev/ai#srpDisclaimer.html)
 
 [Одрицање одговорности](https://milwot.pages.dev/odgovornost.html)
+
+_Направљено и објављено 23.02.2026. - Ћуприја, Србија_
