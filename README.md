@@ -17,7 +17,7 @@ Tip 3: To disable notification sound, just mute website or PWA with "CTRL+m"
 
 This website has <u>notifications</u> and works <u>offline</u> if it is installed as PWA.
 
-_"MilWoT as website and PWA will forever be free to use and under CC BY-NC-SA license avaialable to modify and share for free._
+_"MilWoT" as website and PWA will forever be free to use and under CC BY-NC-SA license avaialable to modify and share for free._
 
 [CC BY-NC-SA license](https://milwot.pages.dev/licensePage)
 
@@ -26,6 +26,9 @@ _"MilWoT as website and PWA will forever be free to use and under CC BY-NC-SA li
 [Disclaimer](https://milwot.pages.dev/disclaimer.html)
 
 _Created and published 23.02.2026. - Ćuprija, Serbia_
+
+#### MilWoT - Version 0.9
+#### © 2026 Mil Stamenković
 
 ---
 
@@ -55,3 +58,6 @@ _"MilWoT" као вебсајт и "PWA" ће заувек бити беспла
 [Одрицање одговорности](https://milwot.pages.dev/odgovornost.html)
 
 _Направљено и објављено 23.02.2026. - Ћуприја, Србија_
+
+#### MilWoT - Верзија 0.9
+#### © 2026 Милан Стаменковић

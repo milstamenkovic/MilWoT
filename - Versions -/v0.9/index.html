@@ -9,6 +9,9 @@
 
 
 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -688,12 +691,24 @@
     border-radius: 12px;
     padding: 24px;
     width: 480px;
+		max-height: 99vh;
     display: flex;
     flex-direction: column;
     gap: 6px;
     position: relative;
     animation: popIn 0.15s ease;
+		overflow-y: auto;
   }
+
+	#menu-panel::-webkit-scrollbar {
+		width: 3px;
+	}
+	#menu-panel::-webkit-scrollbar-thumb {
+		background: var(--border); border-radius: 3px;
+	}
+	#menu-panel::-webkit-scrollbar-track {
+		background: transparent;
+	}
 
   @keyframes popIn {
     from { opacity: 0; transform: scale(0.95); }
@@ -1137,7 +1152,7 @@
       </button>
       <div class="menu-divider"></div>
 			<!-- Version & Copyright -->
-			<p style="font-size: 0.75em; color: var(--muted); text-align: center;">MilWoT - Version J</p>
+			<p style="font-size: 0.75em; color: var(--muted); text-align: center;">MilWoT - e0.9</p>
 			<a href="https://milstamenkovic.pages.dev" style="font-size:0.75em; color:red; text-align:center;" target="_blank">© 2026 Mil Stamenković<br>© 2026 Милан Стаменковић</a>
       <div id="size-hint"></div>
     </div>
@@ -1560,7 +1575,7 @@
       readmeLabel:      'ABOUT "MilWoT" (README)',
       readmeTitle:      'ABOUT "MilWoT" (README)',
 
-      readmeBody:       '"Mil Work Timer - MilWoT" is a simple work timer created by Mil Stamenković.\n\n"MilWoT" is hobby project of mine, but for a real personal need for a work timer, when I am writing stories for film, TV, books, etc. Need for a specific timer, that couldn\'t be found online.\n\nAdd tasks and pauses, set their durations, then hit START. The timer runs through your session automatically and alerts you when each step ends.\n\nTip 1: Drag the ▲▼ handle to reorder tasks.\nClick TASK/PAUSE to toggle the type.\n\nTip 2: Use keys on keyboard for faster work inside menus.\n"Escape" exit menu - "Backspace" go back in menu\n\nTip 3: To disable notification sound, just mute website or PWA with "CTRL+m"\n\n"MilWoT" is hobby project of mine, but for a real personal need for a work timer, when I am writing stories for film, TV, books, etc. Need for a specific timer, that couldn\'t be found online.\n\n<i>This website has <u>notifications</u> and works <u>offline</u> if it is installed as <u>PWA</u>.</i>\n\n<u>"MilWoT as website and PWA will forever be free to use and under CC BY-NC-SA license avaialable to modify and share for free.</u>\n\n<a href="licensePage" target="_blank"><button style="color:red">CC BY-NC-SA license</button></a>\n\n<a href="ai.html" target="_blank"><button style="color:red")">AI Disclaimer</button></a>\n\n<a href="disclaimer.html" target="_blank"><button style="color:red")">Disclaimer</button></a>',
+      readmeBody:       '"Mil Work Timer - MilWoT" is a simple work timer created by Mil Stamenković.\n\n"MilWoT" is hobby project of mine, but for a real personal need for a work timer, when I am writing stories for film, TV, books, etc. Need for a specific timer, that couldn\'t be found online.\n\nAdd tasks and pauses, set their durations, then hit START. The timer runs through your session automatically and alerts you when each step ends.\n\nTip 1: Drag the ▲▼ handle to reorder tasks.\nClick TASK/PAUSE to toggle the type.\n\nTip 2: Use keys on keyboard for faster work inside menus.\n"Escape" exit menu - "Backspace" go back in menu\n\nTip 3: To disable notification sound, just mute website or PWA with "CTRL+m"\n\n"MilWoT" is hobby project of mine, but for a real personal need for a work timer, when I am writing stories for film, TV, books, etc. Need for a specific timer, that couldn\'t be found online.\n\n<i>This website has <u>notifications</u> and works <u>offline</u> if it is installed as <u>PWA</u>.</i>\n\n<u>"MilWoT" as website and PWA will forever be free to use and under CC BY-NC-SA license avaialable to modify and share for free.</u>\n\n<a href="licensePage" target="_blank"><button style="color:red">CC BY-NC-SA license</button></a>\n\n<a href="ai.html" target="_blank"><button style="color:red")">AI Disclaimer</button></a>\n\n<a href="disclaimer.html" target="_blank"><button style="color:red")">Disclaimer</button></a>',
 			keybindingsLabel: 'Keybindings',
 			keybindingsTitle: 'Keybindings',
 			keybindingsBody:  'These are the keybinds that you can use for faster work:\n\n<pre>ESCAPE         <span style="color:var(--accent)">=</span> Close menus;</pre><pre>BACKSPACE      <span style="color:var(--accent)">=</span> Back in menu;</pre><pre>ENTER          <span style="color:var(--accent)">=</span> Enter/Confirm/Save;</pre><pre>TAB/SHIFT+TAB  <span style="color:var(--accent)">=</span> Move from field to field;</pre><pre>ARROWS UP/DOWN <span style="color:var(--accent)">=</span> Add and subtract minutes;<pre>CTRL + r       <span style="color:var(--accent)">=</span> Reset timer by reloading page;</pre>\n<pre>+     <span style="color:var(--accent)">=</span> Add task;</pre><pre>-     <span style="color:var(--accent)">=</span> Add pause;</pre><pre>ENTER <span style="color:var(--accent)">=</span> Start timer;</pre>\n<pre>m <span style="color:var(--accent)">=</span> Menu (Burger menu);</pre>\n<pre>l <span style="color:var(--accent)">=</span> Language toggle;</pre><pre>t <span style="color:var(--accent)">=</span> Theme toggle;</pre><pre>p <span style="color:var(--accent)">=</span> Presets;</pre>\n</pre><pre>a <span style="color:var(--accent)">=</span> ABOUT MilWoT (README);</pre><pre>w <span style="color:var(--accent)">=</span> MilWoT Disclaimer;</pre><pre>k <span style="color:var(--accent)">=</span> Keybindings;</pre><pre>g <span style="color:var(--accent)">=</span> CHANGELOG;</pre><pre>r <span style="color:var(--accent)">=</span> ROADMAP;</pre><pre>i <span style="color:var(--accent)">=</span> Issues;</pre><pre>c <span style="color:var(--accent)">=</span> Copyright;</pre>\n<pre>u <span style="color:var(--accent)">=</span> Pause & Resume timer;</pre><pre>s <span style="color:var(--accent)">=</span> Skip task;</pre><pre>e <span style="color:var(--accent)">=</span> Edit sessions;</pre>\n<pre>SPACE  <span style="color:var(--accent)">=</span> Resume session;</pre><pre>ESCAPE <span style="color:var(--accent)">=</span> Discard session;</pre>',
