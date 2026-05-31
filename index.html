@@ -1566,8 +1566,12 @@
 			document.getElementById('pause-resume-btn').textContent = isPaused ? l.btnResume : l.btnPause;
 		}
   	if (currentSubpanel && document.getElementById('menu-subpanel').classList.contains('open')) {
-  	showSubpanel(currentSubpanel);
-}}
+  		showSubpanel(currentSubpanel);
+		}
+		if (document.getElementById('presets-subpanel').style.display === 'flex') {
+  		showPresetsPanel();
+		}
+	}
 
   // ── Burger Menu ──
   const menuText = {
@@ -1637,7 +1641,7 @@
       loadButton:       'Учитај',
       changelogLabel:   'ИЗМЕНЕ (CHANGELOG)',
       changelogTitle:   'ИЗМЕНЕ (CHANGELOG)',
-      changelogBody:    '<u>Преправке и промене на садашњој и претходној верзији:</u>\n<i>(Више <a href <span style="color:var(--accent)">=</span>"https://milstamenkovic.github.io/MilWoT/CHANGELOG" target="_blank" rel="noopener noreferrer" style="color:red;">овде</a>)</i>\n(Уређење - <i>Новије на врху</i>)\n\nВерзија "G" (vG)\n<pre>    - ...;</pre>',
+      changelogBody:    '<u>Преправке и промене на садашњој и претходној верзији:</u>\n<i>(Више <a href="https://milstamenkovic.github.io/MilWoT/CHANGELOG" target="_blank" rel="noopener noreferrer" style="color:red;">овде</a>)</i>\n(Уређење - <i>Новије на врху</i>)\n\nВерзија "G" (vG)\n<pre>    - ...;</pre>',
       roadmapLabel:     'РАЗВОЈ (ROADMAP)',
       roadmapTitle:     'РАЗВОЈ (ROADMAP)',
       roadmapBody:      '<u>Идеје за будуће верзије:</u>\n<i>(Више <a href="https://milstamenkovic.github.io/MilWoT/ROADMAP" target="_blank" rel="noopener noreferrer" style="color:red;">овде</a>)</i>\n(Уређење - <i>Новије на врху</i>)\n\nВерзија 1.1 (v1.1)\n\<pre>    - ...</pre>\n\nВерзија 1.2 (v1.2)\n<pre>    - ...</pre>',
@@ -1653,7 +1657,6 @@
     document.getElementById('theme-toggle').checked = document.body.classList.contains('light');
     applyMenuText();
     document.getElementById('menu-overlay').classList.add('open');
-		currentSubpanel = null;
   }
 
   function closeMenu() {
@@ -1705,6 +1708,7 @@
     document.getElementById('menu-main').classList.remove('hidden');
     document.getElementById('menu-subpanel').classList.remove('open');
     document.getElementById('presets-subpanel').style.display = 'none';
+		currentSubpanel = null;
   }
 
   function applyMenuText() {
