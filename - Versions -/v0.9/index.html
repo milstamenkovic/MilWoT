@@ -1653,6 +1653,7 @@
     document.getElementById('theme-toggle').checked = document.body.classList.contains('light');
     applyMenuText();
     document.getElementById('menu-overlay').classList.add('open');
+		currentSubpanel = null;
   }
 
   function closeMenu() {
@@ -1697,7 +1698,6 @@
     } else if (type === 'issues') {
       document.getElementById('subpanel-title').textContent = m.issuesTitle;
       document.getElementById('subpanel-body').innerHTML = m.issuesBody.replace(/\n/g, '<br>');
-			currentSubpanel = null;
     }
   }
 
