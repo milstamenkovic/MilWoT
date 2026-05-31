@@ -1,8 +1,6 @@
 ## ABOUT "MilWoT" (README)
 ### "Mil Work Timer - MilWoT" is a simple work timer created by Mil Stamenković.
 
-"MilWoT" is hobby project of mine, but for a real personal need for a work timer, when I am writing stories for film, TV, books, etc. Need for a specific timer, that couldn't be found online.
-
 Add tasks and pauses, set their durations, then hit START. The timer runs through your session automatically and alerts you when each step ends.
 
 Tip 1: Drag the ▲▼ handle to reorder tasks.

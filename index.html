@@ -4,7 +4,7 @@
 <!-- Version 0.9 -->
 <!-- Created with the help of Free Claude AI -->
 <!-- Project created and originaly published: 23.02.2026. - Ćuprija, Serbia -->
-<!-- Project Revised: 30.05.2026. - Ćuprija, Serbia -->
+<!-- Project Revised: 31.05.2026. - Ćuprija, Serbia -->
 <!-- Curent version published: 28.02.2026. - Ćuprija, Serbia -->
 
 
@@ -1565,8 +1565,9 @@
 			document.getElementById('skip-btn').textContent = currentStep < tasks.length - 1 ? l.btnSkip : l.btnFinish;
 			document.getElementById('pause-resume-btn').textContent = isPaused ? l.btnResume : l.btnPause;
 		}
-		if (currentSubpanel) showSubpanel(currentSubpanel);
-  }
+  	if (currentSubpanel && document.getElementById('menu-subpanel').classList.contains('open')) {
+  	showSubpanel(currentSubpanel);
+}}
 
   // ── Burger Menu ──
   const menuText = {
@@ -1696,6 +1697,7 @@
     } else if (type === 'issues') {
       document.getElementById('subpanel-title').textContent = m.issuesTitle;
       document.getElementById('subpanel-body').innerHTML = m.issuesBody.replace(/\n/g, '<br>');
+			currentSubpanel = null;
     }
   }
 
