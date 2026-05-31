@@ -1565,6 +1565,7 @@
 			document.getElementById('skip-btn').textContent = currentStep < tasks.length - 1 ? l.btnSkip : l.btnFinish;
 			document.getElementById('pause-resume-btn').textContent = isPaused ? l.btnResume : l.btnPause;
 		}
+		if (currentSubpanel) showSubpanel(currentSubpanel);
   }
 
   // ── Burger Menu ──
@@ -1662,6 +1663,7 @@
   }
 
   function showSubpanel(type) {
+		currentSubpanel = type;
     if (type === 'presets') { showPresetsPanel(); return; }
     document.getElementById('presets-subpanel').style.display = 'none';
     document.getElementById('menu-subpanel').style.display = '';
@@ -1880,6 +1882,7 @@
   let stepElapsed = 0;
 	let stepStartTime = null;
 	let stepStartSecondsLeft = 0;
+	let currentSubpanel = null;
 
   // ── Session Persistence ──
   const SESSION_KEY = 'milwot-session';
