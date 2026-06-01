@@ -4,7 +4,7 @@
 <!-- Version 0.9 -->
 <!-- Created with the help of Free Claude AI -->
 <!-- Project created and originaly published: 23.02.2026. - Ćuprija, Serbia -->
-<!-- Project Revised: 01.06.2026. - Ćuprija, Serbia -->
+<!-- Project Revised: 02.06.2026. - Ćuprija, Serbia -->
 <!-- Curent version published: 28.02.2026. - Ćuprija, Serbia -->
 
 
@@ -1264,7 +1264,7 @@
 			discardSession();
 		}
 		// BACK = BACKSPACE
-		if (e.code === 'Backspace') showMenuMain();
+		if (e.code === 'Backspace' && !e.ctrlKey && !e.target.matches('input, textarea')) showMenuMain();
 		// ADD TASK = +
 		if (e.code === 'Equal' && !e.ctrlKey && !e.target.matches('input, textarea')) addTask();
 		// ADD PAUSE = -
@@ -1665,7 +1665,6 @@
     document.getElementById('preset-name-input').textContent       = m.presetsName;
     document.getElementById('preset-load').textContent             = m.presetsLoad;
     document.getElementById('preset-save').textContent             = m.presetsSave;
-    document.getElementById('preset-list').textContent             = m.presetsList;
     document.getElementById('preset-name-input').placeholder       = m.presetsName;
   }
 
@@ -1697,14 +1696,13 @@
     return `${taskCount} task${taskCount !== 1 ? 's' : ''} · ${pauseCount} pause${pauseCount !== 1 ? 's' : ''} · ${total}min`;
   }
 
-  function showPresetsPanel() {
-    document.getElementById('menu-main').classList.add('hidden');
-    document.getElementById('menu-subpanel').style.display    = 'none';
-    document.getElementById('presets-subpanel').style.display = 'flex';
-    document.getElementById('presets-body').innerHTML = menuText[currentLang].presetsBody.replace(/\n/g, '<br>');
-    renderPresetsList();
-  }
-
+	function showPresetsPanel() {
+		document.getElementById('menu-main').classList.add('hidden');
+		document.getElementById('menu-subpanel').style.display    = 'none';
+		document.getElementById('presets-subpanel').style.display = 'flex';
+		document.getElementById('presets-body').innerHTML = menuText[currentLang].presetsBody.replace(/\n/g, '<br>');
+		renderPresetsList();
+	}
   function renderPresetsList() {
     const last = getLastUsed();
     const lastSection = document.getElementById('preset-last-section');
@@ -1717,7 +1715,7 @@
 
     const presets = getPresets();
     const list = document.getElementById('preset-list');
-    list.innerHTML = '';
+    list.innerHTML = ``;
 
     if (presets.length === 0) {
       list.innerHTML = `<div class="preset-empty" id="preset-empty">${menuText[currentLang].presetEmpty}</div>`;
@@ -2212,8 +2210,7 @@
     document.getElementById('done-view').style.display = 'flex';
     const taskCount  = tasks.filter(t => t.type === 'task').length;
     const pauseCount = tasks.filter(t => t.type === 'pause').length;
-    document.getElementById('done-stats').textContent =
-      `${taskCount} ${taskCount !== 1 ? l.tasksWord : l.taskWord} · ${pauseCount} ${pauseCount !== 1 ? l.breaksWord : l.breakWord} ${l.completedWord}`;
+    document.getElementById('done-stats').textContent = `${taskCount} ${taskCount !== 1 ? l.tasksWord : l.taskWord} · ${pauseCount} ${pauseCount !== 1 ? l.breaksWord : l.breakWord} ${l.completedWord}`;
     sendNotification(l.notifFinishTitle, `${taskCount} ${l.notifFinishBody}`);
     alertSound(); setTimeout(alertSound, 500);
   }
