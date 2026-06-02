@@ -1496,6 +1496,7 @@
         toggle.textContent = tasks[i].type === 'pause' ? l.pauseLabel : l.taskLabel;
       }
     });
+		
     updateTotalLabel();
 		if (document.getElementById('timer-view').style.display === 'flex') {
 		  const t = tasks[currentStep];
@@ -1539,6 +1540,7 @@
       presetsSave:      'Save',
       presetsList:      'Presets list',
       presetEmpty:      'No presets',
+			presetLast:       'Last used',
       presetMax:        'You have reached maximum of 10 saved presets. Please remove older saved presets to be able to save new ones.',
       changelogLabel:   'CHANGELOG',
       changelogTitle:   'CHANGELOG',
@@ -1573,6 +1575,7 @@
       presetsSave:      'Сачувај',
       presetsList:      'Листа поставки',
       presetEmpty:      'Нема поставки',
+			presetLast:       'Последње коришћено',
       presetMax:        'Достигли сте максимум од 10 снимљених поставки. Молимо вас да обришете старе поставке, како бисте могли да сачувате нове.',
       changelogLabel:   'ИЗМЕНЕ (CHANGELOG)',
       changelogTitle:   'ИЗМЕНЕ (CHANGELOG)',
@@ -1666,6 +1669,7 @@
     document.getElementById('preset-load').textContent             = m.presetsLoad;
     document.getElementById('preset-save').textContent             = m.presetsSave;
     document.getElementById('preset-name-input').placeholder       = m.presetsName;
+		document.getElementById('preset-last').textContent             = m.presetLast;
   }
 
   // ── Presets ──
