@@ -3,9 +3,10 @@
 <!-- © 2026 Mil Stamenković -->
 <!-- Version 0.9 -->
 <!-- Created with the help of Free Claude AI -->
-<!-- Project created and originaly published: 23.02.2026. - Ćuprija, Serbia -->
-<!-- Project Revised: 31.05.2026. - Ćuprija, Serbia -->
-<!-- Curent version published: 28.02.2026. - Ćuprija, Serbia -->
+<!-- Project created: 23.02.2026. - Ćuprija, Serbia -->
+<!-- Project originaly published: 23.02.2026. - Ćuprija, Serbia -->
+<!-- Project Revised: 02.06.2026. - Ćuprija, Serbia -->
+<!-- Current version published: 30.05.2026. - Ćuprija, Serbia -->
 
 
 
@@ -33,7 +34,6 @@
     --surface: #1d1d1d;
     --border: #2a2a2a;
     --accent: #960000;
-    --pause-accent: #960000;
     --text: #afafaf;
     --muted: #595959;
     --danger: #646464;
@@ -72,7 +72,6 @@
   }
 
   h1 {
-    font-family: 'Cascadia Code';
     font-size: 2em;
     letter-spacing: 0.5em;
     font-weight: 1000;
@@ -86,28 +85,6 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 30px;
-  }
-
-  #lang-btn {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--muted);
-    font-family: 'Cascadia Code';
-    font-size: 0.65em;
-    letter-spacing: 2px;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-  }
-
-  #lang-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
   }
 
   /* ── EDITOR ── */
@@ -156,7 +133,6 @@
     border: 1px solid var(--border);
     border-radius: 6px;
     color: var(--muted);
-    font-family: 'Cascadia Code';
     font-size: 0.65em;
     padding: 5px 0;
     cursor: pointer;
@@ -166,7 +142,7 @@
   }
 
   .type-toggle.is-pause {
-    color: var(--pause-accent);
+    color: var(--accent);
   }
 
   .task-row input[type="text"] {
@@ -175,7 +151,6 @@
     border: 1px solid var(--border);
     border-radius: 6px;
     color: var(--text);
-    font-family: 'Cascadia Code';
     font-size: 0.65em;
     padding: 5px 14px;
     outline: none;
@@ -187,7 +162,7 @@
   }
 
   .task-row input[type="text"].pause-name {
-    color: var(--pause-accent);
+    color: var(--accent);
   }
 
   .task-row input[type="number"] {
@@ -197,7 +172,6 @@
     border: 1px solid var(--border);
     border-radius: 6px;
     color: var(--text);
-    font-family: 'Cascadia Code';
     font-size: 0.65em;
     padding: 5px 10px;
     outline: none;
@@ -242,7 +216,6 @@
     border: 1px dashed var(--border);
     border-radius: 6px;
     color: var(--muted);
-    font-family: 'Cascadia Code';
     font-size: 0.65em;
     padding: 10px;
     cursor: pointer;
@@ -263,7 +236,6 @@
     border: none;
     border-radius: 6px;
     color: #0f0f0f;
-    font-family: 'Cascadia Code';
     font-size: 0.8em;
     font-weight: 800;
     padding: 10px 28px;
@@ -303,7 +275,6 @@
     border: none;
     border-radius: 5px;
     color: #0f0f0f;
-    font-family: 'Cascadia Code';
     font-size: 1em;
     letter-spacing: 1px;
     padding: 5px;
@@ -347,7 +318,6 @@
   #resume-banner.visible { display: flex; }
 
   .resume-banner-title {
-    font-family: 'Cascadia Code';
     font-size: 1.3em;
     color: var(--accent);
   }
@@ -369,7 +339,6 @@
     border: none;
     border-radius: 6px;
     color: #0f0f0f;
-    font-family: 'Cascadia Code';
     font-size: 1em;
     font-weight: 800;
     padding: 6px 18px;
@@ -385,7 +354,6 @@
     border: 1px solid var(--border);
     border-radius: 6px;
     color: var(--muted);
-    font-family: 'Cascadia Code';
     font-size: 1em;
     padding: 6px 18px;
     cursor: pointer;
@@ -416,7 +384,6 @@
   }
   
   .current-task-name {
-    font-family: 'Cascadia Code';
     font-size: 1em;
     text-align: center;
     line-height: 1.2;
@@ -425,7 +392,7 @@
   }
 
   .current-task-name.is-pause {
-    color: var(--pause-accent);
+    color: var(--accent);
   }
 
   .type-badge {
@@ -446,7 +413,7 @@
   }
 
   .clock.warning { color: var(--danger); }
-  .clock.is-pause { color: var(--pause-accent); }
+  .clock.is-pause { color: var(--accent); }
 
   .total-left {
     font-size: 0.5em;
@@ -466,7 +433,6 @@
     border: 1px solid var(--border);
     border-radius: 4px;
     color: var(--text);
-    font-family: 'Cascadia Code';
     font-size: 0.5em;
     font-weight: 1000;
     letter-spacing: 2px;
@@ -510,7 +476,7 @@
   }
 
   .progress-bar-fill.is-pause {
-    background: var(--pause-accent);
+    background: var(--accent);
   }
 
   .queue-title {
@@ -547,7 +513,7 @@
   }
 
   .queue-item.current.is-pause {
-    border-color: var(--pause-accent);
+    border-color: var(--accent);
   }
 
   .queue-item.done {
@@ -578,7 +544,6 @@
     background: none;
     border: none;
     color: var(--muted);
-    font-family: 'Cascadia Code';
     font-size: 0.65em;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -597,7 +562,6 @@
   }
 
   .done-big {
-    font-family: 'Cascadia Code';
     font-size: 3em;
     margin-bottom: 12px;
     color: var(--accent);
@@ -652,7 +616,6 @@
   #burger-btn {
     background: none;
     border: none;
-    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -728,10 +691,7 @@
     transition: color 0.2s;
   }
 
-  #menu-close:hover { color: var(--accent); }
-
   .menu-heading {
-    font-family: 'Cascadia Code';
     font-size: 1.1em;
     color: var(--text);
     margin-bottom: 4px;
@@ -758,7 +718,6 @@
     border: none;
     background: none;
     width: 100%;
-    font-family: 'Cascadia Code';
     text-align: left;
   }
 
@@ -812,7 +771,6 @@
     background: none;
     border: none;
     color: var(--accent);
-    font-family: 'Cascadia Code';
     font-size: 0.65em;
     letter-spacing: 2px;
     cursor: pointer;
@@ -822,10 +780,7 @@
     transition: color 0.2s;
   }
 
-  .subpanel-back:hover { color: var(--accent); }
-
   .subpanel-title {
-    font-family: 'Cascadia Code';
     font-size: 1.1em;
     color: var(--text);
     margin-bottom: 4px;
@@ -843,17 +798,6 @@
     --border: #dddddd;
     --text: #2a2a2a;
     --muted: #999999;
-  }
-
-  #titlebar {
-    position: fixed;
-    top: 0;
-    left: env(titlebar-area-x, 0);
-    width: env(titlebar-area-width, 100%);
-    height: env(titlebar-area-height, 40px);
-    background: red;
-    app-region: drag;
-    -webkit-app-region: drag;
   }
 
   .preset-last {
@@ -926,7 +870,6 @@
     border: 1px solid var(--border);
     border-radius: 5px;
     color: var(--muted);
-    font-family: 'Cascadia Code';
     font-size: 0.6em;
     padding: 3px 7px;
     cursor: pointer;
@@ -948,7 +891,6 @@
     border: 1px solid var(--border);
     border-radius: 6px;
     color: var(--text);
-    font-family: 'Cascadia Code';
     font-size: 0.7em;
     padding: 5px 10px;
     outline: none;
@@ -962,7 +904,6 @@
     border: none;
     border-radius: 6px;
     color: #0f0f0f;
-    font-family: 'Cascadia Code';
     font-size: 0.7em;
     font-weight: 800;
     padding: 5px 12px;
@@ -1158,7 +1099,7 @@
 		<!-- MENU SUB-PANEL -->
 
 		<div id="menu-subpanel">
-      <button id="subpanel-back" id="presets-back" class="subpanel-back" onclick="showMenuMain()">← Back</button>
+      <button id="subpanel-back" class="subpanel-back" onclick="showMenuMain()">← Back</button>
       <div class="subpanel-title" id="subpanel-title"></div>
       <div class="subpanel-body" id="subpanel-body"></div>
     </div>
@@ -1187,7 +1128,7 @@
     <div class="warning-message" id="warning-message"></div>
     <div class="warning-btns">
       <button class="warning-yes" id="warning-yes" onclick="confirmYes()">Yes</button>
-      <button class="warning-cancel" id="warning-cancel" onclick="confrimCancel()">Cancel</button>
+      <button class="warning-cancel" id="warning-cancel" onclick="confirmCancel()">Cancel</button>
     </div>
   </div>
 </div>
@@ -1301,11 +1242,11 @@
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredInstallPrompt = e;
-    document.getElementById('install-row').style.display = 'flex';
+    document.getElementById('install-btn').style.display = 'flex';
   });
 
   window.addEventListener('appinstalled', () => {
-    document.getElementById('install-row').style.display = 'none';
+    document.getElementById('install-btn').style.display = 'none';
     deferredInstallPrompt = null;
   });
 
@@ -1324,7 +1265,7 @@
 			discardSession();
 		}
 		// BACK = BACKSPACE
-		if (e.code === 'Backspace') showMenuMain();
+		if (e.code === 'Backspace' && !e.ctrlKey && !e.target.matches('input, textarea')) showMenuMain();
 		// ADD TASK = +
 		if (e.code === 'Equal' && !e.ctrlKey && !e.target.matches('input, textarea')) addTask();
 		// ADD PAUSE = -
@@ -1598,10 +1539,8 @@
       presetsLoad:      'Load',
       presetsSave:      'Save',
       presetsList:      'Presets list',
-      presetsLast:      'Last preset',
       presetEmpty:      'No presets',
       presetMax:        'You have reached maximum of 10 saved presets. Please remove older saved presets to be able to save new ones.',
-      loadButton:       'Load',
       changelogLabel:   'CHANGELOG',
       changelogTitle:   'CHANGELOG',
       changelogBody:    '<u>Fixes and changes to current and last version:</u>\n<i>(More <a href="https://milstamenkovic.github.io/MilWoT/CHANGELOG" target="_blank" rel="noopener noreferrer" style="color:red;">here</a>)</i>\n(Order - <i>Newest of top</i>)\n\nVersion G (vG)\n<pre>    - ...;</pre>',
@@ -1617,11 +1556,10 @@
       themeLabelDark:   'Притисните за тамну тему',
       themeLabelLight:  'Притисните за светлу тему',
       copyrightLabel:   'Ауторска права',
-      backLabel:        '← Назад',
       subpanelBack:     '← Назад',
       readmeLabel:      'O "MilWoT" (ПРОЧИТАЈ МЕ)',
       readmeTitle:      'O "MilWoT" (ПРОЧИТАЈ МЕ)',
-      readmeBody:       '"Миланов радни тајмер - \'MilWoT\'" је једноставан тајмер за рад који је направио Милан Стаменковић.\n\nДодајте задатке и паузе, подесите њихова трајања, затим кликните ПОЧНИ. Тајмер иде кроз сесију аутоматски и обавештава Вас када се сваки корак заврши. Користите паузе за одмор, али и да завршите и поправите претходни задатак.\n\nСавет 1: Користите ▲▼ ручице да промените редослед.\nКликните на РАД/ПАУЗА да промените тип.\n\n Савет 2: Користите тастере на тастатури за бржи рад у менију.\n"Escape" излазак из менија - "Backspace" назад у менију\n\nСавет 3: Да бисте онеспособили звук нотификација, само искључите звук интернет странице и "PWA" са "CTRL+m"<div id="size-hint"></div>\n\n"MilWoT" је мој хоби пројекат, али из личне потребе за радним тајмером, када пишем приче за филмове, ТВ, књиге итд. Потреба за специфичним тајмером, који није могао да се пронађе на интернету.\n\n<i>Овај вебсајт има <u>нотификације</u> и ради <u>без интернета</u> ако је инсталиран као <u>"PWA"</u>.</i>\n\n<u>"MilWoT" као вебсајт и "PWA" ће заувек бити бесплатан за коришћење и према "CC BY-NC-SA" лиценци слободан Pageза преправљање и бесплатно дељење.</u>\n\n<a href="licensePage#srpLicense" target="_blank"><button style="color:red">"CC BY-NC-SA" лиценца</button></a>\n\n<a href="ai#srpDisclaimer" target="_blank"><button style="color:red")">"AI" напомена</button></a>\n\n<a href="odgovornost.html" target="_blank"><button style="color:red")">Одрицање одговорности</button></a>',
+      readmeBody:       '"Миланов радни тајмер - \'MilWoT\'" је једноставан тајмер за рад који је направио Милан Стаменковић.\n\nДодајте задатке и паузе, подесите њихова трајања, затим кликните ПОЧНИ. Тајмер иде кроз сесију аутоматски и обавештава Вас када се сваки корак заврши. Користите паузе за одмор, али и да завршите и поправите претходни задатак.\n\nСавет 1: Користите ▲▼ ручице да промените редослед.\nКликните на РАД/ПАУЗА да промените тип.\n\n Савет 2: Користите тастере на тастатури за бржи рад у менију.\n"Escape" излазак из менија - "Backspace" назад у менију\n\nСавет 3: Да бисте онеспособили звук нотификација, само искључите звук интернет странице и "PWA" са "CTRL+m"<div id="size-hint"></div>\n\n"MilWoT" је мој хоби пројекат, али из личне потребе за радним тајмером, када пишем приче за филмове, ТВ, књиге итд. Потреба за специфичним тајмером, који није могао да се пронађе на интернету.\n\n<i>Овај вебсајт има <u>нотификације</u> и ради <u>без интернета</u> ако је инсталиран као <u>"PWA"</u>.</i>\n\n<u>"MilWoT" као вебсајт и "PWA" ће заувек бити бесплатан за коришћење и према "CC BY-NC-SA" лиценци слободан Pageза преправљање и бесплатно дељење.</u>\n\n<a href="licensePage#srpLicense" target="_blank"><button style="color:red">"CC BY-NC-SA" лиценца</button></a>\n\n<a href="ai#srpDisclaimer" target="_blank"><button style="color:red">"AI" напомена</button></a>\n\n<a href="odgovornost.html" target="_blank"><button style="color:red">Одрицање одговорности</button></a>',
 			keybindingsLabel: 'Скраћенице тaстери',
 			keybindingsTitle: 'Скраћенице тастери',
 			keybindingsBody:  'Ово су скраћенице тастери које можете користити за бржи рад:\n\n<pre>ESCAPE         <span style="color:var(--accent)">=</span> Затвори мени;</pre><pre>BACKSPACE      <span style="color:var(--accent)">=</span> Назад у менију;</pre><pre>ENTER          <span style="color:var(--accent)">=</span> "Enter"/Потврди/Сними;</pre><pre>TAB/SHIFT+TAB  <span style="color:var(--accent)">=</span> Кретање од поља до поља;<pre>ARROWS UP/DOWN <span style="color:var(--accent)">=</span> Додавање и одузимање минута;<pre>CTRL + r       <span style="color:var(--accent)">=</span> Ресет тајмера освежавањем стране</pre>\n<pre>+     <span style="color:var(--accent)">=</span> Додај задатак;</pre><pre>-     <span style="color:var(--accent)">=</span> Додај паузу;</pre><pre>ENTER <span style="color:var(--accent)">=</span> Покрени тајмер;</pre>\n<pre>m <span style="color:var(--accent)">=</span> Мени (Бургер мени);</pre>\n<pre>l <span style="color:var(--accent)">=</span> Промена језика;</pre><pre>t <span style="color:var(--accent)">=</span> Промена теме;</pre><pre>p <span style="color:var(--accent)">=</span> Поставке;</pre>\n<pre>a <span style="color:var(--accent)">=</span> О "MilWoT" (ПРОЧИТАЈ МЕ);</pre><pre>w <span style="color:var(--accent)">=</span> "MilWoT" ограђивање;</pre><pre>k <span style="color:var(--accent)">=</span> Скраћенице тастер;</pre><pre>g <span style="color:var(--accent)">=</span> ПРОМЕНЕ (CHANGELOG);</pre><pre>r <span style="color:var(--accent)">=</span> РАЗВОЈ (ROADMAP);</pre><pre>i <span style="color:var(--accent)">=</span> Проблеми;</pre><pre>c <span style="color:var(--accent)">=</span> Ауторска права;</pre>\n<pre>u <span style="color:var(--accent)">=</span> Пауза и наставаи тајмера;</pre><pre>s <span style="color:var(--accent)">=</span> Прескочи задатак;</pre><pre>e <span style="color:var(--accent)">=</span> Преправи сесију;</pre>\n<pre>SPACE  <span style="color:var(--accent)">=</span> Настави сесију;</pre><pre>ESCAPE <span style="color:var(--accent)">=</span> Обустави сесију;</pre>',
@@ -1635,10 +1573,8 @@
       presetsLoad:      'Учитај',
       presetsSave:      'Сачувај',
       presetsList:      'Листа поставки',
-      presetsLast:      'Последња поставка',
       presetEmpty:      'Нема поставки',
       presetMax:        'Достигли сте максимум од 10 снимљених поставки. Молимо вас да обришете старе поставке, како бисте могли да сачувате нове.',
-      loadButton:       'Учитај',
       changelogLabel:   'ИЗМЕНЕ (CHANGELOG)',
       changelogTitle:   'ИЗМЕНЕ (CHANGELOG)',
       changelogBody:    '<u>Преправке и промене на садашњој и претходној верзији:</u>\n<i>(Више <a href="https://milstamenkovic.github.io/MilWoT/CHANGELOG" target="_blank" rel="noopener noreferrer" style="color:red;">овде</a>)</i>\n(Уређење - <i>Новије на врху</i>)\n\nВерзија "G" (vG)\n<pre>    - ...;</pre>',
@@ -1730,8 +1666,6 @@
     document.getElementById('preset-name-input').textContent       = m.presetsName;
     document.getElementById('preset-load').textContent             = m.presetsLoad;
     document.getElementById('preset-save').textContent             = m.presetsSave;
-    document.getElementById('preset-last').textContent             = m.presetsLast;
-    document.getElementById('preset-list').textContent             = m.presetsList;
     document.getElementById('preset-name-input').placeholder       = m.presetsName;
   }
 
@@ -1760,17 +1694,16 @@
     const taskCount  = taskArr.filter(t => t.type === 'task').length;
     const pauseCount = taskArr.filter(t => t.type === 'pause').length;
     const total      = taskArr.reduce((s, t) => s + (parseInt(t.minutes) || 0), 0);
-    return `${taskCount} task${taskCount !== 1 ? 's' : ''} · ${pauseCount} pause${pauseCount !== 1 ? 's' : ''} · ${total}min`;
+		return `${taskCount} ${taskCount !== 1 ? lang[currentLang].tasksWord : lang[currentLang].taskWord} · ${pauseCount} ${pauseCount !== 1 ? lang[currentLang].breaksWord : lang[currentLang].breakWord} · ${total} ${lang[currentLang].minLabel}`;
   }
 
-  function showPresetsPanel() {
-    document.getElementById('menu-main').classList.add('hidden');
-    document.getElementById('menu-subpanel').style.display    = 'none';
-    document.getElementById('presets-subpanel').style.display = 'flex';
-    document.getElementById('presets-body').innerHTML = menuText[currentLang].presetsBody.replace(/\n/g, '<br>');
-    renderPresetsList();
-  }
-
+	function showPresetsPanel() {
+		document.getElementById('menu-main').classList.add('hidden');
+		document.getElementById('menu-subpanel').style.display    = 'none';
+		document.getElementById('presets-subpanel').style.display = 'flex';
+		document.getElementById('presets-body').innerHTML = menuText[currentLang].presetsBody.replace(/\n/g, '<br>');
+		renderPresetsList();
+	}
   function renderPresetsList() {
     const last = getLastUsed();
     const lastSection = document.getElementById('preset-last-section');
@@ -1783,7 +1716,7 @@
 
     const presets = getPresets();
     const list = document.getElementById('preset-list');
-    list.innerHTML = '';
+    list.innerHTML = ``;
 
     if (presets.length === 0) {
       list.innerHTML = `<div class="preset-empty" id="preset-empty">${menuText[currentLang].presetEmpty}</div>`;
@@ -1849,8 +1782,6 @@
           renderPresetsList();
         }
       );
-      return;
-      presets[existingIndex] = { name, tasks: JSON.parse(JSON.stringify(tasks)) };
     } else {
       if (presets.length >= MAX_PRESETS) {
         alert(lang[currentLang].presetMax);
@@ -2275,20 +2206,19 @@
   function finishSession() {
     const l = lang[currentLang];
     clearInterval(timerInterval);
-    clearSession();  // ← clean up on normal finish
+    clearSession();  // Clean up on normal finish
     document.getElementById('timer-view').style.display = 'none';
     document.getElementById('done-view').style.display = 'flex';
     const taskCount  = tasks.filter(t => t.type === 'task').length;
     const pauseCount = tasks.filter(t => t.type === 'pause').length;
-    document.getElementById('done-stats').textContent =
-      `${taskCount} ${taskCount !== 1 ? l.tasksWord : l.taskWord} · ${pauseCount} ${pauseCount !== 1 ? l.breaksWord : l.breakWord} ${l.completedWord}`;
+    document.getElementById('done-stats').textContent = `${taskCount} ${taskCount !== 1 ? l.tasksWord : l.taskWord} · ${pauseCount} ${pauseCount !== 1 ? l.breaksWord : l.breakWord} ${l.completedWord}`;
     sendNotification(l.notifFinishTitle, `${taskCount} ${l.notifFinishBody}`);
     alertSound(); setTimeout(alertSound, 500);
   }
 
   function backToEditor() {
     clearInterval(timerInterval);
-    clearSession();  // ← clean up if user manually exits
+    clearSession();  // Clean up if user manually exits
     document.getElementById('header-section').style.display = 'flex';
     document.getElementById('timer-view').style.display = 'none';
     document.getElementById('done-view').style.display = 'none';

@@ -3,9 +3,10 @@
 <!-- © 2026 Mil Stamenković -->
 <!-- Version 0.9 -->
 <!-- Created with the help of Free Claude AI -->
-<!-- Project created and originaly published: 23.02.2026. - Ćuprija, Serbia -->
+<!-- Project created: 23.02.2026. - Ćuprija, Serbia -->
+<!-- Project originaly published: 23.02.2026. - Ćuprija, Serbia -->
 <!-- Project Revised: 02.06.2026. - Ćuprija, Serbia -->
-<!-- Curent version published: 28.02.2026. - Ćuprija, Serbia -->
+<!-- Current version published: 30.05.2026. - Ćuprija, Serbia -->
 
 
 
@@ -1693,7 +1694,7 @@
     const taskCount  = taskArr.filter(t => t.type === 'task').length;
     const pauseCount = taskArr.filter(t => t.type === 'pause').length;
     const total      = taskArr.reduce((s, t) => s + (parseInt(t.minutes) || 0), 0);
-    return `${taskCount} task${taskCount !== 1 ? 's' : ''} · ${pauseCount} pause${pauseCount !== 1 ? 's' : ''} · ${total}min`;
+		return `${taskCount} ${taskCount !== 1 ? lang[currentLang].tasksWord : lang[currentLang].taskWord} · ${pauseCount} ${pauseCount !== 1 ? lang[currentLang].breaksWord : lang[currentLang].breakWord} · ${total} ${lang[currentLang].minLabel}`;
   }
 
 	function showPresetsPanel() {
@@ -2205,7 +2206,7 @@
   function finishSession() {
     const l = lang[currentLang];
     clearInterval(timerInterval);
-    clearSession();  // ← clean up on normal finish
+    clearSession();  // Clean up on normal finish
     document.getElementById('timer-view').style.display = 'none';
     document.getElementById('done-view').style.display = 'flex';
     const taskCount  = tasks.filter(t => t.type === 'task').length;
@@ -2217,7 +2218,7 @@
 
   function backToEditor() {
     clearInterval(timerInterval);
-    clearSession();  // ← clean up if user manually exits
+    clearSession();  // Clean up if user manually exits
     document.getElementById('header-section').style.display = 'flex';
     document.getElementById('timer-view').style.display = 'none';
     document.getElementById('done-view').style.display = 'none';
