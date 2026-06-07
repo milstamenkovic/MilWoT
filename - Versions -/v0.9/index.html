@@ -5,7 +5,7 @@
 <!-- Created with the help of Free Claude AI -->
 <!-- Project created: 23.02.2026. - Ćuprija, Serbia -->
 <!-- Project originaly published: 23.02.2026. - Ćuprija, Serbia -->
-<!-- Project Revised: 02.06.2026. - Ćuprija, Serbia -->
+<!-- Project Revised: 07.06.2026. - Ćuprija, Serbia -->
 <!-- Current version published: 30.05.2026. - Ćuprija, Serbia -->
 
 
@@ -122,8 +122,12 @@
   }
 
   @keyframes slideIn {
-    from { opacity: 0; transform: translateY(-8px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from { 
+			opacity: 0; transform: translateY(-8px);
+		}
+		to {
+			opacity: 1; transform: translateY(0); 
+		}
   }
 
   .type-toggle {
@@ -980,6 +984,23 @@
     color: #960000;
 	}
 
+	#lang-quick-btn {
+  background: none;
+  border: 1px solid var(--muted);
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 0.55em;
+  padding: 3px 6px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+	}
+
+	#lang-quick-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+	}
+
 </style>
 </head>
 <body>
@@ -994,6 +1015,7 @@
   <br>
   <div style="display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:30px;">
     <p class="subtitle" id="subtitle" style="margin-bottom:0; line-height:1">Work - Relax - Repeat</p>
+	  <button id="lang-quick-btn" onclick="quickToggleLang()">SRP</button>
     <button id="burger-btn" onclick="openMenu()">
       <span></span><span></span><span></span>
 		</button>
@@ -1275,11 +1297,12 @@
 		// BURGER MENU - MENU = m
 		if (e.code === 'KeyM' && !e.target.matches('input, textarea')) openMenu();
 		// LANGUAGE TOGGLE = l
-		if (e.code === 'KeyL' && !e.target.matches('input, textarea')) {
+		if (e.code === 'KeyL' && !typing) {
 			const toggle = document.getElementById('lang-toggle');
-	    toggle.checked = !toggle.checked;
-	    menuToggleLang();
-	  }
+			toggle.checked = !toggle.checked;
+			menuToggleLang();
+			document.getElementById('lang-quick-btn').textContent = currentLang === 'en' ? 'SRP' : 'ENG';  // ← add this
+		}
 		// THEME TOGGLE = t
 		if (e.code === 'KeyT' && !e.target.matches('input, textarea')) {
 			const toggle = document.getElementById('theme-toggle');
@@ -1601,6 +1624,13 @@
     document.getElementById('menu-overlay').classList.remove('open');
   }
 
+	function quickToggleLang() {
+		const toggle = document.getElementById('lang-toggle');
+		toggle.checked = !toggle.checked;
+		menuToggleLang();
+		document.getElementById('lang-quick-btn').textContent = currentLang === 'en' ? 'SRP' : 'ENG';
+	}
+
   function handleOverlayClick(e) {
     if (e.target === document.getElementById('menu-overlay')) closeMenu();
   }
@@ -1799,10 +1829,11 @@
   }
 
   function menuToggleLang() {
-    currentLang = document.getElementById('lang-toggle').checked ? 'sr' : 'en';
-    applyLang();
-    applyMenuText();
-  }
+		currentLang = document.getElementById('lang-toggle').checked ? 'sr' : 'en';
+		applyLang();
+		applyMenuText();
+		document.getElementById('lang-quick-btn').textContent = currentLang === 'en' ? 'SRP' : 'ENG';  // ← add this
+	}
 
   function toggleTheme() {
     const isLight = document.getElementById('theme-toggle').checked;
@@ -2247,10 +2278,10 @@
 
   // ── Init ──
   tasks = [
-    { name: '', minutes: 0, type: 'task' },
-    { name: '', minutes: 0, type: 'pause' },
-    { name: '', minutes: 0, type: 'task' },
-    { name: '', minutes: 0, type: 'pause' },
+    { name: '', minutes: 1, type: 'task' },
+    { name: '', minutes: 1, type: 'pause' },
+    { name: '', minutes: 1, type: 'task' },
+    { name: '', minutes: 1, type: 'pause' },
   ];
   renderEditor();
   checkNotifBanner();
